@@ -54,6 +54,36 @@
     });
   });
 
+  /* ---------- copy contract address ---------- */
+  var caBtn = document.getElementById('caCopy');
+  if (caBtn) {
+    var caTimer;
+    function caDone(ok) {
+      caBtn.textContent = ok ? 'COPIED!' : 'CTRL+C';
+      caBtn.classList.toggle('copied', ok);
+      clearTimeout(caTimer);
+      caTimer = setTimeout(function () { caBtn.textContent = 'COPY'; caBtn.classList.remove('copied'); }, 1600);
+    }
+    function caFallback(text) {
+      var ok = false, ta = document.createElement('textarea');
+      ta.value = text; ta.setAttribute('readonly', ''); ta.style.position = 'fixed'; ta.style.top = '-1000px'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+      document.body.removeChild(ta);
+      if (!ok) { // last resort: select the address so the user can copy it by hand
+        var addr = document.getElementById('caAddr'), r = document.createRange();
+        r.selectNodeContents(addr); var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
+      }
+      caDone(ok);
+    }
+    caBtn.addEventListener('click', function () {
+      var text = caBtn.getAttribute('data-ca');
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(function () { caDone(true); }, function () { caFallback(text); });
+      } else { caFallback(text); }
+    });
+  }
+
   /* ---------- typing terminal (illustrative sample data only) ---------- */
   var body = document.getElementById('termBody');
   if (!body) return;
