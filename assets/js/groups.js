@@ -44,6 +44,15 @@ window.TRACKER_GROUPS = [
     wallets: [
       "0x4Ce8f3acF303913155A5956a66A23eF24941dd6D"
     ]
+  },
+  {
+    id: "zeldris",
+    name: "ZELDRIS",
+    sprite: "hedgehog",
+    chains: ["ethereum"],
+    wallets: [
+      "0x1b30f0a3e7fb54211ab31741a2dc58725157b039"
+    ]
   }
 
   // , {

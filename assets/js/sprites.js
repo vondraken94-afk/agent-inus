@@ -23,6 +23,27 @@
         "........"
       ]
     },
+    hedgehog: {
+      pal: { k: "#1e1208", d: "#7a4a24", b: "#a8703a", c: "#ffe2b8", w: "#ffffff", p: "#ff9db4" },
+      half: [
+        "..k..k..",
+        ".kdk.kdk",
+        "kddkkddd",
+        ".kdddddd",
+        "kddbddbd",
+        ".kddbddd",
+        "kdddcccc",
+        ".kdccccc",
+        "kddcwkcc",
+        ".kdckkcc",
+        "kddpcccc",
+        ".kdccccc",
+        "..kdccck",
+        "...kccck",
+        "....kkkk",
+        "........"
+      ]
+    },
     panda: {
       pal: { k: "#14141c", w: "#f6f6fb", g: "#c9cddd", p: "#ff9db4", e: "#ffffff", n: "#2a2a38" },
       half: [
