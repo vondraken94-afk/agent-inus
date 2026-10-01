@@ -3,317 +3,45 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Agent Inus · Five pixel Shiba agents for memecoin trading</title>
-  <meta name="description" content="Agent Inus is a pack of five AI agents that scan launches, track wallets, surface new tokens and keep your risk in check.">
-  <link rel="icon" type="image/png" href="assets/img/inu-bone.png">
+  <title>Agent Inus · Wallet Tracker</title>
+  <meta name="description" content="Live wallet group tracker: holdings, allocation % and estimated average entry prices.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Pixelify+Sans:wght@400;500;700&family=VT323&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Silkscreen:wght@400;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <header class="nav" id="top">
-    <div class="nav-inner">
-      <a class="brand" href="#top"><img src="assets/img/inu-bone.png" alt="" width="40" height="40"><span>Agent Inus</span></a>
-      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
-      <nav class="nav-links" id="navLinks">
-        <a href="#agents">Agents</a>
-        <a href="#how">How it works</a>
-        <a href="#features">Features</a>
-        <a href="#roadmap">Roadmap</a>
-        <a href="#faq">FAQ</a>
-        <a class="btn btn-sm" href="#launch">Launch App</a>
-      </nav>
+  <header class="top">
+    <div class="wrap top-in">
+      <div class="brand"><canvas id="logoSprite" width="16" height="16" aria-hidden="true"></canvas><span>AGENT INUS</span></div>
+      <div class="top-meta"><span class="blink">●</span> LIVE ON-CHAIN · <span id="groupCount">—</span></div>
     </div>
   </header>
 
-  <main>
-    <!-- HERO -->
+  <main class="wrap">
     <section class="hero">
-      <div class="wrap hero-grid">
-        <div class="hero-copy">
-          <p class="eyebrow"><span class="blink">&#9654;</span> Five agents. One pack.</p>
-          <h1>Agent<br><span class="h1-accent">Inus</span></h1>
-          <div class="eyebrow ca-box" role="group" aria-label="Contract address">
-            <span class="ca-label">CA:</span>
-            <code class="ca-addr" id="caAddr">3JxxJZcM5aGd9NUeuuv3vjAKFXrqHiu48pUo16EKDEms</code>
-            <button class="ca-copy" id="caCopy" type="button" data-ca="3JxxJZcM5aGd9NUeuuv3vjAKFXrqHiu48pUo16EKDEms" aria-label="Copy contract address">COPY</button>
-          </div>
-          <p class="lead">A pack of five AI Shiba agents that watch the memecoin market with you. They scan new launches, follow the wallets you care about, surface fresh tokens and keep an eye on your risk, so you can make calmer, better-informed decisions.</p>
-          <div class="cta-row">
-            <a class="btn" href="#launch">Launch App</a>
-            <a class="btn btn-ghost" href="#agents">Meet the Pack</a>
-          </div>
-          <ul class="hero-stats">
-            <li><b>5</b><span>specialist agents</span></li>
-            <li><b>24/7</b><span>market coverage</span></li>
-            <li><b>1</b><span>shared alert feed</span></li>
-          </ul>
-        </div>
-        <div class="hero-art">
-          <div class="pixel-frame">
-            <img class="bob" src="assets/img/pack.png" alt="The five Agent Inus: pixel-art Shiba Inu dogs in red, blue, green, yellow and purple shirts" width="1254" height="1254">
-          </div>
-          <span class="spark s1"></span><span class="spark s2"></span><span class="spark s3"></span>
-        </div>
-      </div>
+      <h1>WALLET TRACKER</h1>
+      <p>What each wallet group is holding, how much of each coin, and its estimated average entry price. Data is fetched live in your browser from public explorers. Press <b>UPDATE</b> on a card to refresh it.</p>
     </section>
 
-    <div class="ticker" aria-hidden="true">
-      <div class="ticker-track">
-        <span>&#9733; Launch scanning</span><span>&#9733; Wallet tracking</span><span>&#9733; New token discovery</span><span>&#9733; Risk checks</span><span>&#9733; Chart levels</span><span>&#9733; Night-shift alerts</span>
-        <span>&#9733; Launch scanning</span><span>&#9733; Wallet tracking</span><span>&#9733; New token discovery</span><span>&#9733; Risk checks</span><span>&#9733; Chart levels</span><span>&#9733; Night-shift alerts</span>
-      </div>
-    </div>
+    <div id="groups" class="groups"></div>
 
-    <!-- AGENTS -->
-    <section class="section" id="agents">
-      <div class="wrap">
-        <div class="section-head">
-          <p class="kicker">The pack</p>
-          <h2>Meet the Agents</h2>
-          <p class="sub">Each Inu has one job and does it well. Together they cover the full loop, from the first sign of a new token to the moment you decide to exit.</p>
-        </div>
-        <div class="agents">
-          <article class="agent c-red">
-            <div class="agent-img"><img src="assets/img/inu-bone.png" alt="Biscuit, the orange Shiba in a red shirt with a bone icon" loading="lazy"></div>
-            <div class="agent-body">
-              <p class="role"><i class="px" data-icon="bone"></i> Alpha Fetcher</p>
-              <h3>Biscuit</h3>
-              <p>The pack leader. Biscuit fetches signal from the noise: trending narratives, notable mentions and on-chain activity, then brings back a short, readable summary of what is actually moving.</p>
-              <ul class="tags"><li>Narratives</li><li>Social signal</li><li>Daily digest</li></ul>
-            </div>
-          </article>
-          <article class="agent c-blue">
-            <div class="agent-img"><img src="assets/img/inu-mountain.png" alt="Kuro, the black-and-tan Shiba in a blue shirt with a mountain icon" loading="lazy"></div>
-            <div class="agent-body">
-              <p class="role"><i class="px" data-icon="mountain"></i> Risk &amp; Charts</p>
-              <h3>Kuro</h3>
-              <p>Steady as a mountain. Kuro maps support and resistance, flags overextended moves and helps you size positions and set stops before you click buy, not after.</p>
-              <ul class="tags"><li>S/R levels</li><li>Position sizing</li><li>Stop planning</li></ul>
-            </div>
-          </article>
-          <article class="agent c-green">
-            <div class="agent-img"><img src="assets/img/inu-sprout.png" alt="Mochi, the cream Shiba in a green shirt with a sprout icon" loading="lazy"></div>
-            <div class="agent-body">
-              <p class="role"><i class="px" data-icon="sprout"></i> Gem Scout</p>
-              <h3>Mochi</h3>
-              <p>Mochi digs for tokens while they are still small. It watches fresh pools, early holder growth and contract basics, and only raises a paw when something passes the first checks.</p>
-              <ul class="tags"><li>Fresh pools</li><li>Holder growth</li><li>Contract checks</li></ul>
-            </div>
-          </article>
-          <article class="agent c-yellow">
-            <div class="agent-img"><img src="assets/img/inu-sun.png" alt="Hinata, the orange Shiba in a yellow shirt with a sun icon" loading="lazy"></div>
-            <div class="agent-body">
-              <p class="role"><i class="px" data-icon="sun"></i> Launch Scanner</p>
-              <h3>Hinata</h3>
-              <p>Up with the sun. Hinata runs the morning sweep of new launches, filters out the obvious copycats and sends a launch alert the moment a token matches your rules.</p>
-              <ul class="tags"><li>Launch alerts</li><li>Custom filters</li><li>Morning brief</li></ul>
-            </div>
-          </article>
-          <article class="agent c-purple">
-            <div class="agent-img"><img src="assets/img/inu-moon.png" alt="Tsuki, the grey Shiba in a purple shirt with a moon icon" loading="lazy"></div>
-            <div class="agent-body">
-              <p class="role"><i class="px" data-icon="moon"></i> Night Watch</p>
-              <h3>Tsuki</h3>
-              <p>Tsuki takes the night shift. It follows the wallets on your watchlist around the clock and lets you know when they buy, sell or move funds while you are away from the screen.</p>
-              <ul class="tags"><li>Wallet tracking</li><li>Overnight alerts</li><li>Wake-up recap</li></ul>
-            </div>
-          </article>
-          <article class="agent agent-join">
-            <div class="join-inner">
-              <p class="role">Better together</p>
-              <h3>One pack, one feed</h3>
-              <p>The agents share context. When Mochi finds a token, Kuro checks the chart, Tsuki looks at who holds it, and you get a single alert with the full picture.</p>
-              <a class="btn btn-sm" href="#how">See how it works</a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- HOW -->
-    <section class="section section-alt" id="how">
-      <div class="wrap">
-        <div class="section-head">
-          <p class="kicker">Getting started</p>
-          <h2>How it works</h2>
-        </div>
-        <ol class="steps">
-          <li class="step">
-            <span class="step-n">01</span>
-            <h3>Connect a watch-only wallet</h3>
-            <p>Add the addresses you want the pack to know about. Watch-only means the agents can read, never move funds.</p>
-          </li>
-          <li class="step">
-            <span class="step-n">02</span>
-            <h3>Pick your agents</h3>
-            <p>Turn on the Inus you need and set their rules: minimum liquidity, holder count, wallets to follow, alert hours.</p>
-          </li>
-          <li class="step">
-            <span class="step-n">03</span>
-            <h3>Get pack alerts</h3>
-            <p>Alerts land in one feed, in the app or on Telegram, each one tagged with the agent that found it and why.</p>
-          </li>
-          <li class="step">
-            <span class="step-n">04</span>
-            <h3>Decide with a plan</h3>
-            <p>Review Kuro's levels and risk notes, then make your own call. The Inus inform your decisions; you stay in control.</p>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <!-- TERMINAL -->
-    <section class="section" id="terminal">
-      <div class="wrap term-grid">
-        <div class="term-copy">
-          <p class="kicker">Inside the app</p>
-          <h2>The Pack Feed</h2>
-          <p class="sub left">Every agent reports to the same feed. Short, tagged, readable at a glance, with the reasoning one click away.</p>
-          <ul class="legend">
-            <li><i class="dot d-yellow"></i> Hinata · launches</li>
-            <li><i class="dot d-green"></i> Mochi · new tokens</li>
-            <li><i class="dot d-blue"></i> Kuro · risk &amp; levels</li>
-            <li><i class="dot d-purple"></i> Tsuki · wallets</li>
-            <li><i class="dot d-red"></i> Biscuit · alpha digest</li>
-          </ul>
-          <p class="note">Illustrative mockup. Token names, wallets and values are placeholders, not real data.</p>
-        </div>
-        <div class="terminal" role="img" aria-label="Illustrative mockup of the Agent Inus alert feed">
-          <div class="term-bar">
-            <span class="tb-dot"></span><span class="tb-dot"></span><span class="tb-dot"></span>
-            <span class="term-title">pack-feed.demo</span>
-            <span class="term-live">&#9679; DEMO</span>
-          </div>
-          <div class="term-body" id="termBody"></div>
-          <div class="term-foot">
-            <span>agents online: 5/5</span><span>mode: sample data</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FEATURES -->
-    <section class="section section-alt" id="features">
-      <div class="wrap">
-        <div class="section-head">
-          <p class="kicker">Why the pack</p>
-          <h2>Features</h2>
-        </div>
-        <div class="features">
-          <div class="feature"><span class="f-ico"><i class="px" data-icon="bolt"></i></span><h3>Fast launch alerts</h3><p>New tokens that match your filters reach you in seconds, not after the first big candle.</p></div>
-          <div class="feature"><span class="f-ico"><i class="px" data-icon="eye"></i></span><h3>Wallet watchlists</h3><p>Follow any public wallet and see its buys, sells and transfers in plain language.</p></div>
-          <div class="feature"><span class="f-ico"><i class="px" data-icon="shield"></i></span><h3>Risk first</h3><p>Every alert ships with basic safety checks and a suggested position size based on your own limits.</p></div>
-          <div class="feature"><span class="f-ico"><i class="px" data-icon="chart"></i></span><h3>Chart levels</h3><p>Automatic support and resistance zones so you always know where your plan changes.</p></div>
-          <div class="feature"><span class="f-ico"><i class="px" data-icon="bell"></i></span><h3>Quiet hours</h3><p>Choose what can wake you up. Everything else waits in Tsuki's morning recap.</p></div>
-          <div class="feature"><span class="f-ico"><i class="px" data-icon="lock"></i></span><h3>Read-only by design</h3><p>No private keys, no custody. The agents watch and report; trades are always yours to make.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ROADMAP -->
-    <section class="section" id="roadmap">
-      <div class="wrap">
-        <div class="section-head">
-          <p class="kicker">What's next</p>
-          <h2>Roadmap</h2>
-        </div>
-        <div class="roadmap">
-          <div class="rm done">
-            <span class="rm-tag">Level 1 · Done</span>
-            <h3>Puppy</h3>
-            <ul><li>Pack concept and pixel art</li><li>Launch scanner prototype</li><li>Wallet watchlist alpha</li></ul>
-          </div>
-          <div class="rm now">
-            <span class="rm-tag">Level 2 · In progress</span>
-            <h3>Pack</h3>
-            <ul><li>All five agents in one feed</li><li>Telegram alerts</li><li>Risk notes and chart levels</li></ul>
-          </div>
-          <div class="rm">
-            <span class="rm-tag">Level 3 · Next</span>
-            <h3>Hunt</h3>
-            <ul><li>Custom agent rules editor</li><li>Multi-chain coverage</li><li>Shared team watchlists</li></ul>
-          </div>
-          <div class="rm">
-            <span class="rm-tag">Level 4 · Later</span>
-            <h3>Legend</h3>
-            <ul><li>Strategy backtests</li><li>Mobile app</li><li>Community agent skins</li></ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="section section-alt" id="faq">
-      <div class="wrap narrow">
-        <div class="section-head">
-          <p class="kicker">Questions</p>
-          <h2>FAQ</h2>
-        </div>
-        <div class="faq">
-          <div class="faq-item">
-            <button class="faq-q" aria-expanded="false">Do the Inus trade for me?<span class="faq-icon">+</span></button>
-            <div class="faq-a"><p>No. Agent Inus is a research and alerting tool. The agents watch the market and explain what they see, but every trade is your decision and happens in your own wallet.</p></div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-q" aria-expanded="false">Do I need to share my private keys?<span class="faq-icon">+</span></button>
-            <div class="faq-a"><p>Never. You only add public addresses in watch-only mode. If anyone asks for your seed phrase in the name of Agent Inus, it is a scam.</p></div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-q" aria-expanded="false">Which chains are supported?<span class="faq-icon">+</span></button>
-            <div class="faq-a"><p>The first release focuses on a single high-activity chain. More chains are planned for Level 3 on the roadmap.</p></div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-q" aria-expanded="false">Can I use only some of the agents?<span class="faq-icon">+</span></button>
-            <div class="faq-a"><p>Yes. Each Inu can be switched on or off and configured on its own. Many people start with Hinata and Tsuki, then add the others.</p></div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-q" aria-expanded="false">Will this help me avoid losses?<span class="faq-icon">+</span></button>
-            <div class="faq-a"><p>It can help you see risks earlier and plan your exits, but no tool removes risk. Memecoins are extremely volatile; only trade what you can afford to lose.</p></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FINAL CTA -->
-    <section class="section final" id="launch">
-      <div class="wrap">
-        <div class="final-box">
-          <div class="final-dogs">
-            <img src="assets/img/inu-sun.png" alt="" loading="lazy">
-            <img src="assets/img/inu-mountain.png" alt="" loading="lazy">
-            <img src="assets/img/inu-bone.png" alt="" loading="lazy">
-            <img src="assets/img/inu-sprout.png" alt="" loading="lazy">
-            <img src="assets/img/inu-moon.png" alt="" loading="lazy">
-          </div>
-          <h2>Ready to run with the pack?</h2>
-          <p class="sub">Early access is opening in waves. Launch the app to join the list and set up your first agents.</p>
-          <div class="cta-row center">
-            <a class="btn" href="#launch">Launch App</a>
-            <a class="btn btn-ghost" href="#agents">Meet the Pack</a>
-          </div>
-        </div>
-      </div>
+    <section class="about">
+      <h3 class="lbl">Data sources</h3>
+      <ul>
+        <li><b>Balances &amp; transfer history:</b> Blockscout public API (World Chain explorer).</li>
+        <li><b>Current prices &amp; liquidity:</b> DexScreener (best-liquidity pool per token).</li>
+        <li><b>Historical prices for entry estimates:</b> DefiLlama coins API (price of WLD / ETH at each swap's timestamp).</li>
+      </ul>
+      <p class="muted">Not financial advice. Numbers can be delayed or incomplete if an API is slow or rate-limited.</p>
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="wrap foot-grid">
-      <div class="foot-brand">
-        <a class="brand" href="#top"><img src="assets/img/inu-bone.png" alt="" width="32" height="32"><span>Agent Inus</span></a>
-        <p>Five pixel Shiba agents for memecoin research and alerts.</p>
-      </div>
-      <nav class="foot-links">
-        <a href="#agents">Agents</a><a href="#how">How it works</a><a href="#features">Features</a><a href="#roadmap">Roadmap</a><a href="#faq">FAQ</a>
-      </nav>
-    </div>
-    <div class="wrap disclaimer">
-      <p><b>Not financial advice.</b> Agent Inus provides information and alerts for educational purposes only. Crypto assets, and memecoins in particular, are highly volatile and you can lose all of your money. Always do your own research.</p>
-      <p class="copy">&copy; 2026 Agent Inus</p>
-    </div>
-  </footer>
+  <footer class="foot-bar"><div class="wrap">© Agent Inus · agentinus.xyz</div></footer>
 
+  <script src="assets/js/sprites.js"></script>
+  <script src="assets/js/groups.js"></script>
   <script src="assets/js/app.js"></script>
+  <script>PixelSprites.draw(document.getElementById("logoSprite"), "inu");</script>
 </body>
 </html>
