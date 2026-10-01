@@ -2,6 +2,28 @@
    '.' = transparent; other chars map to the sprite's palette. */
 (function () {
   var S = {
+    /* Worldcoin (WLD) logo: full 16 rows (not mirrored) - black coin, white ring, bar across to the right edge */
+    wld: {
+      pal: { s: "#d9dbe8", k: "#0a0a0f", w: "#ffffff" },
+      full: [
+        "......ssss......",
+        "....sskkkkss....",
+        "..sskkkkkkkkss..",
+        "..skkwwwwwwkks..",
+        ".skkwwwwwwwwkks.",
+        ".skwwwkkkkwwwks.",
+        "skkwwkkkkkkwwkks",
+        "skkwwkwwwwwwwwks",
+        "skkwwkwwwwwwwwks",
+        "skkwwkkkkkkwwkks",
+        ".skwwwkkkkwwwks.",
+        ".skkwwwwwwwwkks.",
+        "..skkwwwwwwkks..",
+        "..sskkkkkkkkss..",
+        "....sskkkkss....",
+        "......ssss......"
+      ]
+    },
     lock: {
       pal: { k: "#14141c", s: "#c9cddd", y: "#ffd23f", d: "#b38f12" },
       half: [
@@ -216,6 +238,7 @@
 
   function rows(name) {
     var s = S[name] || S.inu;
+    if (s.full) return s.full;
     return s.half.map(function (h) { h = (h + "........").slice(0, 8); return h + h.split("").reverse().join(""); });
   }
 

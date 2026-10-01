@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Silkscreen:wght@400;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=a9">
+  <link rel="stylesheet" href="assets/css/style.css?v=b1">
 </head>
 <body>
   <header class="top">
@@ -25,6 +25,17 @@
     </section>
 
     <div id="homeView">
+      <section id="wldTicker" class="ticker" aria-label="Worldcoin live price">
+        <canvas id="wldSprite" class="tk-logo" width="16" height="16" aria-hidden="true"></canvas>
+        <div class="tk-main">
+          <div class="tk-sym">WLD <span class="tk-name">Worldcoin</span></div>
+          <div class="tk-row"><span id="wldPrice" class="tk-price">$—</span><span id="wldChg" class="tk-chg">—</span></div>
+        </div>
+        <div class="tk-side">
+          <div class="tk-live"><span class="tk-dot"></span><span id="wldLive">LIVE</span></div>
+          <div id="wldSrc" class="tk-src">connecting…</div>
+        </div>
+      </section>
       <h2 class="lbl sec">Groups</h2>
       <nav id="tiles" class="tiles" aria-label="Wallet groups"></nav>
     </div>
@@ -48,10 +59,11 @@
 
   <footer class="foot-bar"><div class="wrap">© Agent Inus · agentinus.xyz</div></footer>
 
-  <script src="assets/js/sprites.js?v=a9"></script>
-  <script src="assets/js/groups.js?v=a9"></script>
-  <script src="assets/js/vendor/noble-crypto.min.js?v=a9b"></script>
-  <script src="assets/js/app.js?v=a9"></script>
+  <script src="assets/js/sprites.js?v=b1"></script>
+  <script src="assets/js/groups.js?v=b1"></script>
+  <script src="assets/js/vendor/noble-crypto.min.js?v=b1b"></script>
+  <script src="assets/js/app.js?v=b1"></script>
+  <script src="assets/js/ticker.js?v=b1"></script>
   <script>PixelSprites.draw(document.getElementById("logoSprite"), "inu");</script>
 </body>
 </html>
