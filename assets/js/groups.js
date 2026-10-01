@@ -7,7 +7,8 @@
  *  id      : unique, lowercase, letters/numbers/dashes (used for cache keys)
  *  name    : title shown on the card
  *  sprite  : pixel character for the card. One of:
- *            "inu", "dragon", "panda", "cat", "frog", "goblin", "robot", "ghost"
+ *            "inu", "dragon", "panda", "cat", "frog", "goblin", "robot", "ghost",
+ *            "hedgehog", "octopus", "horse", "capybara"
  *  chains  : chains to scan for every wallet in the group. Supported:
  *            "worldchain", "ethereum", "base", "arbitrum", "optimism"
  *            (all served by free public Blockscout explorers - see CHAINS in app.js)
@@ -21,7 +22,7 @@ window.TRACKER_GROUPS = [
   {
     id: "wetrenches",
     name: "WETRENCHES",
-    sprite: "inu",
+    sprite: "capybara",
     chains: ["worldchain"],
     locked: true,
     walletCount: 7,
@@ -61,6 +62,15 @@ window.TRACKER_GROUPS = [
     chains: ["worldchain"],
     wallets: [
       "0x917386b684C9306E818Fcb13A681BA6ae46c2787"
+    ]
+  },
+  {
+    id: "daso",
+    name: "DASO",
+    sprite: "horse",
+    chains: ["worldchain"],
+    wallets: [
+      "0x3Bb7C151e1376FF4d3608E01432F8BA686e58Eff"
     ]
   }
 

@@ -67,6 +67,50 @@
         "........"
       ]
     },
+    /* Horse: brown, dark mane forelock, tan muzzle */
+    horse: {
+      pal: { k: "#2a1608", b: "#a5652f", d: "#7a4520", m: "#3b2414", c: "#e2b383", n: "#3b2414", w: "#ffffff", e: "#140a04", p: "#ff9db4" },
+      half: [
+        "..k.....",
+        ".kbk....",
+        ".kdbk..m",
+        ".kdbkmmm",
+        "..kkmmmm",
+        "...kbmmm",
+        "..kbbbmb",
+        ".kwebbbb",
+        ".keebbbb",
+        "..kbbbbb",
+        "...kbbbb",
+        "...kbbbb",
+        "..kccccc",
+        ".kcnnccc",
+        "..kccccc",
+        "...kkkkk"
+      ]
+    },
+    /* Capybara: round brown head, small ears, calm eyes, big dark nose */
+    capybara: {
+      pal: { k: "#2a1a0e", b: "#9c6b43", d: "#6f4a2c", l: "#b9875a", n: "#2a1a0e", e: "#1a120a", w: "#ffffff", p: "#e8a08a" },
+      half: [
+        "........",
+        "..kk....",
+        ".kdlkkkk",
+        ".kbbbbbb",
+        "kbbbbbbb",
+        "kbbdbbbb",
+        "kbbebbbb",
+        "kbbbbbbb",
+        "kbbbbbbb",
+        "kdbbllll",
+        "kdbllnnn",
+        "kdblllnn",
+        "kdblllll",
+        ".kdbllkk",
+        ".kddllll",
+        "..kkkkkk"
+      ]
+    },
     hedgehog: {
       pal: { k: "#1e1208", d: "#7a4a24", b: "#a8703a", c: "#ffe2b8", w: "#ffffff", p: "#ff9db4" },
       half: [
