@@ -80,22 +80,43 @@
   /* ---------------- Locked groups: PBKDF2-SHA256 + AES-256-GCM (WebCrypto). Only ciphertext is in groups.js ---------------- */
   function b64d(s) { var b = atob(s), u = new Uint8Array(b.length); for (var i = 0; i < b.length; i++) u[i] = b.charCodeAt(i); return u; }
   function b64e(buf) { var u = new Uint8Array(buf), s = ""; for (var i = 0; i < u.length; i++) s += String.fromCharCode(u[i]); return btoa(s); }
-  function hasCrypto() { return !!(window.crypto && window.crypto.subtle && window.TextEncoder); }
-  function deriveKey(pw, enc) {
-    return crypto.subtle.importKey("raw", new TextEncoder().encode(pw), "PBKDF2", false, ["deriveKey"]).then(function (k) {
-      return crypto.subtle.deriveKey({ name: "PBKDF2", salt: b64d(enc.salt), iterations: enc.iter, hash: "SHA-256" }, k, { name: "AES-GCM", length: 256 }, true, ["encrypt", "decrypt"]);
-    });
+  /* Crypto backend: WebCrypto when available (HTTPS / localhost), otherwise the vendored pure-JS
+     @noble/hashes (PBKDF2-SHA256) + @noble/ciphers (AES-256-GCM) in vendor/noble-crypto.min.js (plain-HTTP pages). Keys are raw bytes. */
+  function subtleOK() { return !!(window.crypto && window.crypto.subtle && window.crypto.subtle.importKey); }
+  function hasCrypto() { return !!window.TextEncoder && (subtleOK() || !!window.NobleCrypto); }
+  function randBytes(n) {
+    var u = new Uint8Array(n);
+    if (window.crypto && window.crypto.getRandomValues) return window.crypto.getRandomValues(u);
+    for (var i = 0; i < n; i++) u[i] = Math.floor(Math.random() * 256);
+    return u;
   }
-  function decJSON(key, iv, ct) { return crypto.subtle.decrypt({ name: "AES-GCM", iv: b64d(iv) }, key, b64d(ct)).then(function (b) { return JSON.parse(new TextDecoder().decode(b)); }); }
+  function deriveKey(pw, enc) { // -> Promise<Uint8Array(32)>
+    var pwb = new TextEncoder().encode(pw), salt = b64d(enc.salt);
+    if (subtleOK()) {
+      return crypto.subtle.importKey("raw", pwb, "PBKDF2", false, ["deriveBits"]).then(function (k) {
+        return crypto.subtle.deriveBits({ name: "PBKDF2", salt: salt, iterations: enc.iter, hash: "SHA-256" }, k, 256);
+      }).then(function (b) { return new Uint8Array(b); });
+    }
+    return window.NobleCrypto.pbkdf2Sha256(pwb, salt, enc.iter, 32);
+  }
+  function aesDecrypt(key, iv, ct) {
+    if (subtleOK()) return crypto.subtle.importKey("raw", key, { name: "AES-GCM" }, false, ["decrypt"]).then(function (k) { return crypto.subtle.decrypt({ name: "AES-GCM", iv: iv }, k, ct); }).then(function (b) { return new Uint8Array(b); });
+    return new Promise(function (res) { res(window.NobleCrypto.gcmDecrypt(key, iv, ct)); }); // throws on wrong key (auth tag)
+  }
+  function aesEncrypt(key, iv, data) {
+    if (subtleOK()) return crypto.subtle.importKey("raw", key, { name: "AES-GCM" }, false, ["encrypt"]).then(function (k) { return crypto.subtle.encrypt({ name: "AES-GCM", iv: iv }, k, data); }).then(function (b) { return new Uint8Array(b); });
+    return new Promise(function (res) { res(window.NobleCrypto.gcmEncrypt(key, iv, data)); });
+  }
+  function decJSON(key, iv, ct) { return aesDecrypt(key, b64d(iv), b64d(ct)).then(function (b) { return JSON.parse(new TextDecoder().decode(b)); }); }
   function encJSON(key, obj) {
-    var iv = crypto.getRandomValues(new Uint8Array(12));
-    return crypto.subtle.encrypt({ name: "AES-GCM", iv: iv }, key, new TextEncoder().encode(JSON.stringify(obj))).then(function (ct) { return { iv: b64e(iv), ct: b64e(ct) }; });
+    var iv = randBytes(12);
+    return aesEncrypt(key, iv, new TextEncoder().encode(JSON.stringify(obj))).then(function (ct) { return { iv: b64e(iv), ct: b64e(ct) }; });
   }
   function encCacheKey(g) { return "ai_genc_" + CACHE_VER + "_" + g.id; }
   function applyUnlock(g, key) {
     return decJSON(key, g.enc.iv, g.enc.ct).then(function (p) {
       g.wallets = p.wallets || []; g._key = key; g._unlocked = true;
-      crypto.subtle.exportKey("raw", key).then(function (raw) { sess.set("ai_unlock_" + g.id, g.enc.salt + "|" + b64e(raw)); }).catch(function () {});
+      sess.set("ai_unlock_" + g.id, g.enc.salt + "|" + b64e(key));
       var e = store.get(encCacheKey(g));
       if (!e || e.salt !== g.enc.salt) return;
       return decJSON(key, e.iv, e.ct).then(function (d) { g._cache = d; }).catch(function () {});
@@ -107,8 +128,7 @@
     if (!v || !hasCrypto()) return Promise.resolve(false);
     var parts = v.split("|");
     if (parts[0] !== g.enc.salt) return Promise.resolve(false);
-    return crypto.subtle.importKey("raw", b64d(parts[1]), { name: "AES-GCM" }, true, ["encrypt", "decrypt"])
-      .then(function (k) { return applyUnlock(g, k); }).then(function () { return true; }, function () { return false; });
+    return applyUnlock(g, b64d(parts[1])).then(function () { return true; }, function () { return false; });
   }
   function cacheGet(g) { return g.locked ? (g._cache || null) : store.get("ai_group_" + CACHE_VER + "_" + g.id); }
   function cacheSet(g, data) {
@@ -737,12 +757,12 @@
     var form = el.querySelector("form"), inp = el.querySelector("input"), err = el.querySelector(".lock-err"), btn = el.querySelector("button");
     form.addEventListener("submit", function (e) {
       e.preventDefault();
-      if (!hasCrypto()) { err.textContent = "Your browser blocks WebCrypto here (needs HTTPS)."; return; }
+      if (!hasCrypto()) { err.textContent = "Unlock module failed to load. Reload the page."; return; }
       var pw = inp.value; if (!pw) return;
-      btn.disabled = true; btn.textContent = "CHECKING…"; err.textContent = "";
+      btn.disabled = true; btn.textContent = "UNLOCKING…"; inp.disabled = true; err.textContent = "";
       unlockWithPassword(g, pw).then(function () { inp.value = ""; onOk(); }, function () {
         err.textContent = "✖ WRONG PASSWORD"; el.classList.remove("shake"); void el.offsetWidth; el.classList.add("shake"); inp.select();
-      }).then(function () { btn.disabled = false; btn.textContent = "UNLOCK"; });
+      }).then(function () { btn.disabled = false; inp.disabled = false; btn.textContent = "UNLOCK"; });
     });
     el._focus = function () { setTimeout(function () { try { inp.focus({ preventScroll: true }); } catch (e) {} }, 30); };
     return el;
