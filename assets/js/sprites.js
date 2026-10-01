@@ -3,6 +3,28 @@
 (function () {
   var S = {
     /* Worldcoin (WLD) logo: full 16 rows (not mirrored) - black coin, white ring, bar across to the right edge */
+    /* Telegram logo: full 16 rows - #2AABEE circle, white paper plane with grey fold */
+    tg: {
+      pal: { d: "#1a8cc8", b: "#2aabee", w: "#ffffff", g: "#c8daea" },
+      full: [
+        "......dddd......",
+        "....ddbbbbdd....",
+        "..ddbbbbbbbbdd..",
+        "..dbbbbbbbbbbd..",
+        ".dbbbbbbbbbbwbd.",
+        ".dbbbbbbbwwwwbd.",
+        "dbbbbbwwwwwwwbbd",
+        "dbbwwwwwwwwwwbbd",
+        "dbbbwwwwgwwwbbbd",
+        "dbbbbbwwggwwbbbd",
+        ".dbbbbbwgbwwbbd.",
+        ".dbbbbbbbbbwbbd.",
+        "..dbbbbbbbbbbd..",
+        "..ddbbbbbbbbdd..",
+        "....ddbbbbdd....",
+        "......dddd......"
+      ]
+    },
     wld: {
       pal: { s: "#d9dbe8", k: "#0a0a0f", w: "#ffffff" },
       full: [

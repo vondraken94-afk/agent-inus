@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Silkscreen:wght@400;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=b2">
+  <link rel="stylesheet" href="assets/css/style.css?v=b3">
 </head>
 <body>
   <header class="top">
@@ -25,6 +25,7 @@
     </section>
 
     <div id="homeView">
+      <div class="home-row">
       <section id="wldTicker" class="ticker" aria-label="Worldcoin live price">
         <canvas id="wldSprite" class="tk-logo" width="16" height="16" aria-hidden="true"></canvas>
         <div class="tk-main">
@@ -36,6 +37,15 @@
           <div id="wldSrc" class="tk-src">connecting…</div>
         </div>
       </section>
+      <a id="tgBox" class="tgbox" href="https://t.me/+M6jH1nfXsOw5Yjdk" target="_blank" rel="noopener noreferrer" aria-label="Join the Agent Inus Telegram community (opens in a new tab)">
+        <canvas id="tgSprite" class="tk-logo" width="16" height="16" aria-hidden="true"></canvas>
+        <div class="tg-main">
+          <div class="tk-sym">TELEGRAM</div>
+          <div class="tg-sub">Join the community</div>
+        </div>
+        <span class="btn tg-btn" aria-hidden="true">JOIN <span class="arr">▸</span></span>
+      </a>
+      </div>
       <h2 class="lbl sec">Groups</h2>
       <nav id="tiles" class="tiles" aria-label="Wallet groups"></nav>
     </div>
@@ -59,11 +69,11 @@
 
   <footer class="foot-bar"><div class="wrap">© Agent Inus · agentinus.xyz</div></footer>
 
-  <script src="assets/js/sprites.js?v=b2"></script>
-  <script src="assets/js/groups.js?v=b2"></script>
-  <script src="assets/js/vendor/noble-crypto.min.js?v=b2b"></script>
-  <script src="assets/js/app.js?v=b2"></script>
-  <script src="assets/js/ticker.js?v=b2"></script>
-  <script>PixelSprites.draw(document.getElementById("logoSprite"), "inu");</script>
+  <script src="assets/js/sprites.js?v=b3"></script>
+  <script src="assets/js/groups.js?v=b3"></script>
+  <script src="assets/js/vendor/noble-crypto.min.js?v=b3b"></script>
+  <script src="assets/js/app.js?v=b3"></script>
+  <script src="assets/js/ticker.js?v=b3"></script>
+  <script>PixelSprites.draw(document.getElementById("logoSprite"), "inu"); PixelSprites.draw(document.getElementById("tgSprite"), "tg");</script>
 </body>
 </html>
