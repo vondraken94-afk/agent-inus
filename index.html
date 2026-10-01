@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Silkscreen:wght@400;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=b3">
+  <link rel="stylesheet" href="assets/css/style.css?v=b4">
 </head>
 <body>
   <header class="top">
@@ -45,6 +45,11 @@
         </div>
         <span class="btn tg-btn" aria-hidden="true">JOIN <span class="arr">▸</span></span>
       </a>
+      <div id="viewers" class="viewers off" data-mqtt-src="assets/js/vendor/mqtt.min.js?v=b4b" title="Connecting…">
+        <div class="vw-top"><span class="tk-dot"></span>LIVE</div>
+        <div id="viewersNum" class="vw-num">—</div>
+        <div class="vw-lbl">WATCHING</div>
+      </div>
       </div>
       <h2 class="lbl sec">Groups</h2>
       <nav id="tiles" class="tiles" aria-label="Wallet groups"></nav>
@@ -69,11 +74,12 @@
 
   <footer class="foot-bar"><div class="wrap">© Agent Inus · agentinus.xyz</div></footer>
 
-  <script src="assets/js/sprites.js?v=b3"></script>
-  <script src="assets/js/groups.js?v=b3"></script>
-  <script src="assets/js/vendor/noble-crypto.min.js?v=b3b"></script>
-  <script src="assets/js/app.js?v=b3"></script>
-  <script src="assets/js/ticker.js?v=b3"></script>
+  <script src="assets/js/sprites.js?v=b4"></script>
+  <script src="assets/js/groups.js?v=b4"></script>
+  <script src="assets/js/vendor/noble-crypto.min.js?v=b4b"></script>
+  <script src="assets/js/app.js?v=b4"></script>
+  <script src="assets/js/ticker.js?v=b4"></script>
+  <script src="assets/js/viewers.js?v=b4"></script>
   <script>PixelSprites.draw(document.getElementById("logoSprite"), "inu"); PixelSprites.draw(document.getElementById("tgSprite"), "tg");</script>
 </body>
 </html>
