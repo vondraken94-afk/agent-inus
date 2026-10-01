@@ -49,7 +49,7 @@ window.TRACKER_GROUPS = [
     id: "zeldris",
     name: "ZELDRIS",
     sprite: "hedgehog",
-    chains: ["ethereum"],
+    chains: ["worldchain"],
     wallets: [
       "0x1b30f0a3e7fb54211ab31741a2dc58725157b039"
     ]
