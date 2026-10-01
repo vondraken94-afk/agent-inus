@@ -5,7 +5,7 @@
   /* ---------------- Chains (free public Blockscout explorers, CORS enabled, no key) ---------------- */
   var CHAINS = {
     worldchain: {
-      name: "World Chain", short: "WORLD",
+      name: "World Chain", short: "WORLD", chainId: 480,
       api: "https://worldchain-mainnet.explorer.alchemy.com/api/v2",
       explorer: "https://worldscan.org", dex: "worldchain", llama: "wc",
       nativeKey: "coingecko:ethereum",
@@ -16,7 +16,7 @@
       }
     },
     ethereum: {
-      name: "Ethereum", short: "ETH", api: "https://eth.blockscout.com/api/v2", explorer: "https://etherscan.io",
+      name: "Ethereum", short: "ETH", chainId: 1, api: "https://eth.blockscout.com/api/v2", explorer: "https://etherscan.io",
       dex: "ethereum", llama: "ethereum", nativeKey: "coingecko:ethereum",
       quotes: {
         "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2": { sym: "WETH", key: "coingecko:ethereum" },
@@ -25,7 +25,7 @@
       }
     },
     base: {
-      name: "Base", short: "BASE", api: "https://base.blockscout.com/api/v2", explorer: "https://basescan.org",
+      name: "Base", short: "BASE", chainId: 8453, api: "https://base.blockscout.com/api/v2", explorer: "https://basescan.org",
       dex: "base", llama: "base", nativeKey: "coingecko:ethereum",
       quotes: {
         "0x4200000000000000000000000000000000000006": { sym: "WETH", key: "coingecko:ethereum" },
@@ -33,7 +33,7 @@
       }
     },
     arbitrum: {
-      name: "Arbitrum", short: "ARB", api: "https://arbitrum.blockscout.com/api/v2", explorer: "https://arbiscan.io",
+      name: "Arbitrum", short: "ARB", chainId: 42161, api: "https://arbitrum.blockscout.com/api/v2", explorer: "https://arbiscan.io",
       dex: "arbitrum", llama: "arbitrum", nativeKey: "coingecko:ethereum",
       quotes: {
         "0x82af49447d8a07e3bd95bd0d56f35241523fbab1": { sym: "WETH", key: "coingecko:ethereum" },
@@ -41,7 +41,7 @@
       }
     },
     optimism: {
-      name: "Optimism", short: "OP", api: "https://optimism.blockscout.com/api/v2", explorer: "https://optimistic.etherscan.io",
+      name: "Optimism", short: "OP", chainId: 10, api: "https://optimism.blockscout.com/api/v2", explorer: "https://optimistic.etherscan.io",
       dex: "optimism", llama: "optimism", nativeKey: "coingecko:ethereum",
       quotes: {
         "0x4200000000000000000000000000000000000006": { sym: "WETH", key: "coingecko:ethereum" },
@@ -49,11 +49,12 @@
       }
     }
   };
+  var VIA_LABEL = { swap: "swap", relay: "Relay x-chain", eth: "ETH", tswap: "token swap", group: "from group" };
   var STABLE_SYMS = { USDC: 1, "USDC.E": 1, USDT: 1, DAI: 1, USDBC: 1, USDT0: 1 };
   var MIN_VALUE_USD = 1;          // hide holdings below $1
   var MIN_LIQ_USD = 500;          // hide tokens whose best DEX pool has < $500 liquidity
   var MAX_TRANSFER_PAGES = 8;     // 50 transfers per page -> 400 most recent transfers per wallet/chain
-  var CACHE_VER = "v1";
+  var CACHE_VER = "v2";
   var SEG_COLORS = ["#ffd23f", "#3ef0ff", "#ff5d8f", "#7cff6b", "#b388ff", "#ff9f43", "#4d9bff", "#f7f7f7"];
   var OTHER_COLOR = "#5b5f7a";
 
@@ -63,13 +64,62 @@
     try { ls = window.localStorage; ls.setItem("__ai_t", "1"); ls.removeItem("__ai_t"); } catch (e) { ls = null; }
     return {
       get: function (k) { try { var v = ls ? ls.getItem(k) : mem[k]; return v ? JSON.parse(v) : null; } catch (e) { return null; } },
-      set: function (k, v) { var s = JSON.stringify(v); mem[k] = s; try { if (ls) ls.setItem(k, s); } catch (e) { /* quota */ } }
+      set: function (k, v) { var s = JSON.stringify(v); mem[k] = s; try { if (ls) ls.setItem(k, s); } catch (e) { /* quota */ } },
+      del: function (k) { delete mem[k]; try { if (ls) ls.removeItem(k); } catch (e) {} }
+    };
+  })();
+  var sess = (function () {
+    var ss = null, mem = {};
+    try { ss = window.sessionStorage; ss.setItem("__ai_t", "1"); ss.removeItem("__ai_t"); } catch (e) { ss = null; }
+    return {
+      get: function (k) { try { return ss ? ss.getItem(k) : (mem[k] || null); } catch (e) { return mem[k] || null; } },
+      set: function (k, v) { mem[k] = v; try { if (ss) ss.setItem(k, v); } catch (e) {} }
     };
   })();
 
+  /* ---------------- Locked groups: PBKDF2-SHA256 + AES-256-GCM (WebCrypto). Only ciphertext is in groups.js ---------------- */
+  function b64d(s) { var b = atob(s), u = new Uint8Array(b.length); for (var i = 0; i < b.length; i++) u[i] = b.charCodeAt(i); return u; }
+  function b64e(buf) { var u = new Uint8Array(buf), s = ""; for (var i = 0; i < u.length; i++) s += String.fromCharCode(u[i]); return btoa(s); }
+  function hasCrypto() { return !!(window.crypto && window.crypto.subtle && window.TextEncoder); }
+  function deriveKey(pw, enc) {
+    return crypto.subtle.importKey("raw", new TextEncoder().encode(pw), "PBKDF2", false, ["deriveKey"]).then(function (k) {
+      return crypto.subtle.deriveKey({ name: "PBKDF2", salt: b64d(enc.salt), iterations: enc.iter, hash: "SHA-256" }, k, { name: "AES-GCM", length: 256 }, true, ["encrypt", "decrypt"]);
+    });
+  }
+  function decJSON(key, iv, ct) { return crypto.subtle.decrypt({ name: "AES-GCM", iv: b64d(iv) }, key, b64d(ct)).then(function (b) { return JSON.parse(new TextDecoder().decode(b)); }); }
+  function encJSON(key, obj) {
+    var iv = crypto.getRandomValues(new Uint8Array(12));
+    return crypto.subtle.encrypt({ name: "AES-GCM", iv: iv }, key, new TextEncoder().encode(JSON.stringify(obj))).then(function (ct) { return { iv: b64e(iv), ct: b64e(ct) }; });
+  }
+  function encCacheKey(g) { return "ai_genc_" + CACHE_VER + "_" + g.id; }
+  function applyUnlock(g, key) {
+    return decJSON(key, g.enc.iv, g.enc.ct).then(function (p) {
+      g.wallets = p.wallets || []; g._key = key; g._unlocked = true;
+      crypto.subtle.exportKey("raw", key).then(function (raw) { sess.set("ai_unlock_" + g.id, g.enc.salt + "|" + b64e(raw)); }).catch(function () {});
+      var e = store.get(encCacheKey(g));
+      if (!e || e.salt !== g.enc.salt) return;
+      return decJSON(key, e.iv, e.ct).then(function (d) { g._cache = d; }).catch(function () {});
+    });
+  }
+  function unlockWithPassword(g, pw) { return deriveKey(pw, g.enc).then(function (k) { return applyUnlock(g, k); }); }
+  function restoreUnlock(g) { // session memory: the derived key (never the password) is kept in sessionStorage
+    var v = sess.get("ai_unlock_" + g.id);
+    if (!v || !hasCrypto()) return Promise.resolve(false);
+    var parts = v.split("|");
+    if (parts[0] !== g.enc.salt) return Promise.resolve(false);
+    return crypto.subtle.importKey("raw", b64d(parts[1]), { name: "AES-GCM" }, true, ["encrypt", "decrypt"])
+      .then(function (k) { return applyUnlock(g, k); }).then(function () { return true; }, function () { return false; });
+  }
+  function cacheGet(g) { return g.locked ? (g._cache || null) : store.get("ai_group_" + CACHE_VER + "_" + g.id); }
+  function cacheSet(g, data) {
+    if (!g.locked) return store.set("ai_group_" + CACHE_VER + "_" + g.id, data);
+    g._cache = data;
+    if (g._key) encJSON(g._key, data).then(function (e) { store.set(encCacheKey(g), { salt: g.enc.salt, iv: e.iv, ct: e.ct }); }).catch(function () {});
+  }
+
   /* ---------------- Rate-limited request queue (per host) ---------------- */
   var hosts = {};
-  var HOST_GAP = { "worldchain-mainnet.explorer.alchemy.com": 120, "api.dexscreener.com": 300, "coins.llama.fi": 250 };
+  var HOST_GAP = { "worldchain-mainnet.explorer.alchemy.com": 120, "api.dexscreener.com": 300, "coins.llama.fi": 250, "api.relay.link": 1200 };
   function sleep(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
   function getJSON(url) {
     var host = new URL(url).host;
@@ -200,7 +250,7 @@
             if (!px) return;
             if (!res[a] || liq > res[a].liq) res[a] = { price: px, liq: liq, url: pr.url, icon: pr.info && pr.info.imageUrl, ch24: pr.priceChange && pr.priceChange.h24 };
           });
-        }).catch(function () { /* fall back to other sources */ });
+        }).catch(function () { res._failed = true; /* fall back to cached prices */ });
       });
     }, Promise.resolve()).then(function () { return res; });
   }
@@ -238,24 +288,87 @@
   }
   function histPrice(key, ts) { return key === "stable" ? 1 : histCache[key + "@" + ts]; }
 
-  /* ---------------- Cost basis from swap history ---------------- */
-  /* A "buy" = tx where the wallet SENT a quote token (WLD/WETH/USDC) and RECEIVED exactly one other token.
-     cost(USD) = quote amount x historical USD price of the quote at the tx time (DefiLlama). */
-  function extractBuys(chainId, transfers, groupSet) {
+  /* ---------------- Cost basis from swap history ----------------
+     Each incoming (non-quote) token in a tx is classified:
+       swap   : wallet SENT a quote token (WLD/WETH/USDC) in the same tx -> cost = quote x historical USD price
+       relay  : tx is a Relay.link fill (cross-chain or solver-filled buy) -> cost = USD the wallet paid on the origin chain (Relay API)
+       eth    : wallet (or a solver on its behalf) paid native ETH in the tx -> cost = (tx value - ETH refunded to wallet) x ETH price
+       tswap  : wallet sent another (non-quote) token -> cost = amount sent x that token's avg entry
+       group  : transfer from another wallet of the same group -> inherits the sender's avg entry
+       other  : plain transfer / airdrop -> no cost, shown as "received (transfer)" */
+  function extractBuys(chainId, transfers, groupSet, relay) {
     var C = CHAINS[chainId], byTx = {};
     transfers.forEach(function (t) { (byTx[t.tx] = byTx[t.tx] || []).push(t); });
-    var buys = [];
+    var out = { buys: [], unresolved: [], tswaps: [], groupIns: [] };
     Object.keys(byTx).forEach(function (h) {
-      var list = byTx[h], ins = {}, quoteOut = {}, ts = list[0].ts;
+      var list = byTx[h], ins = {}, insFrom = {}, quoteOut = {}, tokOut = {}, ts = list[0].ts;
       list.forEach(function (t) {
         var q = C.quotes[t.token] || (STABLE_SYMS[String(t.symbol).toUpperCase()] ? { sym: t.symbol, key: "stable" } : null);
-        if (q && t.dir === "out") quoteOut[q.key] = (quoteOut[q.key] || 0) + t.amount;
-        else if (!q && t.dir === "in" && !groupSet[t.counterparty]) ins[t.token] = (ins[t.token] || 0) + t.amount;
+        if (t.dir === "out") {
+          if (groupSet[t.counterparty]) return;
+          if (q) quoteOut[q.key] = (quoteOut[q.key] || 0) + t.amount; else tokOut[t.token] = (tokOut[t.token] || 0) + t.amount;
+        } else if (!q) {
+          ins[t.token] = (ins[t.token] || 0) + t.amount; insFrom[t.token] = t.counterparty;
+        }
       });
-      var tk = Object.keys(ins), qk = Object.keys(quoteOut);
-      if (tk.length === 1 && qk.length >= 1) buys.push({ tx: h, ts: ts, token: tk[0], amount: ins[tk[0]], quotes: quoteOut });
+      var tk = Object.keys(ins).filter(function (k) { return !tokOut[k]; }), qk = Object.keys(quoteOut), ok = Object.keys(tokOut);
+      if (tk.length !== 1) return;
+      var tok = tk[0], amt = ins[tok], rl = relay && relay[lc(h)];
+      if (qk.length) out.buys.push({ tx: h, ts: ts, token: tok, amount: amt, quotes: quoteOut, via: "swap" });
+      else if (rl && rl.usd > 0) out.buys.push({ tx: h, ts: ts, token: tok, amount: amt, usd: rl.usd, via: "relay", note: rl.note });
+      else if (ok.length === 1) out.tswaps.push({ tx: h, ts: ts, token: tok, amount: amt, payToken: ok[0], payAmount: tokOut[ok[0]] });
+      else if (groupSet[insFrom[tok]]) out.groupIns.push({ tx: h, ts: ts, token: tok, amount: amt, from: insFrom[tok] });
+      else out.unresolved.push({ tx: h, ts: ts, token: tok, amount: amt, from: insFrom[tok] });
     });
-    return buys;
+    return out;
+  }
+
+  /* Relay.link public requests API (CORS *, no key) -> map destination tx hash -> USD paid on origin chain */
+  function fetchRelay(addr, chainIds, oldestTs, persist) {
+    var ck = "ai_relay_" + CACHE_VER + "_" + lc(addr) + "_" + chainIds.join("-");
+    var cached = (persist !== false && store.get(ck)) || { map: {}, ids: {} }, map = cached.map, ids = cached.ids, pages = 0;
+    function next(cont) {
+      var url = "https://api.relay.link/requests/v2?user=" + addr + "&limit=50" + (cont ? "&continuation=" + encodeURIComponent(cont) : "");
+      return getJSON(url).then(function (d) {
+        var seenOld = false;
+        (d.requests || []).forEach(function (r) {
+          if (ids[r.id] && r.status === "success") seenOld = true;
+          if (r.status !== "success" || lc(r.recipient) !== lc(addr)) return;
+          ids[r.id] = 1;
+          var m = (r.data && r.data.metadata) || {}, ci = m.currencyIn || {}, co = m.currencyOut || {};
+          var outChain = co.currency && co.currency.chainId;
+          if (chainIds.indexOf(outChain) < 0) return;
+          ((r.data && r.data.outTxs) || []).forEach(function (t) {
+            if (t.hash && t.chainId === outChain) map[lc(t.hash)] = { usd: Number(ci.amountUsd) || 0, note: (ci.amountFormatted ? Number(ci.amountFormatted).toPrecision(4) + " " : "") + ((ci.currency && ci.currency.symbol) || "") + " on chain " + ((ci.currency && ci.currency.chainId) || "?") };
+          });
+        });
+        pages++;
+        var reqs = d.requests || [], last = reqs.length ? Date.parse(reqs[reqs.length - 1].createdAt) / 1000 : 0;
+        var pastOldest = oldestTs && last && last < oldestTs - 3600;
+        if (d.continuation && pages < 8 && !seenOld && !pastOldest) return next(d.continuation);
+      });
+    }
+    return next(null).then(function () { if (persist !== false) store.set(ck, { map: map, ids: ids }); return map; },
+      function () { return Object.keys(map).length ? map : null; });
+  }
+
+  /* On-chain fallback for buys with no token payment: native ETH paid in the tx (by the wallet or a solver for it) */
+  function resolveNative(chainId, addr, items) {
+    var C = CHAINS[chainId], res = [], lim = items.slice(0, 15);
+    return lim.reduce(function (p, u) {
+      return p.then(function () {
+        return getJSON(C.api + "/transactions/" + u.tx).then(function (tx) {
+          var val = units(tx.value || "0", 18);
+          if (!(val > 0)) return;
+          return getJSON(C.api + "/transactions/" + u.tx + "/internal-transactions").then(function (it) {
+            var refund = 0;
+            ((it && it.items) || []).forEach(function (x) { if (lc(x.to && x.to.hash) === lc(addr)) refund += units(x.value || "0", 18); });
+            var paid = val - refund;
+            if (paid > 0) { var q = {}; q[C.nativeKey] = paid; res.push({ tx: u.tx, ts: u.ts, token: u.token, amount: u.amount, quotes: q, via: "eth" }); u.resolved = true; }
+          });
+        }).catch(function () {});
+      });
+    }, Promise.resolve()).then(function () { return res; });
   }
 
   /* ---------------- Group refresh pipeline ---------------- */
@@ -266,7 +379,7 @@
   function refreshGroup(g, ui) {
     var wallets = normWallets(g), chains = (g.chains && g.chains.length ? g.chains : ["worldchain"]).filter(function (c) { return CHAINS[c]; });
     var groupSet = {}; wallets.forEach(function (w) { groupSet[lc(w.address)] = 1; });
-    var prev = store.get("ai_group_" + CACHE_VER + "_" + g.id);
+    var prev = cacheGet(g);
     var raw = {}; // addr -> {chains:{}, error}
     var total = wallets.length * chains.length, done = 0;
 
@@ -285,6 +398,7 @@
     });
 
     var prices = {}, nativePx = {};
+    var chainIds = chains.map(function (c) { return CHAINS[c].chainId; });
     return seq.then(function () {
       ui.progress("Fetching prices…");
       var p = Promise.resolve();
@@ -300,25 +414,76 @@
       return fetchLlamaCurrent(Object.keys(keys)).then(function (r) { nativePx = r; });
     }).then(function () {
       ui.progress("Estimating entry prices…");
-      var reqs = [];
+      var p = Promise.resolve();
       Object.keys(raw).forEach(function (a) {
         Object.keys(raw[a].chains).forEach(function (c) {
-          var r = raw[a].chains[c];
-          r.buys = extractBuys(c, r.transfers, groupSet);
-          r.buys.forEach(function (b) { Object.keys(b.quotes).forEach(function (k) { reqs.push({ key: k, ts: b.ts }); }); });
+          var r = raw[a].chains[c], x = extractBuys(c, r.transfers, groupSet, null);
+          r.buys = x.buys; r.tswaps = x.tswaps; r.groupIns = x.groupIns; r.unresolved = x.unresolved;
+          if (!x.unresolved.length) return;
+          // unpaid incoming tokens: ask Relay (cross-chain / solver fills), then fall back to native-ETH detection on-chain
+          p = p.then(function () {
+            ui.progress("Checking cross-chain (Relay) buys · " + shortAddr(a));
+            var oldest = Math.min.apply(null, x.unresolved.map(function (u) { return u.ts; }));
+            return fetchRelay(a, chainIds, oldest, !g.locked).then(function (m) {
+              raw[a].relay = m;
+              var left = [];
+              x.unresolved.forEach(function (u) {
+                var rl = m && m[lc(u.tx)];
+                if (rl && rl.usd > 0) { r.buys.push({ tx: u.tx, ts: u.ts, token: u.token, amount: u.amount, usd: rl.usd, via: "relay" }); u.resolved = true; }
+                else left.push(u);
+              });
+              return resolveNative(c, a, left).then(function (nb) { r.buys = r.buys.concat(nb); });
+            });
+          });
         });
       });
-      return fetchHistorical(reqs);
+      return p.then(function () {
+        var reqs = [];
+        Object.keys(raw).forEach(function (a) { Object.keys(raw[a].chains).forEach(function (c) {
+          raw[a].chains[c].buys.forEach(function (b) { if (b.quotes) Object.keys(b.quotes).forEach(function (k) { reqs.push({ key: k, ts: b.ts }); }); });
+        }); });
+        return fetchHistorical(reqs);
+      });
     }).then(function () {
       var result = compute(g, wallets, chains, raw, prices, nativePx, prev);
-      store.set("ai_group_" + CACHE_VER + "_" + g.id, result);
+      cacheSet(g, result);
       return result;
     });
   }
 
   function compute(g, wallets, chains, raw, prices, nativePx, prev) {
-    var prevWallets = {};
+    // phase 1: direct buys -> basis[wallet][chain][token]
+    var BASIS = {};
+    wallets.forEach(function (w) {
+      var R = raw[lc(w.address)]; BASIS[lc(w.address)] = {};
+      Object.keys(R.chains).forEach(function (c) {
+        var basis = BASIS[lc(w.address)][c] = {};
+        (R.chains[c].buys || []).forEach(function (b) {
+          var usd = 0, ok = true;
+          if (b.usd != null) usd = b.usd;
+          else Object.keys(b.quotes).forEach(function (k) { var hp = histPrice(k, b.ts); if (hp == null) ok = false; else usd += b.quotes[k] * hp; });
+          var x = basis[b.token] || (basis[b.token] = { cost: 0, amt: 0, n: 0, missing: 0, via: {} });
+          if (ok) { x.cost += usd; x.amt += b.amount; x.n++; x.via[b.via] = 1; } else x.missing++;
+        });
+      });
+    });
+    // phase 2: token->token swaps (cost = paid token x its avg) and transfers from group wallets (inherit sender avg)
+    function avgOf(a, c, t) { var b = BASIS[a] && BASIS[a][c] && BASIS[a][c][t]; return b && b.amt > 0 ? b.cost / b.amt : null; }
+    var extra = [];
+    wallets.forEach(function (w) {
+      var a = lc(w.address), R = raw[a];
+      Object.keys(R.chains).forEach(function (c) {
+        (R.chains[c].tswaps || []).forEach(function (s) { var av = avgOf(a, c, s.payToken); if (av != null) extra.push([a, c, s.token, s.payAmount * av, s.amount, "tswap"]); });
+        (R.chains[c].groupIns || []).forEach(function (s) { var av = avgOf(s.from, c, s.token); if (av != null) extra.push([a, c, s.token, s.amount * av, s.amount, "group"]); });
+      });
+    });
+    extra.forEach(function (e) {
+      var bc = BASIS[e[0]][e[1]], x = bc[e[2]] || (bc[e[2]] = { cost: 0, amt: 0, n: 0, missing: 0, via: {} });
+      x.cost += e[3]; x.amt += e[4]; x.n++; x.via[e[5]] = 1;
+    });
+    var prevWallets = {}, prevPx = {}, priceFail = chains.some(function (c) { return prices[c] && prices[c]._failed; }), usedStale = 0;
     if (prev && prev.wallets) prev.wallets.forEach(function (w) { prevWallets[lc(w.address)] = w; });
+    if (prev && prev.coins) prev.coins.forEach(function (c) { prevPx[c.chain + ":" + c.token] = c; });
     var outWallets = [];
     wallets.forEach(function (w) {
       var R = raw[lc(w.address)], hold = [], stale = false;
@@ -334,13 +499,8 @@
         if (r.truncated) truncated = true;
         if (r.balances.length || r.transfers.length || r.native > 0) active.push(c);
         // cost basis per token
-        var basis = {};
-        r.buys.forEach(function (b) {
-          var usd = 0, ok = true;
-          Object.keys(b.quotes).forEach(function (k) { var hp = histPrice(k, b.ts); if (hp == null) ok = false; else usd += b.quotes[k] * hp; });
-          var x = basis[b.token] || (basis[b.token] = { cost: 0, amt: 0, n: 0, missing: 0 });
-          if (ok) { x.cost += usd; x.amt += b.amount; x.n++; } else x.missing++;
-        });
+        var basis = (BASIS[lc(w.address)] || {})[c] || {}, acqOther = {};
+        (r.unresolved || []).forEach(function (u) { if (!u.resolved) acqOther[u.token] = 1; });
         // native coin
         var npx = nativePx[lc(C.nativeKey)];
         if (r.native > 0 && npx && r.native * npx >= MIN_VALUE_USD) {
@@ -350,6 +510,7 @@
           var dp = prices[c] && prices[c][b.token];
           var price = null, liq = null, src = "";
           if (dp && dp.liq >= MIN_LIQ_USD) { price = dp.price; liq = dp.liq; src = "dex"; }
+          else if (!dp && priceFail && prevPx[c + ":" + b.token]) { var pp = prevPx[c + ":" + b.token]; price = pp.price; src = "cached"; usedStale++; dp = { price: pp.price, liq: MIN_LIQ_USD, icon: pp.icon, url: pp.url }; }
           else if (b.bsRate && (!dp)) { price = b.bsRate; src = "explorer"; }
           if (!price) return;
           var value = b.amount * price;
@@ -358,7 +519,7 @@
           hold.push({
             chain: c, token: b.token, symbol: b.symbol, name: b.name, amount: b.amount, price: price, value: value, liq: liq, src: src,
             icon: safeImg((dp && dp.icon) || b.icon), url: dp && dp.url ? dp.url : "", ch24: dp ? dp.ch24 : null,
-            boughtAmt: bs ? bs.amt : 0, cost: bs ? bs.cost : 0, buys: bs ? bs.n : 0, avg: avg,
+            boughtAmt: bs ? bs.amt : 0, cost: bs ? bs.cost : 0, buys: bs ? bs.n : 0, avg: avg, via: bs ? Object.keys(bs.via || {}) : [], acq: avg == null && acqOther[b.token] ? "transfer" : "",
             pnl: avg != null ? (price - avg) * b.amount : null, pnlPct: avg ? (price / avg - 1) * 100 : null
           });
         });
@@ -377,6 +538,7 @@
         var k = h.chain + ":" + h.token;
         var a = agg[k] || (agg[k] = { chain: h.chain, token: h.token, symbol: h.symbol, name: h.name, icon: h.icon, url: h.url, price: h.price, amount: 0, value: 0, cost: 0, boughtAmt: 0, pnl: 0, pnlKnown: false, costHeld: 0, holders: 0, ch24: h.ch24 });
         a.amount += h.amount; a.value += h.value; a.holders++;
+        if (h.acq) a.acq = h.acq;
         if (h.avg != null) { a.cost += h.cost; a.boughtAmt += h.boughtAmt; a.pnl += h.pnl; a.pnlKnown = true; a.costHeld += h.avg * h.amount; }
       });
     });
@@ -385,7 +547,9 @@
     outWallets.forEach(function (w) { w.groupPct = gt ? w.total / gt * 100 : 0; });
     var pnlSum = 0, costHeldSum = 0;
     coins.forEach(function (c) { if (c.pnl != null) { pnlSum += c.pnl; costHeldSum += c.costHeld; } });
-    return { ts: Date.now(), total: gt, coins: coins, wallets: outWallets, pnl: costHeldSum ? pnlSum : null, pnlPct: costHeldSum ? pnlSum / costHeldSum * 100 : null, chains: chains };
+    var res = { ts: Date.now(), total: gt, coins: coins, wallets: outWallets, pnl: costHeldSum ? pnlSum : null, pnlPct: costHeldSum ? pnlSum / costHeldSum * 100 : null, chains: chains };
+    if (priceFail) res.warn = usedStale ? "DexScreener is rate-limiting right now: " + usedStale + " coin prices are from the last successful update." : "DexScreener did not answer: coins without an explorer price are missing. Press UPDATE again in a minute.";
+    return res;
   }
 
   /* ---------------- Rendering ---------------- */
@@ -415,6 +579,7 @@
   }
 
   function avgCell(h) {
+    if (h.avg == null && h.acq === "transfer") return '<span class="muted" title="Received by plain transfer from a wallet outside the group (no purchase found)">received<br>(transfer)</span>';
     if (h.avg == null) return '<span class="muted" title="No swap buys found for this coin (received by transfer, or bought before the scanned history)">n/a</span>';
     return fmtPrice(h.avg);
   }
@@ -458,7 +623,7 @@
       var chainTags = (w.chains || []).map(function (c) { return '<span class="tag ch">' + esc(CHAINS[c] ? CHAINS[c].short : c) + "</span>"; }).join("");
       var hrows = w.holdings.map(function (h) {
         return "<tr><td class='c-coin'>" + coinCell(h) + "</td><td class='num'>" + fmtAmt(h.amount) + "</td><td class='num'>" + fmtPrice(h.price) + "</td><td class='num strong'>" + fmtUsd(h.value) + "</td><td class='num'>" + fmtPct(h.pct) + "</td><td class='num'>" + avgCell(h) +
-          (h.buys ? "<div class='sub'>" + h.buys + " buy" + (h.buys > 1 ? "s" : "") + " · " + fmtUsd(h.cost) + "</div>" : "") + "</td><td class='num'>" + pnlHtml(h.pnl, h.pnlPct) + "</td></tr>";
+          (h.buys ? "<div class='sub'>" + h.buys + " buy" + (h.buys > 1 ? "s" : "") + " · " + fmtUsd(h.cost) + (h.via && h.via.length && (h.via.length > 1 || h.via[0] !== "swap") ? " · " + h.via.map(function (v) { return VIA_LABEL[v] || v; }).join("+") : "") + "</div>" : "") + "</td><td class='num'>" + pnlHtml(h.pnl, h.pnlPct) + "</td></tr>";
       }).join("");
       var errLine = w.errors.length ? '<div class="werr">⚠ ' + esc(w.errors.join(" | ")) + (w.stale ? " — showing cached data from " + timeStr(w.staleTs) : "") + "</div>" : "";
       return '<details class="wallet"' + (wi === 0 ? "" : "") + '><summary>' +
@@ -476,12 +641,14 @@
     }).join("");
 
     body.innerHTML =
+      (data.warn ? '<div class="warn">⚠ ' + esc(data.warn) + "</div>" : "") +
       stats +
       '<div class="alloc"><div class="donut-box"><canvas class="donut" width="40" height="40"></canvas><div class="donut-center"><small>TOTAL</small><b>' + fmtUsd(data.total) + '</b></div></div>' +
       '<div class="legend-box"><h4 class="lbl">Holdings % of group</h4><ul class="legend">' + (legend || "<li class='muted'>No holdings</li>") + "</ul></div></div>" +
       '<h4 class="lbl sec">Coins</h4>' + coinTable +
       '<h4 class="lbl sec">Wallets <small>(tap a wallet to see its holdings)</small></h4><div class="wallets">' + walletsHtml + "</div>" +
-      '<p class="foot">* <b>Avg entry</b> and <b>PnL</b> are estimates: weighted average cost of on-chain swap buys (WLD/WETH/USDC paid × historical USD price at the swap time, via DefiLlama). Coins received by transfer, airdrops and sells are not counted as buys; PnL = (current price − avg entry) × amount held. Tokens without a DEX price, with &lt;$' + MIN_LIQ_USD + " liquidity, or worth &lt;$1 are hidden as dust/spam.</p>";
+      '<p class="foot">* <b>Avg entry</b> and <b>PnL</b> are estimates: weighted average cost of on-chain swap buys (WLD/WETH/USDC paid × historical USD price at the swap time, via DefiLlama). Coins received by transfer, airdrops and sells are not counted as buys; PnL = (current price − avg entry) × amount held. Tokens without a DEX price, with &lt;$' + MIN_LIQ_USD + " liquidity, or worth &lt;$1 are hidden as dust/spam." +
+      " Buys paid on another chain via Relay use the USD paid on the origin chain (Relay API); swaps paid in native ETH use the ETH spent; coins sent between wallets of the group inherit the sender's entry.</p>";
     drawDonut(body.querySelector(".donut"), segs);
     // label every cell with its column header (used by the stacked mobile layout)
     Array.prototype.forEach.call(body.querySelectorAll("table.tbl"), function (t) {
@@ -507,14 +674,14 @@
     el.innerHTML =
       '<header class="card-head">' +
       '<div class="mascot"><canvas class="sprite" width="16" height="16" aria-hidden="true"></canvas></div>' +
-      '<div class="title"><h2>' + esc(g.name) + '</h2><div class="sub-head">' + chains + '<span class="tag">' + g.wallets.length + ' wallets</span></div></div>' +
+      '<div class="title"><h2>' + esc(g.name) + '</h2><div class="sub-head">' + chains + '<span class="tag">' + (g.walletCount || g.wallets.length) + ' wallets</span>' + (g.locked ? '<span class="tag lockt">UNLOCKED</span>' : "") + '</div></div>' +
       '<div class="actions"><button class="btn update" type="button">↻ UPDATE</button><div class="updated" aria-live="polite">—</div></div>' +
       "</header>" +
       '<div class="progress" hidden><span class="bar"></span><span class="ptxt"></span></div>' +
       '<div class="card-body"></div>';
     window.PixelSprites.draw(el.querySelector(".sprite"), g.sprite || "inu");
     var btn = el.querySelector(".update"), upd = el.querySelector(".updated"), prog = el.querySelector(".progress"), ptxt = el.querySelector(".ptxt");
-    var cached = store.get("ai_group_" + CACHE_VER + "_" + g.id), busy = false, lastTs = cached ? cached.ts : null;
+    var cached = cacheGet(g), busy = false, lastTs = cached ? cached.ts : null;
     renderCard(g, el, cached);
     function tick() { upd.innerHTML = lastTs ? "Last updated <b>" + timeStr(lastTs) + "</b> · " + ago(lastTs) : "Not loaded yet"; }
     tick(); setInterval(tick, 15000);
@@ -551,27 +718,62 @@
     copyText(b.getAttribute("data-copy")).then(function () { b.textContent = "COPIED"; b.classList.add("done"); setTimeout(function () { b.textContent = "COPY"; b.classList.remove("done"); }, 1400); });
   });
 
+  /* ---------------- Lock prompt ---------------- */
+  function buildLockCard(g, onOk) {
+    var el = document.createElement("section");
+    el.className = "card lockcard"; el.id = "lock-" + g.id;
+    el.innerHTML =
+      '<div class="lock-in">' +
+      '<div class="lock-art"><canvas class="sprite" width="16" height="16" aria-hidden="true"></canvas><canvas class="lock-ic" width="16" height="16" aria-hidden="true"></canvas></div>' +
+      "<h2>" + esc(g.name) + "</h2>" +
+      '<p class="lbl">Private group · enter the password to view it</p>' +
+      '<form class="lock-form" autocomplete="off"><input class="lock-pw" type="password" inputmode="text" autocomplete="current-password" placeholder="PASSWORD" aria-label="Password" required>' +
+      '<button class="btn" type="submit">UNLOCK</button></form>' +
+      '<div class="lock-err" role="alert" aria-live="assertive"></div>' +
+      '<p class="lock-note">The wallet list is encrypted (AES-256-GCM, key derived from the password). Nothing is shown until it is unlocked.</p>' +
+      "</div>";
+    window.PixelSprites.draw(el.querySelector(".sprite"), g.sprite || "inu");
+    window.PixelSprites.draw(el.querySelector(".lock-ic"), "lock");
+    var form = el.querySelector("form"), inp = el.querySelector("input"), err = el.querySelector(".lock-err"), btn = el.querySelector("button");
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      if (!hasCrypto()) { err.textContent = "Your browser blocks WebCrypto here (needs HTTPS)."; return; }
+      var pw = inp.value; if (!pw) return;
+      btn.disabled = true; btn.textContent = "CHECKING…"; err.textContent = "";
+      unlockWithPassword(g, pw).then(function () { inp.value = ""; onOk(); }, function () {
+        err.textContent = "✖ WRONG PASSWORD"; el.classList.remove("shake"); void el.offsetWidth; el.classList.add("shake"); inp.select();
+      }).then(function () { btn.disabled = false; btn.textContent = "UNLOCK"; });
+    });
+    el._focus = function () { setTimeout(function () { try { inp.focus({ preventScroll: true }); } catch (e) {} }, 30); };
+    return el;
+  }
+
   /* ---------------- Home: tiles grid + hash routing (#<group-id>) ---------------- */
   function init() {
     var groups = window.TRACKER_GROUPS || [];
     var tilesEl = document.getElementById("tiles"), viewEl = document.getElementById("groupView"), slot = document.getElementById("groupSlot");
-    var home = document.getElementById("homeView"), cards = {};
+    var home = document.getElementById("homeView"), cards = {}, locks = {};
     document.getElementById("groupCount").textContent = groups.length + (groups.length === 1 ? " group" : " groups");
+    // never keep plaintext caches of locked groups (older versions stored them unencrypted)
+    groups.forEach(function (g) { if (g.locked) ["v1", "v2"].forEach(function (v) { store.del("ai_group_" + v + "_" + g.id); }); });
 
-    function tileStats(t, data) {
+    function tileStats(t, g, data) {
       var el = t.querySelector(".tile-val");
+      if (g.locked && !g._unlocked) { el.innerHTML = '<b class="locked-txt">LOCKED</b><small>Password required</small>'; return; }
       el.innerHTML = data ? "<b>" + fmtUsd(data.total) + "</b><small>" + data.coins.length + " coins · " + timeStr(data.ts) + "</small>" : "<small>Tap to load</small>";
     }
+    function tileOf(g) { return tilesEl.querySelector('.tile[data-id="' + g.id + '"]'); }
     groups.forEach(function (g) {
-      var a = document.createElement("a");
-      a.className = "tile"; a.href = "#" + encodeURIComponent(g.id); a.setAttribute("data-id", g.id);
-      a.innerHTML = '<span class="tile-art"><canvas width="16" height="16" aria-hidden="true"></canvas></span>' +
+      var a = document.createElement("a"), n = g.walletCount || (g.wallets || []).length;
+      a.className = "tile" + (g.locked ? " is-locked" : ""); a.href = "#" + encodeURIComponent(g.id); a.setAttribute("data-id", g.id);
+      a.innerHTML = '<span class="tile-art"><canvas width="16" height="16" aria-hidden="true"></canvas>' + (g.locked ? '<canvas class="tile-lock" width="16" height="16" title="Password protected"></canvas>' : "") + "</span>" +
         '<span class="tile-name">' + esc(g.name) + "</span>" +
-        '<span class="tile-meta"><span class="tag">' + g.wallets.length + (g.wallets.length === 1 ? " wallet" : " wallets") + "</span>" +
+        '<span class="tile-meta"><span class="tag">' + n + (n === 1 ? " wallet" : " wallets") + "</span>" +
         (g.chains || ["worldchain"]).map(function (c) { return '<span class="tag ch">' + esc(CHAINS[c] ? CHAINS[c].short : c) + "</span>"; }).join("") + "</span>" +
-        '<span class="tile-val"></span><span class="tile-go">OPEN ▸</span>';
+        '<span class="tile-val"></span><span class="tile-go">' + (g.locked ? "UNLOCK ▸" : "OPEN ▸") + "</span>";
       window.PixelSprites.draw(a.querySelector("canvas"), g.sprite || "inu");
-      tileStats(a, store.get("ai_group_" + CACHE_VER + "_" + g.id));
+      if (g.locked) window.PixelSprites.draw(a.querySelector(".tile-lock"), "lock");
+      tileStats(a, g, cacheGet(g));
       tilesEl.appendChild(a);
     });
 
@@ -582,22 +784,38 @@
       document.body.classList.toggle("in-group", !!g);
       if (!g) { home.hidden = false; viewEl.hidden = true; document.title = "Agent Inus · Wallet Tracker"; return; }
       home.hidden = true; viewEl.hidden = false; document.title = g.name + " · Agent Inus Wallet Tracker";
+      window.scrollTo(0, 0);
+      if (g.locked && !g._unlocked) {
+        var lk = locks[g.id];
+        if (!lk) {
+          lk = locks[g.id] = buildLockCard(g, function () {
+            lk.remove(); delete locks[g.id];
+            var t = tileOf(g); if (t) { t.classList.add("unlocked"); t.querySelector(".tile-go").textContent = "OPEN ▸"; tileStats(t, g, cacheGet(g)); }
+            show();
+          });
+          slot.appendChild(lk);
+        }
+        lk.hidden = false; lk._focus();
+        return;
+      }
       var c = cards[g.id];
       if (!c) { // build lazily: data is fetched only when a group is opened
         c = cards[g.id] = buildCard(g); slot.appendChild(c);
-        c.addEventListener("groupdata", function (e) { var t = tilesEl.querySelector('.tile[data-id="' + g.id + '"]'); if (t) tileStats(t, e.detail); });
+        c.addEventListener("groupdata", function (e) { var t = tileOf(g); if (t) tileStats(t, g, e.detail); });
         if (c._stale) c._run();
       }
       c.hidden = false;
-      window.scrollTo(0, 0);
     }
     document.getElementById("backBtn").addEventListener("click", function (e) {
       e.preventDefault();
-      if (history.length > 1 && document.referrer !== undefined && window._aiNav) history.back();
+      if (history.length > 1 && window._aiNav) history.back();
       else location.hash = "";
     });
     window.addEventListener("hashchange", function () { window._aiNav = true; show(); });
-    show();
+    // restore session unlocks (no password re-entry within the same browser session), then route
+    Promise.all(groups.filter(function (g) { return g.locked && g.enc; }).map(function (g) {
+      return restoreUnlock(g).then(function (ok) { if (ok) { var t = tileOf(g); if (t) { t.classList.add("unlocked"); t.querySelector(".tile-go").textContent = "OPEN ▸"; tileStats(t, g, cacheGet(g)); } } });
+    })).then(show, show);
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init); else init();
 })();
