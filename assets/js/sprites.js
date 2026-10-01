@@ -66,6 +66,27 @@
         "........"
       ]
     },
+    octopus: {
+      pal: { k: "#1a0a24", p: "#a35ad8", l: "#d39bff", w: "#ffffff", c: "#ff8fc0" },
+      half: [
+        "........",
+        ".....kkk",
+        "...kkppp",
+        "..kppppp",
+        ".kpplppp",
+        ".kplpppp",
+        "kpppkkpp",
+        "kpppkwpp",
+        "kppppppp",
+        "kppcpppk",
+        ".kpppppp",
+        ".kpppppp",
+        "kpkpkpkp",
+        "kpkpkpkp",
+        "k..k..k.",
+        "........"
+      ]
+    },
     panda: {
       pal: { k: "#14141c", w: "#f6f6fb", g: "#c9cddd", p: "#ff9db4", e: "#ffffff", n: "#2a2a38" },
       half: [

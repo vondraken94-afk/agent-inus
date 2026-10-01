@@ -53,6 +53,15 @@ window.TRACKER_GROUPS = [
     wallets: [
       "0x1b30f0a3e7fb54211ab31741a2dc58725157b039"
     ]
+  },
+  {
+    id: "ochouso",
+    name: "OCHOUSO",
+    sprite: "octopus",
+    chains: ["worldchain"],
+    wallets: [
+      "0x917386b684C9306E818Fcb13A681BA6ae46c2787"
+    ]
   }
 
   // , {
