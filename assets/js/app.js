@@ -523,7 +523,7 @@
       if (busy) return; busy = true;
       btn.disabled = true; btn.textContent = "LOADING…"; el.classList.add("loading"); prog.hidden = false; ui.progress("Starting…");
       refreshGroup(g, ui).then(function (data) {
-        lastTs = data.ts; renderCard(g, el, data);
+        lastTs = data.ts; renderCard(g, el, data); try { el.dispatchEvent(new CustomEvent("groupdata", { detail: data })); } catch (e) {}
       }).catch(function (e) {
         upd.innerHTML = '<span class="down">Update failed: ' + esc(e.message || e) + "</span>";
       }).then(function () {
@@ -551,12 +551,53 @@
     copyText(b.getAttribute("data-copy")).then(function () { b.textContent = "COPIED"; b.classList.add("done"); setTimeout(function () { b.textContent = "COPY"; b.classList.remove("done"); }, 1400); });
   });
 
+  /* ---------------- Home: tiles grid + hash routing (#<group-id>) ---------------- */
   function init() {
-    var root = document.getElementById("groups"), groups = window.TRACKER_GROUPS || [];
-    var cards = groups.map(function (g) { var c = buildCard(g); root.appendChild(c); return c; });
+    var groups = window.TRACKER_GROUPS || [];
+    var tilesEl = document.getElementById("tiles"), viewEl = document.getElementById("groupView"), slot = document.getElementById("groupSlot");
+    var home = document.getElementById("homeView"), cards = {};
     document.getElementById("groupCount").textContent = groups.length + (groups.length === 1 ? " group" : " groups");
-    // auto-load groups that have no (or old) cached data, one after another
-    cards.filter(function (c) { return c._stale; }).reduce(function (p, c) { return p.then(function () { return new Promise(function (res) { c._run(); var iv = setInterval(function () { if (!c.classList.contains("loading")) { clearInterval(iv); res(); } }, 300); }); }); }, Promise.resolve());
+
+    function tileStats(t, data) {
+      var el = t.querySelector(".tile-val");
+      el.innerHTML = data ? "<b>" + fmtUsd(data.total) + "</b><small>" + data.coins.length + " coins · " + timeStr(data.ts) + "</small>" : "<small>Tap to load</small>";
+    }
+    groups.forEach(function (g) {
+      var a = document.createElement("a");
+      a.className = "tile"; a.href = "#" + encodeURIComponent(g.id); a.setAttribute("data-id", g.id);
+      a.innerHTML = '<span class="tile-art"><canvas width="16" height="16" aria-hidden="true"></canvas></span>' +
+        '<span class="tile-name">' + esc(g.name) + "</span>" +
+        '<span class="tile-meta"><span class="tag">' + g.wallets.length + (g.wallets.length === 1 ? " wallet" : " wallets") + "</span>" +
+        (g.chains || ["worldchain"]).map(function (c) { return '<span class="tag ch">' + esc(CHAINS[c] ? CHAINS[c].short : c) + "</span>"; }).join("") + "</span>" +
+        '<span class="tile-val"></span><span class="tile-go">OPEN ▸</span>';
+      window.PixelSprites.draw(a.querySelector("canvas"), g.sprite || "inu");
+      tileStats(a, store.get("ai_group_" + CACHE_VER + "_" + g.id));
+      tilesEl.appendChild(a);
+    });
+
+    function show() {
+      var id = decodeURIComponent((location.hash || "").replace(/^#\/?/, ""));
+      var g = groups.filter(function (x) { return x.id === id; })[0];
+      Array.prototype.forEach.call(slot.children, function (c) { c.hidden = true; });
+      document.body.classList.toggle("in-group", !!g);
+      if (!g) { home.hidden = false; viewEl.hidden = true; document.title = "Agent Inus · Wallet Tracker"; return; }
+      home.hidden = true; viewEl.hidden = false; document.title = g.name + " · Agent Inus Wallet Tracker";
+      var c = cards[g.id];
+      if (!c) { // build lazily: data is fetched only when a group is opened
+        c = cards[g.id] = buildCard(g); slot.appendChild(c);
+        c.addEventListener("groupdata", function (e) { var t = tilesEl.querySelector('.tile[data-id="' + g.id + '"]'); if (t) tileStats(t, e.detail); });
+        if (c._stale) c._run();
+      }
+      c.hidden = false;
+      window.scrollTo(0, 0);
+    }
+    document.getElementById("backBtn").addEventListener("click", function (e) {
+      e.preventDefault();
+      if (history.length > 1 && document.referrer !== undefined && window._aiNav) history.back();
+      else location.hash = "";
+    });
+    window.addEventListener("hashchange", function () { window._aiNav = true; show(); });
+    show();
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init); else init();
 })();

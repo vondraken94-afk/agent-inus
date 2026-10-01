@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Silkscreen:wght@400;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=a3">
+  <link rel="stylesheet" href="assets/css/style.css?v=a4">
 </head>
 <body>
   <header class="top">
@@ -21,10 +21,18 @@
   <main class="wrap">
     <section class="hero">
       <h1>WALLET TRACKER</h1>
-      <p>What each wallet group is holding, how much of each coin, and its estimated average entry price. Data is fetched live in your browser from public explorers. Press <b>UPDATE</b> on a card to refresh it.</p>
+      <p>Pick a group to see what its wallets are holding, how much of each coin, and the estimated average entry price. Data is fetched live in your browser from public explorers.</p>
     </section>
 
-    <div id="groups" class="groups"></div>
+    <div id="homeView">
+      <h2 class="lbl sec">Groups</h2>
+      <nav id="tiles" class="tiles" aria-label="Wallet groups"></nav>
+    </div>
+
+    <div id="groupView" hidden>
+      <a id="backBtn" class="btn back" href="#">◂ ALL GROUPS</a>
+      <div id="groupSlot" class="groups"></div>
+    </div>
 
     <section class="about">
       <h3 class="lbl">Data sources</h3>
@@ -39,9 +47,9 @@
 
   <footer class="foot-bar"><div class="wrap">© Agent Inus · agentinus.xyz</div></footer>
 
-  <script src="assets/js/sprites.js?v=a3"></script>
-  <script src="assets/js/groups.js?v=a3"></script>
-  <script src="assets/js/app.js?v=a3"></script>
+  <script src="assets/js/sprites.js?v=a4"></script>
+  <script src="assets/js/groups.js?v=a4"></script>
+  <script src="assets/js/app.js?v=a4"></script>
   <script>PixelSprites.draw(document.getElementById("logoSprite"), "inu");</script>
 </body>
 </html>

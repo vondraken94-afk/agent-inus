@@ -2,6 +2,27 @@
    '.' = transparent; other chars map to the sprite's palette. */
 (function () {
   var S = {
+    panda: {
+      pal: { k: "#14141c", w: "#f6f6fb", g: "#c9cddd", p: "#ff9db4", e: "#ffffff", n: "#2a2a38" },
+      half: [
+        ".kk.....",
+        "kkkk....",
+        "kkkkkkkk",
+        "kkkwwwww",
+        ".kwwwwww",
+        "kwwwwwww",
+        "kwkkkwww",
+        "kwkkekww",
+        "kwkkkkww",
+        "kwwkkwww",
+        "kppwwwwk",
+        "kwwwwkww",
+        ".kgwwwkk",
+        "..kkkkkk",
+        ".kkkwwww",
+        ".kkkkkkk"
+      ]
+    },
     dragon: {
       pal: { k: "#2a0a0a", r: "#d8322f", d: "#8f1d1d", y: "#ffd23f", c: "#ffe2a8", w: "#ffffff", b: "#1a0505" },
       half: [
