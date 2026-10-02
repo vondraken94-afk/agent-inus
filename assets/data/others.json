@@ -1,14 +1,8 @@
 {
  "v": 1,
  "chain": "worldchain",
- "updated": "2026-10-02T17:24:22.025Z",
+ "updated": "2026-10-02T21:28:59.774Z",
  "tokens": [
-  {
-   "address": "0x17a4e299d3b1615bab6d309ef1b99fb533fd10da",
-   "symbol": "OPENSI",
-   "name": "OpenSI",
-   "icon": ""
-  },
   {
    "address": "0x22b7f43d445735ad931012e868e7db42ba2922a0",
    "symbol": "JALAPEÑO",
@@ -82,18 +76,6 @@
    "icon": ""
   },
   {
-   "address": "0x948192ed46c7d3aef616454524f775aa9f1c66e2",
-   "symbol": "SCAM",
-   "name": "Scam Altman",
-   "icon": ""
-  },
-  {
-   "address": "0x995eda6756f77141bba535cee68011369d3d71c1",
-   "symbol": "LLM",
-   "name": "Large Language Model",
-   "icon": ""
-  },
-  {
    "address": "0x9ab5007f6460d5fe1d8ad10db063d95a84c0bf7c",
    "symbol": "BLOOP",
    "name": "BLOOP",
@@ -136,18 +118,6 @@
    "icon": ""
   },
   {
-   "address": "0xc12ea0d7b963d2125e3cb6114573d4c297c17e70",
-   "symbol": "SAMA",
-   "name": "Sama",
-   "icon": ""
-  },
-  {
-   "address": "0xc1b24f57162e9fc66bba99d0a6079f05da53627a",
-   "symbol": "RIPSAM",
-   "name": "RIP SAM ALTMAN",
-   "icon": ""
-  },
-  {
    "address": "0xc43eb734180b873ac4d311086ef5816ac84af5d1",
    "symbol": "AWLD",
    "name": "anti-worldcoin",
@@ -176,24 +146,6 @@
    "symbol": "ORO",
    "name": "ORO",
    "icon": "https://cdn.dexscreener.com/cms/images/90bdc660b15f747a9291399e454528674815dd48a0d21a38ae5489193dfa22df?width=800&height=800&quality=95&format=auto"
-  },
-  {
-   "address": "0xd1573f1c3538ee59ecf53765abc783767768b4c2",
-   "symbol": "WCAT",
-   "name": "World Cat",
-   "icon": ""
-  },
-  {
-   "address": "0xdc529c7a7c00789854ae027555385f2154655b6d",
-   "symbol": "WCAT",
-   "name": "WCAT",
-   "icon": ""
-  },
-  {
-   "address": "0xe3c012830166636b925ae7163cac9d7e1c8618ee",
-   "symbol": "ORB",
-   "name": "Orb",
-   "icon": ""
   },
   {
    "address": "0xe7d9908bf2df63ee93d7186849be791078460f62",
