@@ -25,8 +25,8 @@ window.TRACKER_GROUPS = [
     sprite: "capybara",
     chains: ["worldchain"],
     locked: true,
-    walletCount: 7,
-    enc: {"v":1,"kdf":"PBKDF2-SHA256","iter":250000,"salt":"awiYr0Tc3DwD987nVmQ46Q==","iv":"Mv/8GqMA9L0i5PXL","ct":"dEtWPgk23nqctB3HgMzNw4R2x8SxxC2DcXh5T56PIFUkuJc2528t3w8EMwFqFuPaSm+xeq8FDoe6N8BcRyYgaa3QudRueWOc9/vqMKsAKFhnUnNgJu1/0OLVHDWzLQjOp1y1ac9TSy9sSz0s1RDQMvbgat6hyuXLiLjyVbhyAxAJRmJF2h5EqEktLt0vt5oL+t6kYP4Gii2NEmZsHxk+sRneBauJG84651cIAFGpXt1P8cbXgZTbjnYQOy+miIMd322Xm7/etQ+1qIfefnpIsVyBjsYC/VcBgUXUtiRp6ugBWcOMOMnUyZVMLYUt0HcWd68urz5swCG3K2APIw58FuF3pNnQBnyeAZpsgeCT+ZUPfEhtXN9YY4q0A9UNUph1eRcSDn2WcliAY8q6+KwUYa4B518TxyF3wBL18ukL2/VNiJA6uzhV/6xhWRVAu+jxF7XE13o9nld5m8/LPOP4VpY3oMwTFgybXwD8awY+344="}
+    walletCount: 8,
+    enc: {"v":1,"kdf":"PBKDF2-SHA256","iter":250000,"salt":"72bUif4AX7sUc+Gfch4Kqw==","iv":"g8TuOOKfVNodf9Lu","ct":"u5+HrWP+JLJhD98hCMS2O/o8+ELZyuOZA6+WBbD4/n6z6PQjXLpLNl4Vj++0O7eEiSXcoN5QjcS9cqQKbCfk8KAgHizmZelNyJNiTL6zUUQh0Gr/kLExV2cS5bwk3WvutldzwRqSsfSNjdU8aw/CVScY2gMLHlAwyCuD7q53lkc0JsqZrHma505jPtpWxgyPd7G0HZekK4bK3CNZ2wPDkrYxPZxwYfh8VOtcTYdIWBgMkdpa9ipub+utrOyYi8efSS2XrDh7IjjrschfexYjuhEwhy4M5SDrW5PTopeDEIli44B5Flhsht8bsPFG8Z2VQ3sC0CRgXqx17mKbeIYUlu+nOR5LL12RpIbsAzo19PtJmUqQIXpRghLL0NkHIZ4jJRL0OgsfRFlCcH7nPMvvjRKqsBjPbyDy1vApqzUEdthI3MGXbZiy3PCXDLHkjsvHtsHR8/uDZCgSUjDAUjAphTR5Gd23qb+2hn85mV2iS+d3gy9zoM/FSyv1OdKADPEbiA4CkNjpXklfnoZlCRQaRsr88cT1HCojeG3ppJo="}
   },
   {
     id: "vondraken",
