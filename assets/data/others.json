@@ -1,7 +1,7 @@
 {
  "v": 1,
  "chain": "worldchain",
- "updated": "2026-10-02T22:21:33.135Z",
+ "updated": "2026-10-02T23:25:40.363Z",
  "tokens": [
   {
    "address": "0x22b7f43d445735ad931012e868e7db42ba2922a0",
@@ -25,12 +25,6 @@
    "address": "0x2f598e9049e02df17da54a0ed13516415b2185ef",
    "symbol": "FROCK",
    "name": "Frock",
-   "icon": ""
-  },
-  {
-   "address": "0x3a09f7bcad3d705c794d5762309090e40759767f",
-   "symbol": "TODD",
-   "name": "Todd",
    "icon": ""
   },
   {
