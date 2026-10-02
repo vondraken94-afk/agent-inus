@@ -194,6 +194,7 @@
     if (!m) return "$" + p.toExponential(3);
     return "$0.0<sub>" + m[1].length + "</sub>" + m[2].replace(/0+$/, "");
   }
+  window.AgentInusFmt = { price: fmtPrice }; // shared with the home-page meme ticker
   function fmtAmt(v) {
     if (v == null || !isFinite(v)) return "—";
     var a = Math.abs(v);

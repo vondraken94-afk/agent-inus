@@ -2,29 +2,29 @@
    '.' = transparent; other chars map to the sprite's palette. */
 (function () {
   var S = {
-    /* Worldcoin (WLD) logo: full 16 rows (not mirrored) - black coin, white ring, bar across to the right edge */
-    /* Telegram logo: full 16 rows - #2AABEE circle, white paper plane with grey fold */
-    tg: {
-      pal: { d: "#1a8cc8", b: "#2aabee", w: "#ffffff", g: "#c8daea" },
+    /* FROGE (0x37CE…76D4, World Chain): pixelated from the coin's real DexScreener logo - green frog, big yellow eyes */
+    froge: {
+      pal: { k: "#26341a", g: "#6f8f55", d: "#4f6c3b", l: "#93ad78", y: "#dde8a6", e: "#14140f", w: "#ffffff" },
       full: [
-        "......dddd......",
-        "....ddbbbbdd....",
-        "..ddbbbbbbbbdd..",
-        "..dbbbbbbbbbbd..",
-        ".dbbbbbbbbbbwbd.",
-        ".dbbbbbbbwwwwbd.",
-        "dbbbbbwwwwwwwbbd",
-        "dbbwwwwwwwwwwbbd",
-        "dbbbwwwwgwwwbbbd",
-        "dbbbbbwwggwwbbbd",
-        ".dbbbbbwgbwwbbd.",
-        ".dbbbbbbbbbwbbd.",
-        "..dbbbbbbbbbbd..",
-        "..ddbbbbbbbbdd..",
-        "....ddbbbbdd....",
-        "......dddd......"
+        "..kkk...........",
+        ".kwyyk..kkkk....",
+        ".kyeek.kwyyyk...",
+        "kgkyykkkyyeeyk..",
+        "kggkkgggkyeeykk.",
+        "kgggggggkkkkkggk",
+        "kkgggggggggggggk",
+        "kgdggggggggggggk",
+        "kgggggggggggggdk",
+        ".kkgggggggggggdk",
+        "..kkkkkkkkgggddk",
+        "..kgllllllkkggdk",
+        "..kgldddlllkggdk",
+        "..kgglllddllkgdk",
+        "..kggllllllllgdk",
+        "..kgggllllllggdk"
       ]
     },
+    /* Worldcoin (WLD) logo: full 16 rows (not mirrored) - black coin, white ring, bar across to the right edge */
     wld: {
       pal: { s: "#d9dbe8", k: "#0a0a0f", w: "#ffffff" },
       full: [
