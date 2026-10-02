@@ -174,6 +174,28 @@
         ".kkkkkkk"
       ]
     },
+    /* Shenron: green eastern dragon - antler horns, red/orange eyes, pale whiskers, light jaw */
+    shenron: {
+      pal: { k: "#0b2410", g: "#3fae4a", d: "#25793a", l: "#cfe88f", r: "#e8402a", o: "#ffb020", h: "#d8bf86", w: "#ffffff", n: "#0b2410", s: "#f2e6a0" },
+      half: [
+        "h..h....",
+        "hh.h....",
+        ".hhh....",
+        "..hk.kkk",
+        "..kgdgdg",
+        ".kggggdg",
+        "kdkkgggg",
+        "kgorkggg",
+        "kdrrkggg",
+        "kggggggg",
+        ".kgkllll",
+        "skllnlll",
+        "s.klllll",
+        "s.kwkkkk",
+        "s..kllll",
+        ".s..kkkk"
+      ]
+    },
     dragon: {
       pal: { k: "#2a0a0a", r: "#d8322f", d: "#8f1d1d", y: "#ffd23f", c: "#ffe2a8", w: "#ffffff", b: "#1a0505" },
       half: [

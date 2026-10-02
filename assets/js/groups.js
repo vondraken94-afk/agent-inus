@@ -8,7 +8,7 @@
  *  name    : title shown on the card
  *  sprite  : pixel character for the card. One of:
  *            "inu", "dragon", "panda", "cat", "frog", "goblin", "robot", "ghost",
- *            "hedgehog", "octopus", "horse", "capybara"
+ *            "hedgehog", "octopus", "horse", "capybara", "shenron"
  *  chains  : chains to scan for every wallet in the group. Supported:
  *            "worldchain", "ethereum", "base", "arbitrum", "optimism"
  *            (all served by free public Blockscout explorers - see CHAINS in app.js)
@@ -71,6 +71,15 @@ window.TRACKER_GROUPS = [
     chains: ["worldchain"],
     wallets: [
       "0x3Bb7C151e1376FF4d3608E01432F8BA686e58Eff"
+    ]
+  },
+  {
+    id: "shenron",
+    name: "SHENRON",
+    sprite: "shenron",
+    chains: ["worldchain"],
+    wallets: [
+      "0xeeefff8ce2710fa490e0fcb794235e873c252d2e"
     ]
   }
 
