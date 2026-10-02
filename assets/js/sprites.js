@@ -2,6 +2,28 @@
    '.' = transparent; other chars map to the sprite's palette. */
 (function () {
   var S = {
+    /* Gold coin (home OTHERS box): full 16 rows - rim, embossed inner ring, highlight top-left, shade bottom-right */
+    coin: {
+      pal: { k: "#5a3a06", o: "#e0a91a", y: "#ffd23f", s: "#fff1a8", w: "#ffffff", d: "#b37d0e", e: "#b37d0e" },
+      full: [
+        "......kkkk......",
+        "....kkooookk....",
+        "...kooyyyyook...",
+        "..kowwyyyyyyok..",
+        ".kowyddddddyyok.",
+        ".kowdyyyyyydyok.",
+        "koyydyyssyydyyok",
+        "koyydyyssyydyyok",
+        "koyydyyssyydyyok",
+        "koyydyyssyydyyok",
+        ".koydyyyyyydeek.",
+        ".koyyddddddyeok.",
+        "..koyyyyyyeeek..",
+        "...kooyyyyeok...",
+        "....kkooookk....",
+        "......kkkk......"
+      ]
+    },
     /* FROGE (0x37CE…76D4, World Chain): pixelated from the coin's real DexScreener logo - green frog, big yellow eyes */
     froge: {
       pal: { k: "#26341a", g: "#6f8f55", d: "#4f6c3b", l: "#93ad78", y: "#dde8a6", e: "#14140f", w: "#ffffff" },

@@ -1,0 +1,223 @@
+{
+ "v": 1,
+ "chain": "worldchain",
+ "updated": "2026-10-02T15:11:31.864Z",
+ "tokens": [
+  {
+   "address": "0x17a4e299d3b1615bab6d309ef1b99fb533fd10da",
+   "symbol": "OPENSI",
+   "name": "OpenSI",
+   "icon": ""
+  },
+  {
+   "address": "0x22b7f43d445735ad931012e868e7db42ba2922a0",
+   "symbol": "JALAPEÑO",
+   "name": "JALAPEÑO",
+   "icon": ""
+  },
+  {
+   "address": "0x26e576cc82fb77347b01d155eae1520affa6709f",
+   "symbol": "OZZY",
+   "name": "Lost Cat",
+   "icon": ""
+  },
+  {
+   "address": "0x2b95960c04cb4b5b26a453af1c895728a5fb8bfb",
+   "symbol": "FROGE",
+   "name": "Froge",
+   "icon": ""
+  },
+  {
+   "address": "0x2f598e9049e02df17da54a0ed13516415b2185ef",
+   "symbol": "FROCK",
+   "name": "Frock",
+   "icon": ""
+  },
+  {
+   "address": "0x3a09f7bcad3d705c794d5762309090e40759767f",
+   "symbol": "TODD",
+   "name": "Todd",
+   "icon": ""
+  },
+  {
+   "address": "0x3c0c3d86ef485e52854ec26776fdcff1ecf8dc6c",
+   "symbol": "GPT",
+   "name": "GIANT PAIR OF TITS",
+   "icon": ""
+  },
+  {
+   "address": "0x44d1f942e847eca37e4c58c5772ff077ffb0cb08",
+   "symbol": "VISUALIZE",
+   "name": "VISUALIZE",
+   "icon": ""
+  },
+  {
+   "address": "0x450e9ff4dd42ed93e32177407dd51e44494b1db1",
+   "symbol": "wcat",
+   "name": "world cat",
+   "icon": ""
+  },
+  {
+   "address": "0x4a2e4c8c395050b960002ab2f0f674afea47236e",
+   "symbol": "PICKLE",
+   "name": "Pickle",
+   "icon": ""
+  },
+  {
+   "address": "0x4b9555f7af9a93bb34c8d9ee2e75dcd82a7d5318",
+   "symbol": "DOTTIE",
+   "name": "Dottie",
+   "icon": ""
+  },
+  {
+   "address": "0x4df747da96c5f02ccc0387554af8d930e44843f9",
+   "symbol": "CatGPT",
+   "name": "CatGPT",
+   "icon": ""
+  },
+  {
+   "address": "0x7047b80cb47527e864029d3cfe1899534dc15402",
+   "symbol": "BOWSER",
+   "name": "Bowser",
+   "icon": "https://cdn.dexscreener.com/cms/images/e4ec53da1728a30b5095fd36fe565e1350e1bdef2fab9288a65debf6f781a496?width=800&height=800&quality=95&format=auto"
+  },
+  {
+   "address": "0x7f953531be92aed6c98020b09e5a94c295c1240f",
+   "symbol": "AGI",
+   "name": "artificial gooner intelligence",
+   "icon": ""
+  },
+  {
+   "address": "0x948192ed46c7d3aef616454524f775aa9f1c66e2",
+   "symbol": "SCAM",
+   "name": "Scam Altman",
+   "icon": ""
+  },
+  {
+   "address": "0x995eda6756f77141bba535cee68011369d3d71c1",
+   "symbol": "LLM",
+   "name": "Large Language Model",
+   "icon": ""
+  },
+  {
+   "address": "0x9ab5007f6460d5fe1d8ad10db063d95a84c0bf7c",
+   "symbol": "BLOOP",
+   "name": "BLOOP",
+   "icon": ""
+  },
+  {
+   "address": "0x9cc4aafc217d4b65e7955ed857d3ecd896399aaf",
+   "symbol": "PUGCOIN",
+   "name": "PUGCOIN",
+   "icon": ""
+  },
+  {
+   "address": "0x9e32a2e24d4ca2d0661202ebd993a330d0c8fdcd",
+   "symbol": "GOBLIN",
+   "name": "GoblinCoin",
+   "icon": ""
+  },
+  {
+   "address": "0xa5327aa6b83ee91625226eda80766eefd92e06a2",
+   "symbol": "BROWSER",
+   "name": "OPEN AI DOG",
+   "icon": ""
+  },
+  {
+   "address": "0xb1bfa980fffc15c2c5b9dccfc214ef1e41b4122c",
+   "symbol": "WCat",
+   "name": "World Cat",
+   "icon": "https://cdn.dexscreener.com/cms/images/99102a661790b2460d1159f70122477ab097b2fadf2c886012a40055bd29316b?width=800&height=800&quality=95&format=auto"
+  },
+  {
+   "address": "0xb21c0922973f8af073d4e7e8dc7595d23f018a54",
+   "symbol": "BUFO",
+   "name": "BUFO",
+   "icon": ""
+  },
+  {
+   "address": "0xb2d5e25afd2cbb59b93f89f9bee322761ffb7280",
+   "symbol": "Goblin",
+   "name": "Goblin Coin",
+   "icon": ""
+  },
+  {
+   "address": "0xc12ea0d7b963d2125e3cb6114573d4c297c17e70",
+   "symbol": "SAMA",
+   "name": "Sama",
+   "icon": ""
+  },
+  {
+   "address": "0xc1b24f57162e9fc66bba99d0a6079f05da53627a",
+   "symbol": "RIPSAM",
+   "name": "RIP SAM ALTMAN",
+   "icon": ""
+  },
+  {
+   "address": "0xc43eb734180b873ac4d311086ef5816ac84af5d1",
+   "symbol": "AWLD",
+   "name": "anti-worldcoin",
+   "icon": ""
+  },
+  {
+   "address": "0xc633456eeb767b6b48e1987217bdcc850bc60cc9",
+   "symbol": "BUTTHOLE",
+   "name": "Butthole",
+   "icon": ""
+  },
+  {
+   "address": "0xc7a1af35f25941bbeaf6e66a4888385da330b35f",
+   "symbol": "PUGCOIN",
+   "name": "PUGCOIN",
+   "icon": ""
+  },
+  {
+   "address": "0xc7edd9e1e2101a8901c4f666a17877e88aa39852",
+   "symbol": "ALTCOIN",
+   "name": "Alt-coin",
+   "icon": ""
+  },
+  {
+   "address": "0xcd1e32b86953d79a6ac58e813d2ea7a1790cab63",
+   "symbol": "ORO",
+   "name": "ORO",
+   "icon": "https://cdn.dexscreener.com/cms/images/90bdc660b15f747a9291399e454528674815dd48a0d21a38ae5489193dfa22df?width=800&height=800&quality=95&format=auto"
+  },
+  {
+   "address": "0xd1573f1c3538ee59ecf53765abc783767768b4c2",
+   "symbol": "WCAT",
+   "name": "World Cat",
+   "icon": ""
+  },
+  {
+   "address": "0xdc529c7a7c00789854ae027555385f2154655b6d",
+   "symbol": "WCAT",
+   "name": "WCAT",
+   "icon": ""
+  },
+  {
+   "address": "0xe3c012830166636b925ae7163cac9d7e1c8618ee",
+   "symbol": "ORB",
+   "name": "Orb",
+   "icon": ""
+  },
+  {
+   "address": "0xe7d9908bf2df63ee93d7186849be791078460f62",
+   "symbol": "WorldCoin",
+   "name": "WorldCoin",
+   "icon": ""
+  },
+  {
+   "address": "0xeb13451c37032cccb68ffb5e14431a8032419f39",
+   "symbol": "WLD",
+   "name": "World Laughing Doge",
+   "icon": ""
+  },
+  {
+   "address": "0xf3f92a60e6004f3982f0fde0d43602fc0a30a0db",
+   "symbol": "ORB",
+   "name": "Orb",
+   "icon": "https://cdn.dexscreener.com/cms/images/6b364af0717941d3bbab268fd40e6eb424671813008662b76c16921e25bc1d27?width=800&height=800&quality=95&format=auto"
+  }
+ ]
+}

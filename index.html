@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Silkscreen:wght@400;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=b9">
+  <link rel="stylesheet" href="assets/css/style.css?v=c1">
 </head>
 <body>
   <header class="top">
@@ -49,6 +49,14 @@
           <div class="tk-src mm-src">connecting…</div>
         </div>
       </a>
+      <button id="othersBox" class="ticker others" type="button" aria-haspopup="dialog" aria-controls="othersModal">
+        <canvas id="othersSprite" class="tk-logo" width="16" height="16" aria-hidden="true"></canvas>
+        <span class="tk-main">
+          <span class="tk-sym">OTHERS</span>
+          <span class="ot-sub">All memecoins we hold</span>
+          <span class="btn ot-btn" aria-hidden="true">VIEW <span class="arr">▸</span></span>
+        </span>
+      </button>
       </div>
       <h2 class="lbl sec">Groups</h2>
       <nav id="tiles" class="tiles" aria-label="Wallet groups"></nav>
@@ -71,14 +79,46 @@
     </section>
   </main>
 
+  <div id="othersModal" class="modal" hidden>
+    <div class="modal-bg" data-close></div>
+    <div class="modal-win" role="dialog" aria-modal="true" aria-labelledby="othersTitle">
+      <div class="modal-head">
+        <canvas id="othersSprite2" class="modal-ic" width="16" height="16" aria-hidden="true"></canvas>
+        <div class="modal-ttl">
+          <h2 id="othersTitle">OTHERS</h2>
+          <div class="modal-sub">All memecoins we hold · World Chain · market data only</div>
+        </div>
+        <div class="modal-live"><span class="tk-live"><span class="tk-dot"></span><span id="otLive">LIVE</span></span><span id="otAgo" class="tk-src">loading…</span></div>
+        <button class="modal-x" type="button" data-close aria-label="Close">X</button>
+      </div>
+      <div class="modal-body">
+        <label class="ot-sort">Sort by <select id="otSort">
+          <option value="mcap:desc">Market cap ▼</option><option value="mcap:asc">Market cap ▲</option>
+          <option value="h24:desc">24h change ▼</option><option value="h24:asc">24h change ▲</option>
+          <option value="h1:desc">1h change ▼</option><option value="vol:desc">Volume 24h ▼</option><option value="liq:desc">Liquidity ▼</option>
+          <option value="price:desc">Price ▼</option><option value="sym:asc">Name A–Z</option>
+        </select></label>
+        <div class="tbl-wrap"><table class="tbl otbl">
+          <thead><tr>
+            <th data-k="sym" scope="col">Coin</th><th class="num" data-k="price" scope="col">Price</th><th class="num" data-k="mcap" scope="col">MCap</th>
+            <th class="num" data-k="liq" scope="col">Liquidity</th><th class="num" data-k="vol" scope="col">Vol 24h</th>
+            <th class="num" data-k="m5" scope="col">5m</th><th class="num" data-k="h1" scope="col">1h</th><th class="num" data-k="h6" scope="col">6h</th><th class="num" data-k="h24" scope="col">24h</th>
+          </tr></thead>
+          <tbody id="otBody"><tr><td colspan="9" class="ot-msg">Loading coins…</td></tr></tbody>
+        </table></div>
+        <p class="ot-foot"><span id="otCount">—</span> · Live from DexScreener (best-liquidity pool), refreshes every 20 s. Excludes WLD, ETH, stablecoins and FROGE (own box). Coins without a DEX pool or with &lt;$500 liquidity are hidden. Tap a row to open its chart.</p>
+      </div>
+    </div>
+  </div>
   <footer class="foot-bar"><div class="wrap">© Agent Inus · agentinus.xyz</div></footer>
 
-  <script src="assets/js/sprites.js?v=b9"></script>
-  <script src="assets/js/groups.js?v=b9"></script>
-  <script src="assets/js/vendor/noble-crypto.min.js?v=b9b"></script>
-  <script src="assets/js/app.js?v=b9"></script>
-  <script src="assets/js/ticker.js?v=b9"></script>
-  <script src="assets/js/meme.js?v=b9"></script>
+  <script src="assets/js/sprites.js?v=c1"></script>
+  <script src="assets/js/groups.js?v=c1"></script>
+  <script src="assets/js/vendor/noble-crypto.min.js?v=c1b"></script>
+  <script src="assets/js/app.js?v=c1"></script>
+  <script src="assets/js/ticker.js?v=c1"></script>
+  <script src="assets/js/meme.js?v=c1"></script>
+  <script src="assets/js/others.js?v=c1"></script>
   <script>PixelSprites.draw(document.getElementById("logoSprite"), "inu");</script>
 </body>
 </html>
