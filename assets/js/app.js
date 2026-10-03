@@ -270,10 +270,53 @@
             var liq = (pr.liquidity && pr.liquidity.usd) || 0, px = Number(pr.priceUsd);
             if (!px) return;
             if (!res[a] || liq > res[a].liq) res[a] = { price: px, liq: liq, url: pr.url, icon: pr.info && pr.info.imageUrl, ch24: pr.priceChange && pr.priceChange.h24 };
+            var OCq = window.AgentInusOnchain && window.AgentInusOnchain.QUOTES, pa = lc(pr.pairAddress); // remember the pool for on-chain fallback
+            if (C.dex === "worldchain" && OCq && OCq[lc(pr.quoteToken && pr.quoteToken.address)] && /^0x[0-9a-f]{40}$/.test(pa) && liq >= MIN_LIQ_USD) poolCache[a] = { pools: [pa], at: Date.now() };
           });
         }).catch(function () { res._failed = true; /* fall back to cached prices */ });
       });
     }, Promise.resolve()).then(function () { return res; });
+  }
+
+  /* On-chain fallback (assets/js/onchain.js): DexScreener answers 200 with NO pairs for pools without a trade in ~24h
+     (most launchpad memecoins) and fails under rate limits (Cloudflare 429 without CORS = "network error").
+     Either way the coin used to vanish from the card. For every held World Chain token that DexScreener did not
+     price with >= $500 liquidity, read its pool on-chain (Uniswap V2 reserves / V3 slot0) via public RPC instead.
+     Pool hints: others.json + DexScreener pairs seen earlier, cached per token in localStorage; "no pool" results are re-checked after 6 h. */
+  var POOLS_KEY = "ai_pools_v1", poolCache = store.get(POOLS_KEY) || {}, hintsP = null;
+  function poolHints() { // public pool addresses published in others.json (seed for first-time visitors)
+    return hintsP || (hintsP = fetch("assets/data/others.json?t=" + Date.now()).then(function (r) { return r.ok ? r.json() : {}; }).then(function (d) {
+      ((d && d.tokens) || []).forEach(function (t) {
+        var a = lc(t.address), ps = (t.pools || []).map(lc).filter(function (x) { return /^0x[0-9a-f]{40}$/.test(x); });
+        if (ps.length && !(poolCache[a] && poolCache[a].pools.length)) poolCache[a] = { pools: ps, at: 0 };
+      });
+    }).catch(function () { }));
+  }
+  function onchainFill(chainId, tokens, res, ui) {
+    var OC = window.AgentInusOnchain;
+    if (chainId !== "worldchain" || !OC) return Promise.resolve();
+    return poolHints().then(function () { return onchainFill2(OC, tokens, res, ui); });
+  }
+  function onchainFill2(OC, tokens, res, ui) {
+    var now = Date.now(), need = tokens.filter(function (a) {
+      if (res[a] && res[a].liq >= MIN_LIQ_USD) return false;
+      var pc = poolCache[a]; return !(pc && !pc.pools.length && now - pc.at < 6 * 3600e3);
+    });
+    if (!need.length) return Promise.resolve();
+    if (ui && ui.progress) ui.progress("Reading " + need.length + " pools on-chain…");
+    return OC.lookup(need.map(function (a) { var pc = poolCache[a]; return { address: a, pools: pc && pc.pools.length ? pc.pools : null }; }), {
+      bsJSON: getJSON,
+      fetchJSON: function (url, init) { return fetch(url, init).then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); }); }
+    }).then(function (o) {
+      Object.keys(o.results).forEach(function (a) {
+        var x = o.results[a];
+        if (!x.none || !(poolCache[a] && poolCache[a].pools.length && poolCache[a].at > now - 24 * 3600e3)) poolCache[a] = { pools: x.none ? [] : [x.pool], at: now };
+        if (x.none || !(x.price > 0)) return;
+        if (!res[a] || res[a].liq < x.liq) res[a] = { price: x.price, liq: x.liq, url: "https://dexscreener.com/worldchain/" + x.pool, icon: res[a] && res[a].icon, ch24: null, onchain: true };
+      });
+      res._onchain = Object.keys(o.results).filter(function (a) { return !o.results[a].none; }).length;
+      store.set(POOLS_KEY, poolCache);
+    }).catch(function () { /* keep whatever DexScreener / cache gave us */ });
   }
 
   function fetchLlamaCurrent(keys) {
@@ -426,7 +469,7 @@
       chains.forEach(function (c) {
         var toks = {};
         Object.keys(raw).forEach(function (a) { var r = raw[a].chains[c]; if (r) r.balances.forEach(function (b) { if (b.amount > 0) toks[b.token] = 1; }); });
-        p = p.then(function () { return fetchDexPrices(c, Object.keys(toks)); }).then(function (res) { prices[c] = res; });
+        p = p.then(function () { return fetchDexPrices(c, Object.keys(toks)); }).then(function (res) { prices[c] = res; return onchainFill(c, Object.keys(toks), res, ui); });
       });
       return p;
     }).then(function () {
@@ -530,7 +573,7 @@
         r.balances.forEach(function (b) {
           var dp = prices[c] && prices[c][b.token];
           var price = null, liq = null, src = "";
-          if (dp && dp.liq >= MIN_LIQ_USD) { price = dp.price; liq = dp.liq; src = "dex"; }
+          if (dp && dp.liq >= MIN_LIQ_USD) { price = dp.price; liq = dp.liq; src = dp.onchain ? "onchain" : "dex"; }
           else if (!dp && priceFail && prevPx[c + ":" + b.token]) { var pp = prevPx[c + ":" + b.token]; price = pp.price; src = "cached"; usedStale++; dp = { price: pp.price, liq: MIN_LIQ_USD, icon: pp.icon, url: pp.url }; }
           else if (b.bsRate && (!dp)) { price = b.bsRate; src = "explorer"; }
           if (!price) return;
@@ -569,7 +612,7 @@
     var pnlSum = 0, costHeldSum = 0;
     coins.forEach(function (c) { if (c.pnl != null) { pnlSum += c.pnl; costHeldSum += c.costHeld; } });
     var res = { ts: Date.now(), total: gt, coins: coins, wallets: outWallets, pnl: costHeldSum ? pnlSum : null, pnlPct: costHeldSum ? pnlSum / costHeldSum * 100 : null, chains: chains };
-    if (priceFail) res.warn = usedStale ? "DexScreener is rate-limiting right now: " + usedStale + " coin prices are from the last successful update." : "DexScreener did not answer: coins without an explorer price are missing. Press UPDATE again in a minute.";
+    if (priceFail) res.warn = "DexScreener is rate-limiting right now: prices were read on-chain" + (usedStale ? " (" + usedStale + " from the last successful update)" : "") + "; 24h change may be missing. Press UPDATE in a minute for full data.";
     return res;
   }
 

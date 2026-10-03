@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Silkscreen:wght@400;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=c2">
+  <link rel="stylesheet" href="assets/css/style.css?v=c3">
 </head>
 <body>
   <header class="top">
@@ -72,7 +72,7 @@
       <h3 class="lbl">Data sources</h3>
       <ul>
         <li><b>Balances &amp; transfer history:</b> Blockscout public API (World Chain explorer).</li>
-        <li><b>Current prices &amp; liquidity:</b> DexScreener (best-liquidity pool per token).</li>
+        <li><b>Current prices &amp; liquidity:</b> DexScreener (best-liquidity pool per token); when DexScreener lists no pair or is rate-limited, the pool reserves are read on-chain via the public World Chain RPC.</li>
         <li><b>Historical prices for entry estimates:</b> DefiLlama coins API (price of WLD / ETH at each swap's timestamp).</li>
         <li><b>Cross-chain buys:</b> Relay.link public API (USD paid on the origin chain).</li>
       </ul>
@@ -113,13 +113,14 @@
   </div>
   <footer class="foot-bar"><div class="wrap">© Agent Inus · agentinus.xyz</div></footer>
 
-  <script src="assets/js/sprites.js?v=c2"></script>
-  <script src="assets/js/groups.js?v=c2"></script>
-  <script src="assets/js/vendor/noble-crypto.min.js?v=c2b"></script>
-  <script src="assets/js/app.js?v=c2"></script>
-  <script src="assets/js/ticker.js?v=c2"></script>
-  <script src="assets/js/meme.js?v=c2"></script>
-  <script src="assets/js/others.js?v=c2"></script>
+  <script src="assets/js/sprites.js?v=c3"></script>
+  <script src="assets/js/groups.js?v=c3"></script>
+  <script src="assets/js/vendor/noble-crypto.min.js?v=c3b"></script>
+  <script src="assets/js/onchain.js?v=c3"></script>
+  <script src="assets/js/app.js?v=c3"></script>
+  <script src="assets/js/ticker.js?v=c3"></script>
+  <script src="assets/js/meme.js?v=c3"></script>
+  <script src="assets/js/others.js?v=c3"></script>
   <script>PixelSprites.draw(document.getElementById("logoSprite"), "inu");</script>
 </body>
 </html>

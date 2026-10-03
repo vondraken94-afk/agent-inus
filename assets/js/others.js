@@ -32,7 +32,8 @@
   function addToken(t, rt) {
     var a = lc(t.address); if (!okToken(a, t.symbol)) return false;
     if (tokens[a]) return false;
-    tokens[a] = { address: a, symbol: t.symbol || "?", name: t.name || "", icon: /^https:\/\//.test(t.icon || "") ? t.icon : "", rt: !!rt };
+    tokens[a] = { address: a, symbol: t.symbol || "?", name: t.name || "", icon: /^https:\/\//.test(t.icon || "") ? t.icon : "", rt: !!rt,
+      pools: (t.pools || []).map(lc).filter(function (x) { return /^0x[0-9a-f]{40}$/.test(x); }) };
     return true;
   }
 
@@ -88,11 +89,36 @@
         }).catch(function () { });
       });
     }, Promise.resolve()).then(function () {
+      return onchain(addrs, next, ok > 0);
+    }).then(function (nOc) {
       if (!parts.length) return true;
-      if (!ok) return false;
+      if (!ok && !nOc) return false;
       Object.keys(next).forEach(function (a) { market[a] = next[a]; });
       return true;
     });
+  }
+  /* On-chain fallback (assets/js/onchain.js): DexScreener returns NO pair for pools without a trade in ~24h and fails
+     when rate-limited; such coins used to vanish. Read their pool reserves via public RPC instead (pool hints come
+     from others.json; runtime-found coins are discovered once via Blockscout, "no pool" remembered for the session). */
+  var ocNone = {};
+  function onchain(addrs, next, dsOk) {
+    var OC = window.AgentInusOnchain; if (!OC) return Promise.resolve(0);
+    var need = addrs.filter(function (a) { return !(next[a] && next[a].liq >= MIN_LIQ_USD) && !ocNone[a] && (tokens[a].pools.length || tokens[a].rt); });
+    if (!need.length) return Promise.resolve(0);
+    return OC.lookup(need.map(function (a) { return { address: a, pools: tokens[a].pools.length ? tokens[a].pools : null }; }), {}).then(function (o) {
+      var n = 0;
+      Object.keys(o.results).forEach(function (a) {
+        var x = o.results[a];
+        if (x.none) { if (dsOk) ocNone[a] = 1; return; }
+        if (!(x.price > 0) || (next[a] && next[a].liq >= x.liq)) return;
+        if (!tokens[a].pools.length) tokens[a].pools = [x.pool];
+        var prev = market[a] || {};
+        next[a] = { price: x.price, liq: x.liq, mcap: x.mcap > 0 ? x.mcap : NaN, vol: NaN, m5: NaN, h1: NaN, h6: NaN, h24: NaN, onchain: true,
+          url: "https://dexscreener.com/worldchain/" + x.pool, sym: prev.sym || tokens[a].symbol, name: prev.name || tokens[a].name, icon: prev.icon || "" };
+        n++;
+      });
+      return n;
+    }).catch(function () { return 0; });
   }
 
   /* ---- render ---- */
