@@ -1,7 +1,7 @@
 {
  "v": 1,
  "chain": "worldchain",
- "updated": "2026-10-03T08:25:46.579Z",
+ "updated": "2026-10-03T09:24:02.830Z",
  "tokens": [
   {
    "address": "0x2b95960c04cb4b5b26a453af1c895728a5fb8bfb",
@@ -28,16 +28,16 @@
    "icon": ""
   },
   {
+   "address": "0x63318d2aeda9610da7439aa7538cdb6b75dacf98",
+   "symbol": "WDog",
+   "name": "World Dog",
+   "icon": ""
+  },
+  {
    "address": "0x7047b80cb47527e864029d3cfe1899534dc15402",
    "symbol": "BOWSER",
    "name": "Bowser",
    "icon": "https://cdn.dexscreener.com/cms/images/e4ec53da1728a30b5095fd36fe565e1350e1bdef2fab9288a65debf6f781a496?width=800&height=800&quality=95&format=auto"
-  },
-  {
-   "address": "0x7f953531be92aed6c98020b09e5a94c295c1240f",
-   "symbol": "AGI",
-   "name": "artificial gooner intelligence",
-   "icon": ""
   },
   {
    "address": "0x9ab5007f6460d5fe1d8ad10db063d95a84c0bf7c",
