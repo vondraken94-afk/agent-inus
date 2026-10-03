@@ -1,20 +1,8 @@
 {
  "v": 1,
  "chain": "worldchain",
- "updated": "2026-10-02T23:25:40.363Z",
+ "updated": "2026-10-03T08:25:46.579Z",
  "tokens": [
-  {
-   "address": "0x22b7f43d445735ad931012e868e7db42ba2922a0",
-   "symbol": "JALAPEÑO",
-   "name": "JALAPEÑO",
-   "icon": ""
-  },
-  {
-   "address": "0x26e576cc82fb77347b01d155eae1520affa6709f",
-   "symbol": "OZZY",
-   "name": "Lost Cat",
-   "icon": ""
-  },
   {
    "address": "0x2b95960c04cb4b5b26a453af1c895728a5fb8bfb",
    "symbol": "FROGE",
@@ -25,12 +13,6 @@
    "address": "0x2f598e9049e02df17da54a0ed13516415b2185ef",
    "symbol": "FROCK",
    "name": "Frock",
-   "icon": ""
-  },
-  {
-   "address": "0x3c0c3d86ef485e52854ec26776fdcff1ecf8dc6c",
-   "symbol": "GPT",
-   "name": "GIANT PAIR OF TITS",
    "icon": ""
   },
   {
@@ -76,39 +58,15 @@
    "icon": ""
   },
   {
-   "address": "0xa5327aa6b83ee91625226eda80766eefd92e06a2",
-   "symbol": "BROWSER",
-   "name": "OPEN AI DOG",
-   "icon": ""
-  },
-  {
    "address": "0xb1bfa980fffc15c2c5b9dccfc214ef1e41b4122c",
    "symbol": "WCat",
    "name": "World Cat",
    "icon": "https://cdn.dexscreener.com/cms/images/99102a661790b2460d1159f70122477ab097b2fadf2c886012a40055bd29316b?width=800&height=800&quality=95&format=auto"
   },
   {
-   "address": "0xb21c0922973f8af073d4e7e8dc7595d23f018a54",
-   "symbol": "BUFO",
-   "name": "BUFO",
-   "icon": ""
-  },
-  {
    "address": "0xb2d5e25afd2cbb59b93f89f9bee322761ffb7280",
    "symbol": "Goblin",
    "name": "Goblin Coin",
-   "icon": ""
-  },
-  {
-   "address": "0xc43eb734180b873ac4d311086ef5816ac84af5d1",
-   "symbol": "AWLD",
-   "name": "anti-worldcoin",
-   "icon": ""
-  },
-  {
-   "address": "0xc633456eeb767b6b48e1987217bdcc850bc60cc9",
-   "symbol": "BUTTHOLE",
-   "name": "Butthole",
    "icon": ""
   },
   {
@@ -128,18 +86,6 @@
    "symbol": "ORO",
    "name": "ORO",
    "icon": "https://cdn.dexscreener.com/cms/images/90bdc660b15f747a9291399e454528674815dd48a0d21a38ae5489193dfa22df?width=800&height=800&quality=95&format=auto"
-  },
-  {
-   "address": "0xe7d9908bf2df63ee93d7186849be791078460f62",
-   "symbol": "WorldCoin",
-   "name": "WorldCoin",
-   "icon": ""
-  },
-  {
-   "address": "0xeb13451c37032cccb68ffb5e14431a8032419f39",
-   "symbol": "WLD",
-   "name": "World Laughing Doge",
-   "icon": ""
   },
   {
    "address": "0xf3f92a60e6004f3982f0fde0d43602fc0a30a0db",
