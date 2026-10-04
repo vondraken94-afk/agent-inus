@@ -1,7 +1,7 @@
 {
  "v": 1,
  "chain": "worldchain",
- "updated": "2026-10-04T05:29:11.616Z",
+ "updated": "2026-10-04T06:26:53.366Z",
  "tokens": [
   {
    "address": "0x17a4e299d3b1615bab6d309ef1b99fb533fd10da",
@@ -130,6 +130,15 @@
    ]
   },
   {
+   "address": "0x7f953531be92aed6c98020b09e5a94c295c1240f",
+   "symbol": "AGI",
+   "name": "artificial gooner intelligence",
+   "icon": "",
+   "pools": [
+    "0x1827f3960e04e07915ca846ab3c071a75048df9f"
+   ]
+  },
+  {
    "address": "0x948192ed46c7d3aef616454524f775aa9f1c66e2",
    "symbol": "SCAM",
    "name": "Scam Altman",
@@ -162,7 +171,7 @@
    "name": "BLOOP",
    "icon": "",
    "pools": [
-    "0x9ab5007f6460d5fe1d8ad10db063d95a84c0bf7c"
+    "0xf562620f3d8a08ab191332cbe3880f81dd138905"
    ]
   },
   {
