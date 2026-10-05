@@ -1,7 +1,7 @@
 {
  "v": 1,
  "chain": "worldchain",
- "updated": "2026-10-05T01:21:17.557Z",
+ "updated": "2026-10-05T02:26:27.819Z",
  "tokens": [
   {
    "address": "0x17a4e299d3b1615bab6d309ef1b99fb533fd10da",
@@ -45,7 +45,7 @@
    "name": "Frock",
    "icon": "",
    "pools": [
-    "0x2f598e9049e02df17da54a0ed13516415b2185ef"
+    "0xceb83e884c96ec5c9f89891f6440ef7da00b930e"
    ]
   },
   {
