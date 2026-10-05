@@ -1,7 +1,7 @@
 {
  "v": 1,
  "chain": "worldchain",
- "updated": "2026-10-05T05:20:49.421Z",
+ "updated": "2026-10-05T07:30:00.766Z",
  "tokens": [
   {
    "address": "0x17a4e299d3b1615bab6d309ef1b99fb533fd10da",
@@ -91,6 +91,15 @@
    "icon": "",
    "pools": [
     "0x450e9ff4dd42ed93e32177407dd51e44494b1db1"
+   ]
+  },
+  {
+   "address": "0x4a2e4c8c395050b960002ab2f0f674afea47236e",
+   "symbol": "PICKLE",
+   "name": "Pickle",
+   "icon": "",
+   "pools": [
+    "0x27092125f76dffb0e89062db75d2074ded5527dd"
    ]
   },
   {
