@@ -1,7 +1,7 @@
 {
  "v": 1,
  "chain": "worldchain",
- "updated": "2026-10-05T02:26:27.819Z",
+ "updated": "2026-10-05T03:24:41.815Z",
  "tokens": [
   {
    "address": "0x17a4e299d3b1615bab6d309ef1b99fb533fd10da",
@@ -94,15 +94,6 @@
    ]
   },
   {
-   "address": "0x4a2e4c8c395050b960002ab2f0f674afea47236e",
-   "symbol": "PICKLE",
-   "name": "Pickle",
-   "icon": "",
-   "pools": [
-    "0x27092125f76dffb0e89062db75d2074ded5527dd"
-   ]
-  },
-  {
    "address": "0x4b9555f7af9a93bb34c8d9ee2e75dcd82a7d5318",
    "symbol": "DOTTIE",
    "name": "Dottie",
@@ -118,15 +109,6 @@
    "icon": "",
    "pools": [
     "0x4df747da96c5f02ccc0387554af8d930e44843f9"
-   ]
-  },
-  {
-   "address": "0x5a1d1b804f5673c6aec154bb7b1d243be061b0fd",
-   "symbol": "Test",
-   "name": "Test",
-   "icon": "",
-   "pools": [
-    "0x5a1d1b804f5673c6aec154bb7b1d243be061b0fd"
    ]
   },
   {
@@ -280,15 +262,6 @@
    "icon": "",
    "pools": [
     "0x5a8ef68f6f26e3d453b44f6f5337558d8f985666"
-   ]
-  },
-  {
-   "address": "0xc633456eeb767b6b48e1987217bdcc850bc60cc9",
-   "symbol": "BUTTHOLE",
-   "name": "Butthole",
-   "icon": "",
-   "pools": [
-    "0x2122859f836d6e54bf530ef1306eb2e83c9ba76b"
    ]
   },
   {
