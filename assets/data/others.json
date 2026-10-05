@@ -1,7 +1,7 @@
 {
  "v": 1,
  "chain": "worldchain",
- "updated": "2026-10-04T23:22:02.086Z",
+ "updated": "2026-10-05T01:21:17.557Z",
  "tokens": [
   {
    "address": "0x17a4e299d3b1615bab6d309ef1b99fb533fd10da",
@@ -45,7 +45,7 @@
    "name": "Frock",
    "icon": "",
    "pools": [
-    "0xceb83e884c96ec5c9f89891f6440ef7da00b930e"
+    "0x2f598e9049e02df17da54a0ed13516415b2185ef"
    ]
   },
   {
@@ -94,6 +94,15 @@
    ]
   },
   {
+   "address": "0x4a2e4c8c395050b960002ab2f0f674afea47236e",
+   "symbol": "PICKLE",
+   "name": "Pickle",
+   "icon": "",
+   "pools": [
+    "0x27092125f76dffb0e89062db75d2074ded5527dd"
+   ]
+  },
+  {
    "address": "0x4b9555f7af9a93bb34c8d9ee2e75dcd82a7d5318",
    "symbol": "DOTTIE",
    "name": "Dottie",
@@ -109,6 +118,15 @@
    "icon": "",
    "pools": [
     "0x4df747da96c5f02ccc0387554af8d930e44843f9"
+   ]
+  },
+  {
+   "address": "0x5a1d1b804f5673c6aec154bb7b1d243be061b0fd",
+   "symbol": "Test",
+   "name": "Test",
+   "icon": "",
+   "pools": [
+    "0x5a1d1b804f5673c6aec154bb7b1d243be061b0fd"
    ]
   },
   {
@@ -360,7 +378,7 @@
    "name": "Orb",
    "icon": "https://cdn.dexscreener.com/cms/images/6b364af0717941d3bbab268fd40e6eb424671813008662b76c16921e25bc1d27?width=800&height=800&quality=95&format=auto",
    "pools": [
-    "0xee21af1d049211206b20b957d07794e7d0b140b3"
+    "0x225233d9553632d23aa0c01b629fcd0eb719f108"
    ]
   }
  ]
