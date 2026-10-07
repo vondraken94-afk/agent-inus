@@ -1,7 +1,7 @@
 {
  "v": 1,
  "chain": "worldchain",
- "updated": "2026-10-07T03:25:09.713Z",
+ "updated": "2026-10-07T21:24:58.156Z",
  "tokens": [
   {
    "address": "0x17a4e299d3b1615bab6d309ef1b99fb533fd10da",
@@ -136,6 +136,15 @@
    "icon": "",
    "pools": [
     "0x1827f3960e04e07915ca846ab3c071a75048df9f"
+   ]
+  },
+  {
+   "address": "0x8589f33980a6ac3e869b0ea05c037032e26e58bb",
+   "symbol": "MIGUEL",
+   "name": "MIGUEL",
+   "icon": "",
+   "pools": [
+    "0x528b3cbc49e351e4b33d95095a86de729494c72a"
    ]
   },
   {
@@ -342,7 +351,16 @@
    "name": "Orb",
    "icon": "https://cdn.dexscreener.com/cms/images/6b364af0717941d3bbab268fd40e6eb424671813008662b76c16921e25bc1d27?width=800&height=800&quality=95&format=auto",
    "pools": [
-    "0x225233d9553632d23aa0c01b629fcd0eb719f108"
+    "0xee21af1d049211206b20b957d07794e7d0b140b3"
+   ]
+  },
+  {
+   "address": "0xf516e54a7b49b47d9f0d46e9406d7e843913ee61",
+   "symbol": "HUMANCOIN",
+   "name": "HUMAN",
+   "icon": "",
+   "pools": [
+    "0xd5739ebbf1d49978bedd9a95010b231417a28787"
    ]
   }
  ]
