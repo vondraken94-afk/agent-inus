@@ -1,7 +1,7 @@
 {
  "v": 1,
  "chain": "worldchain",
- "updated": "2026-10-05T21:29:25.352Z",
+ "updated": "2026-10-07T01:24:06.330Z",
  "tokens": [
   {
    "address": "0x17a4e299d3b1615bab6d309ef1b99fb533fd10da",
@@ -117,7 +117,7 @@
    "name": "World Dog",
    "icon": "",
    "pools": [
-    "0x670a12934fbffcf02b3cf45424691eb707940c38"
+    "0x63318d2aeda9610da7439aa7538cdb6b75dacf98"
    ]
   },
   {
@@ -163,6 +163,15 @@
    "icon": "",
    "pools": [
     "0xea8763d3e8d887e6ab89d19328c172777fc42840"
+   ]
+  },
+  {
+   "address": "0x995eda6756f77141bba535cee68011369d3d71c1",
+   "symbol": "LLM",
+   "name": "Large Language Model",
+   "icon": "",
+   "pools": [
+    "0x3b8d18095516563a76e814ae09d4ad627a658791"
    ]
   },
   {
@@ -253,6 +262,15 @@
    "icon": "",
    "pools": [
     "0x5a8ef68f6f26e3d453b44f6f5337558d8f985666"
+   ]
+  },
+  {
+   "address": "0xc633456eeb767b6b48e1987217bdcc850bc60cc9",
+   "symbol": "BUTTHOLE",
+   "name": "Butthole",
+   "icon": "",
+   "pools": [
+    "0x2122859f836d6e54bf530ef1306eb2e83c9ba76b"
    ]
   },
   {
