@@ -1,7 +1,7 @@
 {
  "v": 1,
  "chain": "worldchain",
- "updated": "2026-10-08T07:05:00.943Z",
+ "updated": "2026-10-08T23:09:56.325Z",
  "tokens": [
   {
    "address": "0x17a4e299d3b1615bab6d309ef1b99fb533fd10da",
@@ -130,15 +130,6 @@
    ]
   },
   {
-   "address": "0x7f953531be92aed6c98020b09e5a94c295c1240f",
-   "symbol": "AGI",
-   "name": "artificial gooner intelligence",
-   "icon": "",
-   "pools": [
-    "0x1827f3960e04e07915ca846ab3c071a75048df9f"
-   ]
-  },
-  {
    "address": "0x8589f33980a6ac3e869b0ea05c037032e26e58bb",
    "symbol": "MIGUEL",
    "name": "MIGUEL",
@@ -199,15 +190,6 @@
    "icon": "",
    "pools": [
     "0x4eaf1d158708d6b69154346f9937bfefe7df0f62"
-   ]
-  },
-  {
-   "address": "0xa5327aa6b83ee91625226eda80766eefd92e06a2",
-   "symbol": "BROWSER",
-   "name": "OPEN AI DOG",
-   "icon": "",
-   "pools": [
-    "0x3764bda464e8501e445b4ce78aa9afb11b48cce5"
    ]
   },
   {
@@ -307,15 +289,6 @@
    "icon": "",
    "pools": [
     "0xdc529c7a7c00789854ae027555385f2154655b6d"
-   ]
-  },
-  {
-   "address": "0xe3c012830166636b925ae7163cac9d7e1c8618ee",
-   "symbol": "ORB",
-   "name": "Orb",
-   "icon": "",
-   "pools": [
-    "0x591f086370df3868e7286f2f8aef619ada498410"
    ]
   },
   {
