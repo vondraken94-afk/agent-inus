@@ -68,6 +68,39 @@
         "......ssss......"
       ]
     },
+    /* Blob (GIGAC): amorphous magenta slime mass, lopsided eyes, slack mouth with one tooth, drool ("baba") dripping
+       from the left mouth corner. full 16 rows (asymmetric). `drip` = animated overlay frames [x, y, palChar] drawn
+       on top of `full`; `seq` = frame order, `ms` = frame time (see animate() below). */
+    blob: {
+      pal: { k: "#3b0a2c", p: "#e8459e", l: "#ff9fd2", d: "#a8286d", w: "#ffffff", e: "#1a0612", m: "#2a0418", t: "#ff6f8f", s: "#aef4ff", a: "#ffffff" },
+      full: [
+        "......kkk.......",
+        "....kkllpk..kk..",
+        "...kllppppkkldk.",
+        "..klpppppppppdk.",
+        ".klppwwwpppwwpdk",
+        ".kpppwwepppwepdk",
+        ".kpppwwwpppppppk",
+        "kppppppppppppddk",
+        "kppmmmmmmwmppddk",
+        "kdpmttttttmmpddk",
+        "kdpkmmmmmmkpdddk",
+        "kddpkkkkkkpppdk.",
+        ".kddppppppddddk.",
+        "..kkdddddddkdk..",
+        "....kkkkkkk.kk..",
+        "................"
+      ],
+      drip: [
+        [[4, 10, "s"], [4, 11, "s"]],
+        [[4, 10, "s"], [4, 11, "s"], [4, 12, "s"], [4, 13, "a"], [5, 13, "s"]],
+        [[4, 10, "s"], [4, 11, "s"], [4, 12, "s"], [4, 13, "s"], [4, 14, "a"], [5, 14, "s"], [3, 15, "s"], [4, 15, "s"], [5, 15, "s"]],
+        [[4, 10, "s"], [4, 11, "a"], [4, 15, "s"], [5, 15, "s"]]
+      ],
+      seq: [0, 0, 1, 2, 3, 0],
+      still: 1,
+      ms: 260
+    },
     lock: {
       pal: { k: "#14141c", s: "#c9cddd", y: "#ffd23f", d: "#b38f12" },
       half: [
@@ -373,10 +406,10 @@
     return s.half.map(function (h) { h = (h + "........").slice(0, 8); return h + h.split("").reverse().join(""); });
   }
 
-  /* Draw sprite into a canvas element (16x16 logical px, CSS scales it with image-rendering: pixelated) */
-  function draw(canvas, name) {
+  /* Draw sprite into a canvas element (16x16 logical px, CSS scales it with image-rendering: pixelated).
+     Sprites with `drip` overlay frames are registered for animation (one shared timer for all canvases). */
+  function paint(canvas, name, frame) {
     var s = S[name] || S.inu, r = rows(name);
-    canvas.width = 16; canvas.height = 16;
     var ctx = canvas.getContext("2d");
     ctx.clearRect(0, 0, 16, 16);
     for (var y = 0; y < 16; y++) for (var x = 0; x < 16; x++) {
@@ -385,6 +418,28 @@
       ctx.fillStyle = s.pal[ch];
       ctx.fillRect(x, y, 1, 1);
     }
+    var ov = s.drip && s.drip[frame];
+    if (ov) for (var i = 0; i < ov.length; i++) { ctx.fillStyle = s.pal[ov[i][2]]; ctx.fillRect(ov[i][0], ov[i][1], 1, 1); }
+  }
+
+  var anim = [], timer = null, tick = 0;
+  var reduced = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+  function animate() {
+    tick++;
+    anim = anim.filter(function (a) { return a.c.isConnected && a.c.__px === a.n; });   // drop removed/re-drawn canvases
+    anim.forEach(function (a) { var s = S[a.n]; paint(a.c, a.n, s.seq[tick % s.seq.length]); });
+    if (!anim.length) { clearInterval(timer); timer = null; }
+  }
+
+  function draw(canvas, name) {
+    var s = S[name] || S.inu;
+    canvas.width = 16; canvas.height = 16;
+    canvas.__px = name;
+    if (!s.drip) { paint(canvas, name, -1); return canvas; }
+    if (reduced) { paint(canvas, name, s.still || 0); return canvas; }
+    paint(canvas, name, s.seq[tick % s.seq.length]);
+    if (!anim.some(function (a) { return a.c === canvas; })) anim.push({ c: canvas, n: name });
+    if (!timer) timer = setInterval(animate, s.ms || 250);
     return canvas;
   }
 

@@ -1,7 +1,7 @@
 {
  "v": 1,
  "chain": "worldchain",
- "updated": "2026-10-08T05:20:25.694Z",
+ "updated": "2026-10-08T07:05:00.943Z",
  "tokens": [
   {
    "address": "0x17a4e299d3b1615bab6d309ef1b99fb533fd10da",
@@ -351,7 +351,7 @@
    "name": "Orb",
    "icon": "https://cdn.dexscreener.com/cms/images/6b364af0717941d3bbab268fd40e6eb424671813008662b76c16921e25bc1d27?width=800&height=800&quality=95&format=auto",
    "pools": [
-    "0x225233d9553632d23aa0c01b629fcd0eb719f108"
+    "0xee21af1d049211206b20b957d07794e7d0b140b3"
    ]
   },
   {
