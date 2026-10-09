@@ -1,7 +1,7 @@
 {
  "v": 1,
  "chain": "worldchain",
- "updated": "2026-10-09T22:28:53.586Z",
+ "updated": "2026-10-09T23:26:52.529Z",
  "tokens": [
   {
    "address": "0x17a4e299d3b1615bab6d309ef1b99fb533fd10da",
@@ -117,7 +117,7 @@
    "name": "World Dog",
    "icon": "",
    "pools": [
-    "0x670a12934fbffcf02b3cf45424691eb707940c38"
+    "0x63318d2aeda9610da7439aa7538cdb6b75dacf98"
    ]
   },
   {
