@@ -1,7 +1,7 @@
 {
  "v": 1,
  "chain": "worldchain",
- "updated": "2026-10-09T09:29:23.374Z",
+ "updated": "2026-10-09T12:37:06.087Z",
  "tokens": [
   {
    "address": "0x17a4e299d3b1615bab6d309ef1b99fb533fd10da",
@@ -127,6 +127,15 @@
    "icon": "https://cdn.dexscreener.com/cms/images/e4ec53da1728a30b5095fd36fe565e1350e1bdef2fab9288a65debf6f781a496?width=800&height=800&quality=95&format=auto",
    "pools": [
     "0x400c1293a6e6e98b7bc3b611b4806381a214d68d"
+   ]
+  },
+  {
+   "address": "0x7f953531be92aed6c98020b09e5a94c295c1240f",
+   "symbol": "AGI",
+   "name": "artificial gooner intelligence",
+   "icon": "",
+   "pools": [
+    "0x1827f3960e04e07915ca846ab3c071a75048df9f"
    ]
   },
   {
