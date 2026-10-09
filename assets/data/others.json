@@ -1,7 +1,7 @@
 {
  "v": 1,
  "chain": "worldchain",
- "updated": "2026-10-09T18:33:12.074Z",
+ "updated": "2026-10-09T20:32:54.720Z",
  "tokens": [
   {
    "address": "0x17a4e299d3b1615bab6d309ef1b99fb533fd10da",
@@ -112,6 +112,15 @@
    ]
   },
   {
+   "address": "0x5a1d1b804f5673c6aec154bb7b1d243be061b0fd",
+   "symbol": "Test",
+   "name": "Test",
+   "icon": "",
+   "pools": [
+    "0x5a1d1b804f5673c6aec154bb7b1d243be061b0fd"
+   ]
+  },
+  {
    "address": "0x63318d2aeda9610da7439aa7538cdb6b75dacf98",
    "symbol": "WDog",
    "name": "World Dog",
@@ -127,6 +136,15 @@
    "icon": "https://cdn.dexscreener.com/cms/images/e4ec53da1728a30b5095fd36fe565e1350e1bdef2fab9288a65debf6f781a496?width=800&height=800&quality=95&format=auto",
    "pools": [
     "0x400c1293a6e6e98b7bc3b611b4806381a214d68d"
+   ]
+  },
+  {
+   "address": "0x7f953531be92aed6c98020b09e5a94c295c1240f",
+   "symbol": "AGI",
+   "name": "artificial gooner intelligence",
+   "icon": "",
+   "pools": [
+    "0x1827f3960e04e07915ca846ab3c071a75048df9f"
    ]
   },
   {
@@ -163,15 +181,6 @@
    "icon": "",
    "pools": [
     "0xea8763d3e8d887e6ab89d19328c172777fc42840"
-   ]
-  },
-  {
-   "address": "0x995eda6756f77141bba535cee68011369d3d71c1",
-   "symbol": "LLM",
-   "name": "Large Language Model",
-   "icon": "",
-   "pools": [
-    "0x3b8d18095516563a76e814ae09d4ad627a658791"
    ]
   },
   {
