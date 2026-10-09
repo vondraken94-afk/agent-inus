@@ -1,7 +1,7 @@
 {
  "v": 1,
  "chain": "worldchain",
- "updated": "2026-10-09T06:27:42.893Z",
+ "updated": "2026-10-09T07:29:06.640Z",
  "tokens": [
   {
    "address": "0x17a4e299d3b1615bab6d309ef1b99fb533fd10da",
@@ -253,6 +253,15 @@
    "icon": "",
    "pools": [
     "0x5a8ef68f6f26e3d453b44f6f5337558d8f985666"
+   ]
+  },
+  {
+   "address": "0xc633456eeb767b6b48e1987217bdcc850bc60cc9",
+   "symbol": "BUTTHOLE",
+   "name": "Butthole",
+   "icon": "",
+   "pools": [
+    "0x2122859f836d6e54bf530ef1306eb2e83c9ba76b"
    ]
   },
   {
