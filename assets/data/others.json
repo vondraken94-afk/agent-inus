@@ -1,7 +1,7 @@
 {
  "v": 1,
  "chain": "worldchain",
- "updated": "2026-10-09T14:54:45.748Z",
+ "updated": "2026-10-09T18:33:12.074Z",
  "tokens": [
   {
    "address": "0x17a4e299d3b1615bab6d309ef1b99fb533fd10da",
@@ -163,6 +163,15 @@
    "icon": "",
    "pools": [
     "0xea8763d3e8d887e6ab89d19328c172777fc42840"
+   ]
+  },
+  {
+   "address": "0x995eda6756f77141bba535cee68011369d3d71c1",
+   "symbol": "LLM",
+   "name": "Large Language Model",
+   "icon": "",
+   "pools": [
+    "0x3b8d18095516563a76e814ae09d4ad627a658791"
    ]
   },
   {
