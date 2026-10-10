@@ -1,7 +1,7 @@
 {
  "v": 1,
  "chain": "worldchain",
- "updated": "2026-10-10T14:24:06.101Z",
+ "updated": "2026-10-10T15:19:40.980Z",
  "tokens": [
   {
    "address": "0x17a4e299d3b1615bab6d309ef1b99fb533fd10da",
@@ -45,7 +45,7 @@
    "name": "Frock",
    "icon": "",
    "pools": [
-    "0xceb83e884c96ec5c9f89891f6440ef7da00b930e"
+    "0x2f598e9049e02df17da54a0ed13516415b2185ef"
    ]
   },
   {
@@ -117,7 +117,7 @@
    "name": "World Dog",
    "icon": "",
    "pools": [
-    "0x63318d2aeda9610da7439aa7538cdb6b75dacf98"
+    "0x670a12934fbffcf02b3cf45424691eb707940c38"
    ]
   },
   {
