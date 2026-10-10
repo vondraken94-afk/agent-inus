@@ -1,7 +1,7 @@
 {
  "v": 1,
  "chain": "worldchain",
- "updated": "2026-10-10T16:24:16.197Z",
+ "updated": "2026-10-10T21:29:29.604Z",
  "tokens": [
   {
    "address": "0x17a4e299d3b1615bab6d309ef1b99fb533fd10da",
@@ -298,6 +298,15 @@
    "icon": "",
    "pools": [
     "0xdc529c7a7c00789854ae027555385f2154655b6d"
+   ]
+  },
+  {
+   "address": "0xe3c012830166636b925ae7163cac9d7e1c8618ee",
+   "symbol": "ORB",
+   "name": "Orb",
+   "icon": "",
+   "pools": [
+    "0x591f086370df3868e7286f2f8aef619ada498410"
    ]
   },
   {
