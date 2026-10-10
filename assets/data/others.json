@@ -1,7 +1,7 @@
 {
  "v": 1,
  "chain": "worldchain",
- "updated": "2026-10-10T02:28:11.423Z",
+ "updated": "2026-10-10T03:23:28.425Z",
  "tokens": [
   {
    "address": "0x17a4e299d3b1615bab6d309ef1b99fb533fd10da",
@@ -199,6 +199,15 @@
    "icon": "",
    "pools": [
     "0x4eaf1d158708d6b69154346f9937bfefe7df0f62"
+   ]
+  },
+  {
+   "address": "0xa5327aa6b83ee91625226eda80766eefd92e06a2",
+   "symbol": "BROWSER",
+   "name": "OPEN AI DOG",
+   "icon": "",
+   "pools": [
+    "0x3764bda464e8501e445b4ce78aa9afb11b48cce5"
    ]
   },
   {
