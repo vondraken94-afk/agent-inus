@@ -1,7 +1,7 @@
 {
  "v": 1,
  "chain": "worldchain",
- "updated": "2026-10-12T07:30:44.382Z",
+ "updated": "2026-10-12T15:52:25.042Z",
  "tokens": [
   {
    "address": "0x17a4e299d3b1615bab6d309ef1b99fb533fd10da",
@@ -45,7 +45,7 @@
    "name": "Frock",
    "icon": "",
    "pools": [
-    "0xceb83e884c96ec5c9f89891f6440ef7da00b930e"
+    "0x2f598e9049e02df17da54a0ed13516415b2185ef"
    ]
   },
   {
@@ -172,6 +172,15 @@
    "icon": "",
    "pools": [
     "0xea8763d3e8d887e6ab89d19328c172777fc42840"
+   ]
+  },
+  {
+   "address": "0x995eda6756f77141bba535cee68011369d3d71c1",
+   "symbol": "LLM",
+   "name": "Large Language Model",
+   "icon": "",
+   "pools": [
+    "0x3b8d18095516563a76e814ae09d4ad627a658791"
    ]
   },
   {
