@@ -1,7 +1,7 @@
 {
  "v": 1,
  "chain": "worldchain",
- "updated": "2026-10-15T06:24:57.712Z",
+ "updated": "2026-10-19T23:27:34.895Z",
  "tokens": [
   {
    "address": "0x17a4e299d3b1615bab6d309ef1b99fb533fd10da",
@@ -280,6 +280,15 @@
    "icon": "",
    "pools": [
     "0xdc529c7a7c00789854ae027555385f2154655b6d"
+   ]
+  },
+  {
+   "address": "0xe4f1319a516ff144e1ee7208c3ecf7ac2617e6fd",
+   "symbol": "Alt-coin",
+   "name": "Alt-coin",
+   "icon": "",
+   "pools": [
+    "0xb64f40410014023cd1d8814852ef64f6a1abfae3"
    ]
   },
   {
