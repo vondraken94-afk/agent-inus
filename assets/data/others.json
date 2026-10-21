@@ -1,7 +1,7 @@
 {
  "v": 1,
  "chain": "worldchain",
- "updated": "2026-10-20T19:22:49.403Z",
+ "updated": "2026-10-21T04:26:31.659Z",
  "tokens": [
   {
    "address": "0x17a4e299d3b1615bab6d309ef1b99fb533fd10da",
@@ -265,6 +265,15 @@
    ]
   },
   {
+   "address": "0xc633456eeb767b6b48e1987217bdcc850bc60cc9",
+   "symbol": "BUTTHOLE",
+   "name": "Butthole",
+   "icon": "",
+   "pools": [
+    "0x2122859f836d6e54bf530ef1306eb2e83c9ba76b"
+   ]
+  },
+  {
    "address": "0xc7a1af35f25941bbeaf6e66a4888385da330b35f",
    "symbol": "PUGCOIN",
    "name": "PUGCOIN",
@@ -322,7 +331,7 @@
    "address": "0xe4f1319a516ff144e1ee7208c3ecf7ac2617e6fd",
    "symbol": "Alt-coin",
    "name": "Alt-coin",
-   "icon": "",
+   "icon": "https://cdn.dexscreener.com/cms/images/nrfE0r6TH69CITbd?width=800&height=800&quality=95&format=auto",
    "pools": [
     "0xb64f40410014023cd1d8814852ef64f6a1abfae3"
    ]
