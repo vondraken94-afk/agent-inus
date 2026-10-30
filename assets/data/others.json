@@ -1,7 +1,7 @@
 {
  "v": 1,
  "chain": "worldchain",
- "updated": "2026-10-30T00:20:56.794Z",
+ "updated": "2026-10-30T01:21:13.704Z",
  "tokens": [
   {
    "address": "0x17a4e299d3b1615bab6d309ef1b99fb533fd10da",
@@ -253,15 +253,6 @@
    "icon": "",
    "pools": [
     "0xd1573f1c3538ee59ecf53765abc783767768b4c2"
-   ]
-  },
-  {
-   "address": "0xdc529c7a7c00789854ae027555385f2154655b6d",
-   "symbol": "WCAT",
-   "name": "WCAT",
-   "icon": "",
-   "pools": [
-    "0xdc529c7a7c00789854ae027555385f2154655b6d"
    ]
   },
   {
