@@ -1,7 +1,7 @@
 {
  "v": 1,
  "chain": "worldchain",
- "updated": "2026-10-30T17:26:06.123Z",
+ "updated": "2026-10-30T23:19:56.880Z",
  "tokens": [
   {
    "address": "0x17a4e299d3b1615bab6d309ef1b99fb533fd10da",
@@ -19,6 +19,15 @@
    "icon": "",
    "pools": [
     "0x0ac6d8381a3ae65b9f9978c6f569eac700b10f1a"
+   ]
+  },
+  {
+   "address": "0x26e576cc82fb77347b01d155eae1520affa6709f",
+   "symbol": "OZZY",
+   "name": "Lost Cat",
+   "icon": "",
+   "pools": [
+    "0x4f902b69d15bb45545c1b1ff7e1a3a6979cfe5ff"
    ]
   },
   {
@@ -99,7 +108,7 @@
    "name": "World Dog",
    "icon": "",
    "pools": [
-    "0x670a12934fbffcf02b3cf45424691eb707940c38"
+    "0x63318d2aeda9610da7439aa7538cdb6b75dacf98"
    ]
   },
   {
