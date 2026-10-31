@@ -1,7 +1,7 @@
 {
  "v": 1,
  "chain": "worldchain",
- "updated": "2026-10-31T07:28:21.584Z",
+ "updated": "2026-10-31T13:27:18.758Z",
  "tokens": [
   {
    "address": "0x17a4e299d3b1615bab6d309ef1b99fb533fd10da",
@@ -144,7 +144,7 @@
    "name": "BLOOP",
    "icon": "",
    "pools": [
-    "0xf562620f3d8a08ab191332cbe3880f81dd138905"
+    "0x9ab5007f6460d5fe1d8ad10db063d95a84c0bf7c"
    ]
   },
   {
@@ -253,6 +253,15 @@
    "icon": "",
    "pools": [
     "0xd1573f1c3538ee59ecf53765abc783767768b4c2"
+   ]
+  },
+  {
+   "address": "0xdc529c7a7c00789854ae027555385f2154655b6d",
+   "symbol": "WCAT",
+   "name": "WCAT",
+   "icon": "",
+   "pools": [
+    "0xdc529c7a7c00789854ae027555385f2154655b6d"
    ]
   },
   {
