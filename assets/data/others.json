@@ -1,7 +1,7 @@
 {
  "v": 1,
  "chain": "worldchain",
- "updated": "2026-10-31T23:29:32.226Z",
+ "updated": "2026-11-01T03:24:53.707Z",
  "tokens": [
   {
    "address": "0x17a4e299d3b1615bab6d309ef1b99fb533fd10da",
@@ -22,6 +22,15 @@
    ]
   },
   {
+   "address": "0x26e576cc82fb77347b01d155eae1520affa6709f",
+   "symbol": "OZZY",
+   "name": "Lost Cat",
+   "icon": "",
+   "pools": [
+    "0x4f902b69d15bb45545c1b1ff7e1a3a6979cfe5ff"
+   ]
+  },
+  {
    "address": "0x2b95960c04cb4b5b26a453af1c895728a5fb8bfb",
    "symbol": "FROGE",
    "name": "Froge",
@@ -36,7 +45,7 @@
    "name": "Frock",
    "icon": "",
    "pools": [
-    "0xceb83e884c96ec5c9f89891f6440ef7da00b930e"
+    "0x2f598e9049e02df17da54a0ed13516415b2185ef"
    ]
   },
   {
@@ -271,6 +280,15 @@
    "icon": "",
    "pools": [
     "0xdc529c7a7c00789854ae027555385f2154655b6d"
+   ]
+  },
+  {
+   "address": "0xe3c012830166636b925ae7163cac9d7e1c8618ee",
+   "symbol": "ORB",
+   "name": "Orb",
+   "icon": "",
+   "pools": [
+    "0x591f086370df3868e7286f2f8aef619ada498410"
    ]
   },
   {
