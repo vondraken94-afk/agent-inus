@@ -1,7 +1,7 @@
 {
  "v": 1,
  "chain": "worldchain",
- "updated": "2026-11-01T21:26:51.090Z",
+ "updated": "2026-11-01T23:26:12.133Z",
  "tokens": [
   {
    "address": "0x17a4e299d3b1615bab6d309ef1b99fb533fd10da",
@@ -36,7 +36,7 @@
    "name": "Frock",
    "icon": "",
    "pools": [
-    "0xceb83e884c96ec5c9f89891f6440ef7da00b930e"
+    "0x2f598e9049e02df17da54a0ed13516415b2185ef"
    ]
   },
   {
@@ -67,12 +67,30 @@
    ]
   },
   {
+   "address": "0x44d1f942e847eca37e4c58c5772ff077ffb0cb08",
+   "symbol": "VISUALIZE",
+   "name": "VISUALIZE",
+   "icon": "",
+   "pools": [
+    "0x2a2cd62bb308b6af7a093f41f70a825197476f0a"
+   ]
+  },
+  {
    "address": "0x450e9ff4dd42ed93e32177407dd51e44494b1db1",
    "symbol": "wcat",
    "name": "world cat",
    "icon": "",
    "pools": [
     "0x450e9ff4dd42ed93e32177407dd51e44494b1db1"
+   ]
+  },
+  {
+   "address": "0x4a2e4c8c395050b960002ab2f0f674afea47236e",
+   "symbol": "PICKLE",
+   "name": "Pickle",
+   "icon": "",
+   "pools": [
+    "0x27092125f76dffb0e89062db75d2074ded5527dd"
    ]
   },
   {
@@ -265,6 +283,15 @@
    ]
   },
   {
+   "address": "0xe3c012830166636b925ae7163cac9d7e1c8618ee",
+   "symbol": "ORB",
+   "name": "Orb",
+   "icon": "",
+   "pools": [
+    "0x591f086370df3868e7286f2f8aef619ada498410"
+   ]
+  },
+  {
    "address": "0xe4f1319a516ff144e1ee7208c3ecf7ac2617e6fd",
    "symbol": "Alt-coin",
    "name": "Alt-coin",
@@ -289,6 +316,15 @@
    "icon": "",
    "pools": [
     "0x1c889ebd530ad47b631e5fe49ae8070b29dca381"
+   ]
+  },
+  {
+   "address": "0xeb13451c37032cccb68ffb5e14431a8032419f39",
+   "symbol": "WLD",
+   "name": "World Laughing Doge",
+   "icon": "",
+   "pools": [
+    "0x3c16998f990e199c8cb4f5a24f222f7e59e651cb"
    ]
   },
   {
