@@ -1,7 +1,7 @@
 {
  "v": 1,
  "chain": "worldchain",
- "updated": "2026-11-02T14:25:18.999Z",
+ "updated": "2026-11-02T16:26:12.425Z",
  "tokens": [
   {
    "address": "0x17a4e299d3b1615bab6d309ef1b99fb533fd10da",
@@ -19,15 +19,6 @@
    "icon": "",
    "pools": [
     "0x0ac6d8381a3ae65b9f9978c6f569eac700b10f1a"
-   ]
-  },
-  {
-   "address": "0x26e576cc82fb77347b01d155eae1520affa6709f",
-   "symbol": "OZZY",
-   "name": "Lost Cat",
-   "icon": "",
-   "pools": [
-    "0x4f902b69d15bb45545c1b1ff7e1a3a6979cfe5ff"
    ]
   },
   {
@@ -73,15 +64,6 @@
    "icon": "",
    "pools": [
     "0x45cc46d84794dcc360fbbd4d863ab69205c3a57b"
-   ]
-  },
-  {
-   "address": "0x44d1f942e847eca37e4c58c5772ff077ffb0cb08",
-   "symbol": "VISUALIZE",
-   "name": "VISUALIZE",
-   "icon": "",
-   "pools": [
-    "0x2a2cd62bb308b6af7a093f41f70a825197476f0a"
    ]
   },
   {
