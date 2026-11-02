@@ -1,7 +1,7 @@
 {
  "v": 1,
  "chain": "worldchain",
- "updated": "2026-11-02T18:25:43.384Z",
+ "updated": "2026-11-02T23:24:39.521Z",
  "tokens": [
   {
    "address": "0x17a4e299d3b1615bab6d309ef1b99fb533fd10da",
@@ -64,6 +64,15 @@
    "icon": "",
    "pools": [
     "0x45cc46d84794dcc360fbbd4d863ab69205c3a57b"
+   ]
+  },
+  {
+   "address": "0x44d1f942e847eca37e4c58c5772ff077ffb0cb08",
+   "symbol": "VISUALIZE",
+   "name": "VISUALIZE",
+   "icon": "",
+   "pools": [
+    "0x2a2cd62bb308b6af7a093f41f70a825197476f0a"
    ]
   },
   {
@@ -144,7 +153,7 @@
    "name": "BLOOP",
    "icon": "",
    "pools": [
-    "0xf562620f3d8a08ab191332cbe3880f81dd138905"
+    "0x9ab5007f6460d5fe1d8ad10db063d95a84c0bf7c"
    ]
   },
   {
@@ -163,6 +172,15 @@
    "icon": "",
    "pools": [
     "0x4eaf1d158708d6b69154346f9937bfefe7df0f62"
+   ]
+  },
+  {
+   "address": "0xa5327aa6b83ee91625226eda80766eefd92e06a2",
+   "symbol": "BROWSER",
+   "name": "OPEN AI DOG",
+   "icon": "",
+   "pools": [
+    "0x3764bda464e8501e445b4ce78aa9afb11b48cce5"
    ]
   },
   {
@@ -253,6 +271,24 @@
    "icon": "",
    "pools": [
     "0xd1573f1c3538ee59ecf53765abc783767768b4c2"
+   ]
+  },
+  {
+   "address": "0xdc529c7a7c00789854ae027555385f2154655b6d",
+   "symbol": "WCAT",
+   "name": "WCAT",
+   "icon": "",
+   "pools": [
+    "0xdc529c7a7c00789854ae027555385f2154655b6d"
+   ]
+  },
+  {
+   "address": "0xe3c012830166636b925ae7163cac9d7e1c8618ee",
+   "symbol": "ORB",
+   "name": "Orb",
+   "icon": "",
+   "pools": [
+    "0x591f086370df3868e7286f2f8aef619ada498410"
    ]
   },
   {
