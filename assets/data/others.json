@@ -1,7 +1,7 @@
 {
  "v": 1,
  "chain": "worldchain",
- "updated": "2026-11-03T03:22:27.297Z",
+ "updated": "2026-11-03T04:27:12.063Z",
  "tokens": [
   {
    "address": "0x17a4e299d3b1615bab6d309ef1b99fb533fd10da",
@@ -112,15 +112,6 @@
    ]
   },
   {
-   "address": "0x7f953531be92aed6c98020b09e5a94c295c1240f",
-   "symbol": "AGI",
-   "name": "artificial gooner intelligence",
-   "icon": "",
-   "pools": [
-    "0x1827f3960e04e07915ca846ab3c071a75048df9f"
-   ]
-  },
-  {
    "address": "0x8589f33980a6ac3e869b0ea05c037032e26e58bb",
    "symbol": "MIGUEL",
    "name": "MIGUEL",
@@ -148,24 +139,6 @@
    ]
   },
   {
-   "address": "0x992a3c4c19f4d631938bdf2f9658d4fa924731de",
-   "symbol": "VISUALIZE",
-   "name": "Visualize",
-   "icon": "",
-   "pools": [
-    "0xea8763d3e8d887e6ab89d19328c172777fc42840"
-   ]
-  },
-  {
-   "address": "0x995eda6756f77141bba535cee68011369d3d71c1",
-   "symbol": "LLM",
-   "name": "Large Language Model",
-   "icon": "",
-   "pools": [
-    "0x3b8d18095516563a76e814ae09d4ad627a658791"
-   ]
-  },
-  {
    "address": "0x9ab5007f6460d5fe1d8ad10db063d95a84c0bf7c",
    "symbol": "BLOOP",
    "name": "BLOOP",
@@ -190,15 +163,6 @@
    "icon": "",
    "pools": [
     "0x4eaf1d158708d6b69154346f9937bfefe7df0f62"
-   ]
-  },
-  {
-   "address": "0xa5327aa6b83ee91625226eda80766eefd92e06a2",
-   "symbol": "BROWSER",
-   "name": "OPEN AI DOG",
-   "icon": "",
-   "pools": [
-    "0x3764bda464e8501e445b4ce78aa9afb11b48cce5"
    ]
   },
   {
