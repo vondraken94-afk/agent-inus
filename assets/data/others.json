@@ -1,7 +1,7 @@
 {
  "v": 1,
  "chain": "worldchain",
- "updated": "2026-11-03T12:21:26.047Z",
+ "updated": "2026-11-03T14:22:46.990Z",
  "tokens": [
   {
    "address": "0x17a4e299d3b1615bab6d309ef1b99fb533fd10da",
@@ -139,15 +139,6 @@
    ]
   },
   {
-   "address": "0x995eda6756f77141bba535cee68011369d3d71c1",
-   "symbol": "LLM",
-   "name": "Large Language Model",
-   "icon": "",
-   "pools": [
-    "0x3b8d18095516563a76e814ae09d4ad627a658791"
-   ]
-  },
-  {
    "address": "0x9ab5007f6460d5fe1d8ad10db063d95a84c0bf7c",
    "symbol": "BLOOP",
    "name": "BLOOP",
@@ -265,15 +256,6 @@
    ]
   },
   {
-   "address": "0xdc529c7a7c00789854ae027555385f2154655b6d",
-   "symbol": "WCAT",
-   "name": "WCAT",
-   "icon": "",
-   "pools": [
-    "0xdc529c7a7c00789854ae027555385f2154655b6d"
-   ]
-  },
-  {
    "address": "0xe4f1319a516ff144e1ee7208c3ecf7ac2617e6fd",
    "symbol": "Alt-coin",
    "name": "Alt-coin",
@@ -298,15 +280,6 @@
    "icon": "",
    "pools": [
     "0x1c889ebd530ad47b631e5fe49ae8070b29dca381"
-   ]
-  },
-  {
-   "address": "0xeb13451c37032cccb68ffb5e14431a8032419f39",
-   "symbol": "WLD",
-   "name": "World Laughing Doge",
-   "icon": "",
-   "pools": [
-    "0x3c16998f990e199c8cb4f5a24f222f7e59e651cb"
    ]
   },
   {
