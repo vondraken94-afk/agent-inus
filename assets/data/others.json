@@ -1,7 +1,7 @@
 {
  "v": 1,
  "chain": "worldchain",
- "updated": "2026-11-02T23:24:39.521Z",
+ "updated": "2026-11-03T00:26:05.200Z",
  "tokens": [
   {
    "address": "0x17a4e299d3b1615bab6d309ef1b99fb533fd10da",
@@ -153,7 +153,7 @@
    "name": "BLOOP",
    "icon": "",
    "pools": [
-    "0x9ab5007f6460d5fe1d8ad10db063d95a84c0bf7c"
+    "0xf562620f3d8a08ab191332cbe3880f81dd138905"
    ]
   },
   {
