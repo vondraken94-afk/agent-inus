@@ -1,7 +1,7 @@
 {
  "v": 1,
  "chain": "worldchain",
- "updated": "2026-11-03T00:26:05.200Z",
+ "updated": "2026-11-03T01:25:31.270Z",
  "tokens": [
   {
    "address": "0x17a4e299d3b1615bab6d309ef1b99fb533fd10da",
@@ -67,21 +67,21 @@
    ]
   },
   {
-   "address": "0x44d1f942e847eca37e4c58c5772ff077ffb0cb08",
-   "symbol": "VISUALIZE",
-   "name": "VISUALIZE",
-   "icon": "",
-   "pools": [
-    "0x2a2cd62bb308b6af7a093f41f70a825197476f0a"
-   ]
-  },
-  {
    "address": "0x450e9ff4dd42ed93e32177407dd51e44494b1db1",
    "symbol": "wcat",
    "name": "world cat",
    "icon": "",
    "pools": [
     "0x450e9ff4dd42ed93e32177407dd51e44494b1db1"
+   ]
+  },
+  {
+   "address": "0x4a2e4c8c395050b960002ab2f0f674afea47236e",
+   "symbol": "PICKLE",
+   "name": "Pickle",
+   "icon": "",
+   "pools": [
+    "0x27092125f76dffb0e89062db75d2074ded5527dd"
    ]
   },
   {
@@ -175,15 +175,6 @@
    ]
   },
   {
-   "address": "0xa5327aa6b83ee91625226eda80766eefd92e06a2",
-   "symbol": "BROWSER",
-   "name": "OPEN AI DOG",
-   "icon": "",
-   "pools": [
-    "0x3764bda464e8501e445b4ce78aa9afb11b48cce5"
-   ]
-  },
-  {
    "address": "0xb1bfa980fffc15c2c5b9dccfc214ef1e41b4122c",
    "symbol": "WCat",
    "name": "World Cat",
@@ -238,6 +229,15 @@
    ]
   },
   {
+   "address": "0xc633456eeb767b6b48e1987217bdcc850bc60cc9",
+   "symbol": "BUTTHOLE",
+   "name": "Butthole",
+   "icon": "",
+   "pools": [
+    "0x2122859f836d6e54bf530ef1306eb2e83c9ba76b"
+   ]
+  },
+  {
    "address": "0xc7a1af35f25941bbeaf6e66a4888385da330b35f",
    "symbol": "PUGCOIN",
    "name": "PUGCOIN",
@@ -280,15 +280,6 @@
    "icon": "",
    "pools": [
     "0xdc529c7a7c00789854ae027555385f2154655b6d"
-   ]
-  },
-  {
-   "address": "0xe3c012830166636b925ae7163cac9d7e1c8618ee",
-   "symbol": "ORB",
-   "name": "Orb",
-   "icon": "",
-   "pools": [
-    "0x591f086370df3868e7286f2f8aef619ada498410"
    ]
   },
   {
