@@ -1,7 +1,7 @@
 {
  "v": 1,
  "chain": "worldchain",
- "updated": "2026-11-04T21:24:27.306Z",
+ "updated": "2026-11-04T22:22:25.454Z",
  "tokens": [
   {
    "address": "0x17a4e299d3b1615bab6d309ef1b99fb533fd10da",
@@ -85,15 +85,6 @@
    ]
   },
   {
-   "address": "0x4a2e4c8c395050b960002ab2f0f674afea47236e",
-   "symbol": "PICKLE",
-   "name": "Pickle",
-   "icon": "",
-   "pools": [
-    "0x27092125f76dffb0e89062db75d2074ded5527dd"
-   ]
-  },
-  {
    "address": "0x4b9555f7af9a93bb34c8d9ee2e75dcd82a7d5318",
    "symbol": "DOTTIE",
    "name": "Dottie",
@@ -154,15 +145,6 @@
    "icon": "",
    "pools": [
     "0x447d7dbb5f930ba898b7db0be2903f63d954f548"
-   ]
-  },
-  {
-   "address": "0x992a3c4c19f4d631938bdf2f9658d4fa924731de",
-   "symbol": "VISUALIZE",
-   "name": "Visualize",
-   "icon": "",
-   "pools": [
-    "0xea8763d3e8d887e6ab89d19328c172777fc42840"
    ]
   },
   {
