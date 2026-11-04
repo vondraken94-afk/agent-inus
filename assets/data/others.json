@@ -1,7 +1,7 @@
 {
  "v": 1,
  "chain": "worldchain",
- "updated": "2026-11-04T17:26:31.556Z",
+ "updated": "2026-11-04T19:27:50.732Z",
  "tokens": [
   {
    "address": "0x17a4e299d3b1615bab6d309ef1b99fb533fd10da",
@@ -136,15 +136,6 @@
    "icon": "",
    "pools": [
     "0x447d7dbb5f930ba898b7db0be2903f63d954f548"
-   ]
-  },
-  {
-   "address": "0x992a3c4c19f4d631938bdf2f9658d4fa924731de",
-   "symbol": "VISUALIZE",
-   "name": "Visualize",
-   "icon": "",
-   "pools": [
-    "0xea8763d3e8d887e6ab89d19328c172777fc42840"
    ]
   },
   {
@@ -289,15 +280,6 @@
    "icon": "",
    "pools": [
     "0x1c889ebd530ad47b631e5fe49ae8070b29dca381"
-   ]
-  },
-  {
-   "address": "0xeb13451c37032cccb68ffb5e14431a8032419f39",
-   "symbol": "WLD",
-   "name": "World Laughing Doge",
-   "icon": "",
-   "pools": [
-    "0x3c16998f990e199c8cb4f5a24f222f7e59e651cb"
    ]
   },
   {
