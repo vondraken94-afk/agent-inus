@@ -1,7 +1,7 @@
 {
  "v": 1,
  "chain": "worldchain",
- "updated": "2026-11-06T22:28:22.675Z",
+ "updated": "2026-11-06T23:23:51.764Z",
  "tokens": [
   {
    "address": "0x17a4e299d3b1615bab6d309ef1b99fb533fd10da",
@@ -36,7 +36,7 @@
    "name": "Frock",
    "icon": "",
    "pools": [
-    "0xceb83e884c96ec5c9f89891f6440ef7da00b930e"
+    "0x2f598e9049e02df17da54a0ed13516415b2185ef"
    ]
   },
   {
@@ -73,6 +73,15 @@
    "icon": "",
    "pools": [
     "0x450e9ff4dd42ed93e32177407dd51e44494b1db1"
+   ]
+  },
+  {
+   "address": "0x4a2e4c8c395050b960002ab2f0f674afea47236e",
+   "symbol": "PICKLE",
+   "name": "Pickle",
+   "icon": "",
+   "pools": [
+    "0x27092125f76dffb0e89062db75d2074ded5527dd"
    ]
   },
   {
@@ -280,6 +289,15 @@
    "icon": "",
    "pools": [
     "0x1c889ebd530ad47b631e5fe49ae8070b29dca381"
+   ]
+  },
+  {
+   "address": "0xeb13451c37032cccb68ffb5e14431a8032419f39",
+   "symbol": "WLD",
+   "name": "World Laughing Doge",
+   "icon": "",
+   "pools": [
+    "0x3c16998f990e199c8cb4f5a24f222f7e59e651cb"
    ]
   },
   {
