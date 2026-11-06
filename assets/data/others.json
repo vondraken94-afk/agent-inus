@@ -1,7 +1,7 @@
 {
  "v": 1,
  "chain": "worldchain",
- "updated": "2026-11-06T18:23:37.482Z",
+ "updated": "2026-11-06T20:20:26.501Z",
  "tokens": [
   {
    "address": "0x17a4e299d3b1615bab6d309ef1b99fb533fd10da",
@@ -36,7 +36,7 @@
    "name": "Frock",
    "icon": "",
    "pools": [
-    "0xceb83e884c96ec5c9f89891f6440ef7da00b930e"
+    "0x2f598e9049e02df17da54a0ed13516415b2185ef"
    ]
   },
   {
@@ -67,6 +67,15 @@
    ]
   },
   {
+   "address": "0x44d1f942e847eca37e4c58c5772ff077ffb0cb08",
+   "symbol": "VISUALIZE",
+   "name": "VISUALIZE",
+   "icon": "",
+   "pools": [
+    "0x2a2cd62bb308b6af7a093f41f70a825197476f0a"
+   ]
+  },
+  {
    "address": "0x450e9ff4dd42ed93e32177407dd51e44494b1db1",
    "symbol": "wcat",
    "name": "world cat",
@@ -94,12 +103,21 @@
    ]
   },
   {
+   "address": "0x5a1d1b804f5673c6aec154bb7b1d243be061b0fd",
+   "symbol": "Test",
+   "name": "Test",
+   "icon": "",
+   "pools": [
+    "0x5a1d1b804f5673c6aec154bb7b1d243be061b0fd"
+   ]
+  },
+  {
    "address": "0x63318d2aeda9610da7439aa7538cdb6b75dacf98",
    "symbol": "WDog",
    "name": "World Dog",
    "icon": "",
    "pools": [
-    "0x670a12934fbffcf02b3cf45424691eb707940c38"
+    "0x63318d2aeda9610da7439aa7538cdb6b75dacf98"
    ]
   },
   {
@@ -145,6 +163,15 @@
    "icon": "",
    "pools": [
     "0xea8763d3e8d887e6ab89d19328c172777fc42840"
+   ]
+  },
+  {
+   "address": "0x995eda6756f77141bba535cee68011369d3d71c1",
+   "symbol": "LLM",
+   "name": "Large Language Model",
+   "icon": "",
+   "pools": [
+    "0x3b8d18095516563a76e814ae09d4ad627a658791"
    ]
   },
   {
@@ -262,6 +289,24 @@
    "icon": "",
    "pools": [
     "0xd1573f1c3538ee59ecf53765abc783767768b4c2"
+   ]
+  },
+  {
+   "address": "0xdc529c7a7c00789854ae027555385f2154655b6d",
+   "symbol": "WCAT",
+   "name": "WCAT",
+   "icon": "",
+   "pools": [
+    "0xdc529c7a7c00789854ae027555385f2154655b6d"
+   ]
+  },
+  {
+   "address": "0xe3c012830166636b925ae7163cac9d7e1c8618ee",
+   "symbol": "ORB",
+   "name": "Orb",
+   "icon": "",
+   "pools": [
+    "0x591f086370df3868e7286f2f8aef619ada498410"
    ]
   },
   {
