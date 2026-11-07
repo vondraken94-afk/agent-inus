@@ -1,7 +1,7 @@
 {
  "v": 1,
  "chain": "worldchain",
- "updated": "2026-11-07T04:22:47.136Z",
+ "updated": "2026-11-07T05:24:21.079Z",
  "tokens": [
   {
    "address": "0x17a4e299d3b1615bab6d309ef1b99fb533fd10da",
@@ -10,15 +10,6 @@
    "icon": "",
    "pools": [
     "0x7e3ab832e81ceb28559122cf40221f321c30eb6a"
-   ]
-  },
-  {
-   "address": "0x22b7f43d445735ad931012e868e7db42ba2922a0",
-   "symbol": "JALAPEÑO",
-   "name": "JALAPEÑO",
-   "icon": "",
-   "pools": [
-    "0x0ac6d8381a3ae65b9f9978c6f569eac700b10f1a"
    ]
   },
   {
@@ -46,15 +37,6 @@
    "icon": "",
    "pools": [
     "0xc7bf26971203573c004ff5a98932469287e2b4f4"
-   ]
-  },
-  {
-   "address": "0x3c0c3d86ef485e52854ec26776fdcff1ecf8dc6c",
-   "symbol": "GPT",
-   "name": "GIANT PAIR OF TITS",
-   "icon": "",
-   "pools": [
-    "0x33d3b8f5467a8384828841567c99e8c5228e0410"
    ]
   },
   {
@@ -211,15 +193,6 @@
    ]
   },
   {
-   "address": "0xc43eb734180b873ac4d311086ef5816ac84af5d1",
-   "symbol": "AWLD",
-   "name": "anti-worldcoin",
-   "icon": "",
-   "pools": [
-    "0x5a8ef68f6f26e3d453b44f6f5337558d8f985666"
-   ]
-  },
-  {
    "address": "0xc7a1af35f25941bbeaf6e66a4888385da330b35f",
    "symbol": "PUGCOIN",
    "name": "PUGCOIN",
@@ -271,15 +244,6 @@
    "icon": "",
    "pools": [
     "0xe7104290468b7852ad5a910a04f643be62f1756a"
-   ]
-  },
-  {
-   "address": "0xe7d9908bf2df63ee93d7186849be791078460f62",
-   "symbol": "WorldCoin",
-   "name": "WorldCoin",
-   "icon": "",
-   "pools": [
-    "0x1c889ebd530ad47b631e5fe49ae8070b29dca381"
    ]
   },
   {
