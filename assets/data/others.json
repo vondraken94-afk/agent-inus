@@ -1,7 +1,7 @@
 {
  "v": 1,
  "chain": "worldchain",
- "updated": "2026-11-07T11:23:30.131Z",
+ "updated": "2026-11-07T13:20:34.573Z",
  "tokens": [
   {
    "address": "0x17a4e299d3b1615bab6d309ef1b99fb533fd10da",
@@ -19,15 +19,6 @@
    "icon": "",
    "pools": [
     "0x0ac6d8381a3ae65b9f9978c6f569eac700b10f1a"
-   ]
-  },
-  {
-   "address": "0x26e576cc82fb77347b01d155eae1520affa6709f",
-   "symbol": "OZZY",
-   "name": "Lost Cat",
-   "icon": "",
-   "pools": [
-    "0x4f902b69d15bb45545c1b1ff7e1a3a6979cfe5ff"
    ]
   },
   {
@@ -76,15 +67,6 @@
    ]
   },
   {
-   "address": "0x4a2e4c8c395050b960002ab2f0f674afea47236e",
-   "symbol": "PICKLE",
-   "name": "Pickle",
-   "icon": "",
-   "pools": [
-    "0x27092125f76dffb0e89062db75d2074ded5527dd"
-   ]
-  },
-  {
    "address": "0x4b9555f7af9a93bb34c8d9ee2e75dcd82a7d5318",
    "symbol": "DOTTIE",
    "name": "Dottie",
@@ -118,15 +100,6 @@
    "icon": "https://cdn.dexscreener.com/cms/images/e4ec53da1728a30b5095fd36fe565e1350e1bdef2fab9288a65debf6f781a496?width=800&height=800&quality=95&format=auto",
    "pools": [
     "0x400c1293a6e6e98b7bc3b611b4806381a214d68d"
-   ]
-  },
-  {
-   "address": "0x7f953531be92aed6c98020b09e5a94c295c1240f",
-   "symbol": "AGI",
-   "name": "artificial gooner intelligence",
-   "icon": "",
-   "pools": [
-    "0x1827f3960e04e07915ca846ab3c071a75048df9f"
    ]
   },
   {
@@ -280,15 +253,6 @@
    "icon": "",
    "pools": [
     "0xe7104290468b7852ad5a910a04f643be62f1756a"
-   ]
-  },
-  {
-   "address": "0xeb13451c37032cccb68ffb5e14431a8032419f39",
-   "symbol": "WLD",
-   "name": "World Laughing Doge",
-   "icon": "",
-   "pools": [
-    "0x3c16998f990e199c8cb4f5a24f222f7e59e651cb"
    ]
   },
   {
