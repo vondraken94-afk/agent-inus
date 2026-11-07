@@ -1,7 +1,7 @@
 {
  "v": 1,
  "chain": "worldchain",
- "updated": "2026-11-07T09:26:41.006Z",
+ "updated": "2026-11-07T10:22:07.751Z",
  "tokens": [
   {
    "address": "0x17a4e299d3b1615bab6d309ef1b99fb533fd10da",
@@ -199,15 +199,6 @@
    "icon": "",
    "pools": [
     "0x34aeb03183c58619f3da9384000c46dadf4fc4ed"
-   ]
-  },
-  {
-   "address": "0xc43eb734180b873ac4d311086ef5816ac84af5d1",
-   "symbol": "AWLD",
-   "name": "anti-worldcoin",
-   "icon": "",
-   "pools": [
-    "0x5a8ef68f6f26e3d453b44f6f5337558d8f985666"
    ]
   },
   {
