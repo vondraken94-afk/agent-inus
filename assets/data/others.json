@@ -1,7 +1,7 @@
 {
  "v": 1,
  "chain": "worldchain",
- "updated": "2026-11-09T22:27:34.200Z",
+ "updated": "2026-11-09T23:26:51.365Z",
  "tokens": [
   {
    "address": "0x17a4e299d3b1615bab6d309ef1b99fb533fd10da",
@@ -27,7 +27,7 @@
    "name": "Frock",
    "icon": "",
    "pools": [
-    "0x2f598e9049e02df17da54a0ed13516415b2185ef"
+    "0xceb83e884c96ec5c9f89891f6440ef7da00b930e"
    ]
   },
   {
@@ -144,7 +144,7 @@
    "name": "BLOOP",
    "icon": "",
    "pools": [
-    "0x9ab5007f6460d5fe1d8ad10db063d95a84c0bf7c"
+    "0xf562620f3d8a08ab191332cbe3880f81dd138905"
    ]
   },
   {
