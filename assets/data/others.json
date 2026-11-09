@@ -1,7 +1,7 @@
 {
  "v": 1,
  "chain": "worldchain",
- "updated": "2026-11-09T03:25:19.143Z",
+ "updated": "2026-11-09T22:27:34.200Z",
  "tokens": [
   {
    "address": "0x17a4e299d3b1615bab6d309ef1b99fb533fd10da",
@@ -27,7 +27,7 @@
    "name": "Frock",
    "icon": "",
    "pools": [
-    "0xceb83e884c96ec5c9f89891f6440ef7da00b930e"
+    "0x2f598e9049e02df17da54a0ed13516415b2185ef"
    ]
   },
   {
@@ -55,6 +55,15 @@
    "icon": "",
    "pools": [
     "0x450e9ff4dd42ed93e32177407dd51e44494b1db1"
+   ]
+  },
+  {
+   "address": "0x4a2e4c8c395050b960002ab2f0f674afea47236e",
+   "symbol": "PICKLE",
+   "name": "Pickle",
+   "icon": "",
+   "pools": [
+    "0x27092125f76dffb0e89062db75d2074ded5527dd"
    ]
   },
   {
@@ -94,6 +103,15 @@
    ]
   },
   {
+   "address": "0x7f953531be92aed6c98020b09e5a94c295c1240f",
+   "symbol": "AGI",
+   "name": "artificial gooner intelligence",
+   "icon": "",
+   "pools": [
+    "0x1827f3960e04e07915ca846ab3c071a75048df9f"
+   ]
+  },
+  {
    "address": "0x8589f33980a6ac3e869b0ea05c037032e26e58bb",
    "symbol": "MIGUEL",
    "name": "MIGUEL",
@@ -126,7 +144,7 @@
    "name": "BLOOP",
    "icon": "",
    "pools": [
-    "0xf562620f3d8a08ab191332cbe3880f81dd138905"
+    "0x9ab5007f6460d5fe1d8ad10db063d95a84c0bf7c"
    ]
   },
   {
@@ -193,6 +211,15 @@
    ]
   },
   {
+   "address": "0xc43eb734180b873ac4d311086ef5816ac84af5d1",
+   "symbol": "AWLD",
+   "name": "anti-worldcoin",
+   "icon": "",
+   "pools": [
+    "0x5a8ef68f6f26e3d453b44f6f5337558d8f985666"
+   ]
+  },
+  {
    "address": "0xc7a1af35f25941bbeaf6e66a4888385da330b35f",
    "symbol": "PUGCOIN",
    "name": "PUGCOIN",
@@ -235,6 +262,15 @@
    "icon": "https://cdn.dexscreener.com/cms/images/nrfE0r6TH69CITbd?width=800&height=800&quality=95&format=auto",
    "pools": [
     "0xb64f40410014023cd1d8814852ef64f6a1abfae3"
+   ]
+  },
+  {
+   "address": "0xe7d9908bf2df63ee93d7186849be791078460f62",
+   "symbol": "WorldCoin",
+   "name": "WorldCoin",
+   "icon": "",
+   "pools": [
+    "0x1c889ebd530ad47b631e5fe49ae8070b29dca381"
    ]
   },
   {
