@@ -34,7 +34,8 @@ window.TRACKER_GROUPS = [
     sprite: "dragon",
     chains: ["worldchain"],
     wallets: [
-      "0x2635Cd0Fd22926874cE5889E921aA6348D7bf0d3"
+      "0x2635Cd0Fd22926874cE5889E921aA6348D7bf0d3",
+      "0xEC289894c7aa389Eec8b7019cc9dEb1Ce2dde1EA"
     ]
   },
   {
