@@ -1,7 +1,7 @@
 {
  "v": 1,
  "chain": "worldchain",
- "updated": "2026-11-10T00:25:09.799Z",
+ "updated": "2026-11-11T08:28:06.698Z",
  "tokens": [
   {
    "address": "0x17a4e299d3b1615bab6d309ef1b99fb533fd10da",
@@ -193,6 +193,15 @@
    ]
   },
   {
+   "address": "0xc43eb734180b873ac4d311086ef5816ac84af5d1",
+   "symbol": "AWLD",
+   "name": "anti-worldcoin",
+   "icon": "",
+   "pools": [
+    "0x5a8ef68f6f26e3d453b44f6f5337558d8f985666"
+   ]
+  },
+  {
    "address": "0xc7a1af35f25941bbeaf6e66a4888385da330b35f",
    "symbol": "PUGCOIN",
    "name": "PUGCOIN",
@@ -226,6 +235,24 @@
    "icon": "",
    "pools": [
     "0xd1573f1c3538ee59ecf53765abc783767768b4c2"
+   ]
+  },
+  {
+   "address": "0xdc529c7a7c00789854ae027555385f2154655b6d",
+   "symbol": "WCAT",
+   "name": "WCAT",
+   "icon": "",
+   "pools": [
+    "0xdc529c7a7c00789854ae027555385f2154655b6d"
+   ]
+  },
+  {
+   "address": "0xe3c012830166636b925ae7163cac9d7e1c8618ee",
+   "symbol": "ORB",
+   "name": "Orb",
+   "icon": "",
+   "pools": [
+    "0x591f086370df3868e7286f2f8aef619ada498410"
    ]
   },
   {
