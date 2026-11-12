@@ -1,7 +1,7 @@
 {
  "v": 1,
  "chain": "worldchain",
- "updated": "2026-11-12T04:22:53.924Z",
+ "updated": "2026-11-12T05:29:19.786Z",
  "tokens": [
   {
    "address": "0x17a4e299d3b1615bab6d309ef1b99fb533fd10da",
@@ -271,6 +271,15 @@
    "icon": "https://cdn.dexscreener.com/cms/images/nrfE0r6TH69CITbd?width=800&height=800&quality=95&format=auto",
    "pools": [
     "0xb64f40410014023cd1d8814852ef64f6a1abfae3"
+   ]
+  },
+  {
+   "address": "0xe7104290468b7852ad5a910a04f643be62f1756a",
+   "symbol": "Froge",
+   "name": "Froge",
+   "icon": "",
+   "pools": [
+    "0xe7104290468b7852ad5a910a04f643be62f1756a"
    ]
   },
   {
