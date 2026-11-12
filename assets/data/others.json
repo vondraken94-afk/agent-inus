@@ -1,7 +1,7 @@
 {
  "v": 1,
  "chain": "worldchain",
- "updated": "2026-11-12T21:20:53.171Z",
+ "updated": "2026-11-12T23:22:34.406Z",
  "tokens": [
   {
    "address": "0x17a4e299d3b1615bab6d309ef1b99fb533fd10da",
@@ -49,30 +49,12 @@
    ]
   },
   {
-   "address": "0x44d1f942e847eca37e4c58c5772ff077ffb0cb08",
-   "symbol": "VISUALIZE",
-   "name": "VISUALIZE",
-   "icon": "",
-   "pools": [
-    "0x2a2cd62bb308b6af7a093f41f70a825197476f0a"
-   ]
-  },
-  {
    "address": "0x450e9ff4dd42ed93e32177407dd51e44494b1db1",
    "symbol": "wcat",
    "name": "world cat",
    "icon": "",
    "pools": [
     "0x450e9ff4dd42ed93e32177407dd51e44494b1db1"
-   ]
-  },
-  {
-   "address": "0x4a2e4c8c395050b960002ab2f0f674afea47236e",
-   "symbol": "PICKLE",
-   "name": "Pickle",
-   "icon": "",
-   "pools": [
-    "0x27092125f76dffb0e89062db75d2074ded5527dd"
    ]
   },
   {
@@ -247,30 +229,12 @@
    ]
   },
   {
-   "address": "0xe3c012830166636b925ae7163cac9d7e1c8618ee",
-   "symbol": "ORB",
-   "name": "Orb",
-   "icon": "",
-   "pools": [
-    "0x591f086370df3868e7286f2f8aef619ada498410"
-   ]
-  },
-  {
    "address": "0xe4f1319a516ff144e1ee7208c3ecf7ac2617e6fd",
    "symbol": "Alt-coin",
    "name": "Alt-coin",
    "icon": "https://cdn.dexscreener.com/cms/images/nrfE0r6TH69CITbd?width=800&height=800&quality=95&format=auto",
    "pools": [
     "0xb64f40410014023cd1d8814852ef64f6a1abfae3"
-   ]
-  },
-  {
-   "address": "0xe7d9908bf2df63ee93d7186849be791078460f62",
-   "symbol": "WorldCoin",
-   "name": "WorldCoin",
-   "icon": "",
-   "pools": [
-    "0x1c889ebd530ad47b631e5fe49ae8070b29dca381"
    ]
   },
   {
