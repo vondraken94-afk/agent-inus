@@ -1,7 +1,7 @@
 {
  "v": 1,
  "chain": "worldchain",
- "updated": "2026-11-12T05:29:19.786Z",
+ "updated": "2026-11-12T06:28:13.976Z",
  "tokens": [
   {
    "address": "0x17a4e299d3b1615bab6d309ef1b99fb533fd10da",
@@ -10,24 +10,6 @@
    "icon": "",
    "pools": [
     "0x7e3ab832e81ceb28559122cf40221f321c30eb6a"
-   ]
-  },
-  {
-   "address": "0x22b7f43d445735ad931012e868e7db42ba2922a0",
-   "symbol": "JALAPEÑO",
-   "name": "JALAPEÑO",
-   "icon": "",
-   "pools": [
-    "0x0ac6d8381a3ae65b9f9978c6f569eac700b10f1a"
-   ]
-  },
-  {
-   "address": "0x26e576cc82fb77347b01d155eae1520affa6709f",
-   "symbol": "OZZY",
-   "name": "Lost Cat",
-   "icon": "",
-   "pools": [
-    "0x4f902b69d15bb45545c1b1ff7e1a3a6979cfe5ff"
    ]
   },
   {
@@ -55,15 +37,6 @@
    "icon": "",
    "pools": [
     "0xc7bf26971203573c004ff5a98932469287e2b4f4"
-   ]
-  },
-  {
-   "address": "0x3c0c3d86ef485e52854ec26776fdcff1ecf8dc6c",
-   "symbol": "GPT",
-   "name": "GIANT PAIR OF TITS",
-   "icon": "",
-   "pools": [
-    "0x33d3b8f5467a8384828841567c99e8c5228e0410"
    ]
   },
   {
@@ -145,15 +118,6 @@
    "icon": "",
    "pools": [
     "0x447d7dbb5f930ba898b7db0be2903f63d954f548"
-   ]
-  },
-  {
-   "address": "0x992a3c4c19f4d631938bdf2f9658d4fa924731de",
-   "symbol": "VISUALIZE",
-   "name": "Visualize",
-   "icon": "",
-   "pools": [
-    "0xea8763d3e8d887e6ab89d19328c172777fc42840"
    ]
   },
   {
