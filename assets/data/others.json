@@ -1,7 +1,7 @@
 {
  "v": 1,
  "chain": "worldchain",
- "updated": "2026-11-12T23:22:34.406Z",
+ "updated": "2026-11-13T04:25:49.800Z",
  "tokens": [
   {
    "address": "0x17a4e299d3b1615bab6d309ef1b99fb533fd10da",
@@ -58,6 +58,15 @@
    ]
   },
   {
+   "address": "0x4a2e4c8c395050b960002ab2f0f674afea47236e",
+   "symbol": "PICKLE",
+   "name": "Pickle",
+   "icon": "",
+   "pools": [
+    "0x27092125f76dffb0e89062db75d2074ded5527dd"
+   ]
+  },
+  {
    "address": "0x4b9555f7af9a93bb34c8d9ee2e75dcd82a7d5318",
    "symbol": "DOTTIE",
    "name": "Dottie",
@@ -91,6 +100,15 @@
    "icon": "https://cdn.dexscreener.com/cms/images/e4ec53da1728a30b5095fd36fe565e1350e1bdef2fab9288a65debf6f781a496?width=800&height=800&quality=95&format=auto",
    "pools": [
     "0x400c1293a6e6e98b7bc3b611b4806381a214d68d"
+   ]
+  },
+  {
+   "address": "0x7f953531be92aed6c98020b09e5a94c295c1240f",
+   "symbol": "AGI",
+   "name": "artificial gooner intelligence",
+   "icon": "",
+   "pools": [
+    "0x1827f3960e04e07915ca846ab3c071a75048df9f"
    ]
   },
   {
@@ -235,6 +253,15 @@
    "icon": "https://cdn.dexscreener.com/cms/images/nrfE0r6TH69CITbd?width=800&height=800&quality=95&format=auto",
    "pools": [
     "0xb64f40410014023cd1d8814852ef64f6a1abfae3"
+   ]
+  },
+  {
+   "address": "0xe7d9908bf2df63ee93d7186849be791078460f62",
+   "symbol": "WorldCoin",
+   "name": "WorldCoin",
+   "icon": "",
+   "pools": [
+    "0x1c889ebd530ad47b631e5fe49ae8070b29dca381"
    ]
   },
   {
