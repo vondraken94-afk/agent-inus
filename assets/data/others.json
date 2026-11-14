@@ -1,7 +1,7 @@
 {
  "v": 1,
  "chain": "worldchain",
- "updated": "2026-11-13T23:20:22.297Z",
+ "updated": "2026-11-14T00:23:09.304Z",
  "tokens": [
   {
    "address": "0x17a4e299d3b1615bab6d309ef1b99fb533fd10da",
@@ -13,12 +13,12 @@
    ]
   },
   {
-   "address": "0x22b7f43d445735ad931012e868e7db42ba2922a0",
-   "symbol": "JALAPEÑO",
-   "name": "JALAPEÑO",
+   "address": "0x26e576cc82fb77347b01d155eae1520affa6709f",
+   "symbol": "OZZY",
+   "name": "Lost Cat",
    "icon": "",
    "pools": [
-    "0x0ac6d8381a3ae65b9f9978c6f569eac700b10f1a"
+    "0x4f902b69d15bb45545c1b1ff7e1a3a6979cfe5ff"
    ]
   },
   {
@@ -36,7 +36,7 @@
    "name": "Frock",
    "icon": "",
    "pools": [
-    "0xceb83e884c96ec5c9f89891f6440ef7da00b930e"
+    "0x2f598e9049e02df17da54a0ed13516415b2185ef"
    ]
   },
   {
@@ -46,6 +46,15 @@
    "icon": "",
    "pools": [
     "0xc7bf26971203573c004ff5a98932469287e2b4f4"
+   ]
+  },
+  {
+   "address": "0x3c0c3d86ef485e52854ec26776fdcff1ecf8dc6c",
+   "symbol": "GPT",
+   "name": "GIANT PAIR OF TITS",
+   "icon": "",
+   "pools": [
+    "0x33d3b8f5467a8384828841567c99e8c5228e0410"
    ]
   },
   {
@@ -85,6 +94,15 @@
    ]
   },
   {
+   "address": "0x5a1d1b804f5673c6aec154bb7b1d243be061b0fd",
+   "symbol": "Test",
+   "name": "Test",
+   "icon": "",
+   "pools": [
+    "0x5a1d1b804f5673c6aec154bb7b1d243be061b0fd"
+   ]
+  },
+  {
    "address": "0x63318d2aeda9610da7439aa7538cdb6b75dacf98",
    "symbol": "WDog",
    "name": "World Dog",
@@ -100,15 +118,6 @@
    "icon": "https://cdn.dexscreener.com/cms/images/e4ec53da1728a30b5095fd36fe565e1350e1bdef2fab9288a65debf6f781a496?width=800&height=800&quality=95&format=auto",
    "pools": [
     "0x400c1293a6e6e98b7bc3b611b4806381a214d68d"
-   ]
-  },
-  {
-   "address": "0x7f953531be92aed6c98020b09e5a94c295c1240f",
-   "symbol": "AGI",
-   "name": "artificial gooner intelligence",
-   "icon": "",
-   "pools": [
-    "0x1827f3960e04e07915ca846ab3c071a75048df9f"
    ]
   },
   {
@@ -166,6 +175,15 @@
    ]
   },
   {
+   "address": "0xa5327aa6b83ee91625226eda80766eefd92e06a2",
+   "symbol": "BROWSER",
+   "name": "OPEN AI DOG",
+   "icon": "",
+   "pools": [
+    "0x3764bda464e8501e445b4ce78aa9afb11b48cce5"
+   ]
+  },
+  {
    "address": "0xb1bfa980fffc15c2c5b9dccfc214ef1e41b4122c",
    "symbol": "WCat",
    "name": "World Cat",
@@ -208,6 +226,15 @@
    "icon": "",
    "pools": [
     "0x34aeb03183c58619f3da9384000c46dadf4fc4ed"
+   ]
+  },
+  {
+   "address": "0xc43eb734180b873ac4d311086ef5816ac84af5d1",
+   "symbol": "AWLD",
+   "name": "anti-worldcoin",
+   "icon": "",
+   "pools": [
+    "0x5a8ef68f6f26e3d453b44f6f5337558d8f985666"
    ]
   },
   {
@@ -271,33 +298,6 @@
    "icon": "https://cdn.dexscreener.com/cms/images/nrfE0r6TH69CITbd?width=800&height=800&quality=95&format=auto",
    "pools": [
     "0xb64f40410014023cd1d8814852ef64f6a1abfae3"
-   ]
-  },
-  {
-   "address": "0xe7104290468b7852ad5a910a04f643be62f1756a",
-   "symbol": "Froge",
-   "name": "Froge",
-   "icon": "",
-   "pools": [
-    "0xe7104290468b7852ad5a910a04f643be62f1756a"
-   ]
-  },
-  {
-   "address": "0xe7d9908bf2df63ee93d7186849be791078460f62",
-   "symbol": "WorldCoin",
-   "name": "WorldCoin",
-   "icon": "",
-   "pools": [
-    "0x1c889ebd530ad47b631e5fe49ae8070b29dca381"
-   ]
-  },
-  {
-   "address": "0xeb13451c37032cccb68ffb5e14431a8032419f39",
-   "symbol": "WLD",
-   "name": "World Laughing Doge",
-   "icon": "",
-   "pools": [
-    "0x3c16998f990e199c8cb4f5a24f222f7e59e651cb"
    ]
   },
   {
