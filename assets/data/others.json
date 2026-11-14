@@ -1,7 +1,7 @@
 {
  "v": 1,
  "chain": "worldchain",
- "updated": "2026-11-14T04:22:43.347Z",
+ "updated": "2026-11-14T09:27:14.211Z",
  "tokens": [
   {
    "address": "0x17a4e299d3b1615bab6d309ef1b99fb533fd10da",
@@ -112,6 +112,15 @@
    ]
   },
   {
+   "address": "0x992a3c4c19f4d631938bdf2f9658d4fa924731de",
+   "symbol": "VISUALIZE",
+   "name": "Visualize",
+   "icon": "",
+   "pools": [
+    "0xea8763d3e8d887e6ab89d19328c172777fc42840"
+   ]
+  },
+  {
    "address": "0x9ab5007f6460d5fe1d8ad10db063d95a84c0bf7c",
    "symbol": "BLOOP",
    "name": "BLOOP",
@@ -181,6 +190,15 @@
    "icon": "",
    "pools": [
     "0x34aeb03183c58619f3da9384000c46dadf4fc4ed"
+   ]
+  },
+  {
+   "address": "0xc43eb734180b873ac4d311086ef5816ac84af5d1",
+   "symbol": "AWLD",
+   "name": "anti-worldcoin",
+   "icon": "",
+   "pools": [
+    "0x5a8ef68f6f26e3d453b44f6f5337558d8f985666"
    ]
   },
   {
