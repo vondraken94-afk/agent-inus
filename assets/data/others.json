@@ -1,7 +1,7 @@
 {
  "v": 1,
  "chain": "worldchain",
- "updated": "2026-11-21T22:22:43.859Z",
+ "updated": "2026-11-21T23:28:17.210Z",
  "tokens": [
   {
    "address": "0x17a4e299d3b1615bab6d309ef1b99fb533fd10da",
@@ -10,15 +10,6 @@
    "icon": "",
    "pools": [
     "0x7e3ab832e81ceb28559122cf40221f321c30eb6a"
-   ]
-  },
-  {
-   "address": "0x26e576cc82fb77347b01d155eae1520affa6709f",
-   "symbol": "OZZY",
-   "name": "Lost Cat",
-   "icon": "",
-   "pools": [
-    "0x4f902b69d15bb45545c1b1ff7e1a3a6979cfe5ff"
    ]
   },
   {
@@ -46,24 +37,6 @@
    "icon": "",
    "pools": [
     "0xc7bf26971203573c004ff5a98932469287e2b4f4"
-   ]
-  },
-  {
-   "address": "0x405cbbe56d5fa02519603ee6f415ea77885c7db4",
-   "symbol": "COGITO",
-   "name": "Cogito",
-   "icon": "",
-   "pools": [
-    "0x45cc46d84794dcc360fbbd4d863ab69205c3a57b"
-   ]
-  },
-  {
-   "address": "0x4a2e4c8c395050b960002ab2f0f674afea47236e",
-   "symbol": "PICKLE",
-   "name": "Pickle",
-   "icon": "",
-   "pools": [
-    "0x27092125f76dffb0e89062db75d2074ded5527dd"
    ]
   },
   {
@@ -100,15 +73,6 @@
    "icon": "https://cdn.dexscreener.com/cms/images/e4ec53da1728a30b5095fd36fe565e1350e1bdef2fab9288a65debf6f781a496?width=800&height=800&quality=95&format=auto",
    "pools": [
     "0x400c1293a6e6e98b7bc3b611b4806381a214d68d"
-   ]
-  },
-  {
-   "address": "0x7f953531be92aed6c98020b09e5a94c295c1240f",
-   "symbol": "AGI",
-   "name": "artificial gooner intelligence",
-   "icon": "",
-   "pools": [
-    "0x1827f3960e04e07915ca846ab3c071a75048df9f"
    ]
   },
   {
