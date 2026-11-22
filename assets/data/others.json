@@ -1,7 +1,7 @@
 {
  "v": 1,
  "chain": "worldchain",
- "updated": "2026-11-22T10:25:13.649Z",
+ "updated": "2026-11-22T11:24:34.743Z",
  "tokens": [
   {
    "address": "0x17a4e299d3b1615bab6d309ef1b99fb533fd10da",
@@ -108,7 +108,7 @@
    "name": "World Dog",
    "icon": "",
    "pools": [
-    "0x63318d2aeda9610da7439aa7538cdb6b75dacf98"
+    "0x670a12934fbffcf02b3cf45424691eb707940c38"
    ]
   },
   {
@@ -298,15 +298,6 @@
    "icon": "https://cdn.dexscreener.com/cms/images/6b364af0717941d3bbab268fd40e6eb424671813008662b76c16921e25bc1d27?width=800&height=800&quality=95&format=auto",
    "pools": [
     "0xee21af1d049211206b20b957d07794e7d0b140b3"
-   ]
-  },
-  {
-   "address": "0xf516e54a7b49b47d9f0d46e9406d7e843913ee61",
-   "symbol": "HUMANCOIN",
-   "name": "HUMAN",
-   "icon": "",
-   "pools": [
-    "0xd5739ebbf1d49978bedd9a95010b231417a28787"
    ]
   }
  ]
