@@ -1,7 +1,7 @@
 {
  "v": 1,
  "chain": "worldchain",
- "updated": "2026-11-21T23:28:17.210Z",
+ "updated": "2026-11-22T00:26:48.188Z",
  "tokens": [
   {
    "address": "0x17a4e299d3b1615bab6d309ef1b99fb533fd10da",
@@ -91,15 +91,6 @@
    "icon": "",
    "pools": [
     "0x50e3a077744048d0dd7fecd168794afae57e72de"
-   ]
-  },
-  {
-   "address": "0x960bbd36c71ee414e01546afa1dc6ddda98431b5",
-   "symbol": "O",
-   "name": "o",
-   "icon": "",
-   "pools": [
-    "0x447d7dbb5f930ba898b7db0be2903f63d954f548"
    ]
   },
   {
@@ -211,30 +202,12 @@
    ]
   },
   {
-   "address": "0xe7104290468b7852ad5a910a04f643be62f1756a",
-   "symbol": "Froge",
-   "name": "Froge",
-   "icon": "",
-   "pools": [
-    "0xe7104290468b7852ad5a910a04f643be62f1756a"
-   ]
-  },
-  {
    "address": "0xf3f92a60e6004f3982f0fde0d43602fc0a30a0db",
    "symbol": "ORB",
    "name": "Orb",
    "icon": "https://cdn.dexscreener.com/cms/images/6b364af0717941d3bbab268fd40e6eb424671813008662b76c16921e25bc1d27?width=800&height=800&quality=95&format=auto",
    "pools": [
     "0xee21af1d049211206b20b957d07794e7d0b140b3"
-   ]
-  },
-  {
-   "address": "0xf516e54a7b49b47d9f0d46e9406d7e843913ee61",
-   "symbol": "HUMANCOIN",
-   "name": "HUMAN",
-   "icon": "",
-   "pools": [
-    "0xd5739ebbf1d49978bedd9a95010b231417a28787"
    ]
   }
  ]
