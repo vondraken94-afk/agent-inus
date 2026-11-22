@@ -1,7 +1,7 @@
 {
  "v": 1,
  "chain": "worldchain",
- "updated": "2026-11-22T12:23:14.982Z",
+ "updated": "2026-11-22T13:25:38.246Z",
  "tokens": [
   {
    "address": "0x17a4e299d3b1615bab6d309ef1b99fb533fd10da",
@@ -91,15 +91,6 @@
    "icon": "",
    "pools": [
     "0x50e3a077744048d0dd7fecd168794afae57e72de"
-   ]
-  },
-  {
-   "address": "0x992a3c4c19f4d631938bdf2f9658d4fa924731de",
-   "symbol": "VISUALIZE",
-   "name": "Visualize",
-   "icon": "",
-   "pools": [
-    "0xea8763d3e8d887e6ab89d19328c172777fc42840"
    ]
   },
   {
