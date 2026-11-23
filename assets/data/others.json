@@ -1,7 +1,7 @@
 {
  "v": 1,
  "chain": "worldchain",
- "updated": "2026-11-23T11:23:27.998Z",
+ "updated": "2026-11-23T16:20:29.751Z",
  "tokens": [
   {
    "address": "0x17a4e299d3b1615bab6d309ef1b99fb533fd10da",
@@ -37,6 +37,24 @@
    "icon": "",
    "pools": [
     "0xc7bf26971203573c004ff5a98932469287e2b4f4"
+   ]
+  },
+  {
+   "address": "0x3c0c3d86ef485e52854ec26776fdcff1ecf8dc6c",
+   "symbol": "GPT",
+   "name": "GIANT PAIR OF TITS",
+   "icon": "",
+   "pools": [
+    "0x33d3b8f5467a8384828841567c99e8c5228e0410"
+   ]
+  },
+  {
+   "address": "0x4a2e4c8c395050b960002ab2f0f674afea47236e",
+   "symbol": "PICKLE",
+   "name": "Pickle",
+   "icon": "",
+   "pools": [
+    "0x27092125f76dffb0e89062db75d2074ded5527dd"
    ]
   },
   {
@@ -199,6 +217,15 @@
    "icon": "https://cdn.dexscreener.com/cms/images/nrfE0r6TH69CITbd?width=800&height=800&quality=95&format=auto",
    "pools": [
     "0xb64f40410014023cd1d8814852ef64f6a1abfae3"
+   ]
+  },
+  {
+   "address": "0xeb13451c37032cccb68ffb5e14431a8032419f39",
+   "symbol": "WLD",
+   "name": "World Laughing Doge",
+   "icon": "",
+   "pools": [
+    "0x3c16998f990e199c8cb4f5a24f222f7e59e651cb"
    ]
   },
   {
