@@ -1,7 +1,7 @@
 {
  "v": 1,
  "chain": "worldchain",
- "updated": "2026-11-23T08:26:43.184Z",
+ "updated": "2026-11-23T09:23:52.043Z",
  "tokens": [
   {
    "address": "0x17a4e299d3b1615bab6d309ef1b99fb533fd10da",
@@ -10,15 +10,6 @@
    "icon": "",
    "pools": [
     "0x7e3ab832e81ceb28559122cf40221f321c30eb6a"
-   ]
-  },
-  {
-   "address": "0x26e576cc82fb77347b01d155eae1520affa6709f",
-   "symbol": "OZZY",
-   "name": "Lost Cat",
-   "icon": "",
-   "pools": [
-    "0x4f902b69d15bb45545c1b1ff7e1a3a6979cfe5ff"
    ]
   },
   {
@@ -130,15 +121,6 @@
    ]
   },
   {
-   "address": "0xa5327aa6b83ee91625226eda80766eefd92e06a2",
-   "symbol": "BROWSER",
-   "name": "OPEN AI DOG",
-   "icon": "",
-   "pools": [
-    "0x3764bda464e8501e445b4ce78aa9afb11b48cce5"
-   ]
-  },
-  {
    "address": "0xb1bfa980fffc15c2c5b9dccfc214ef1e41b4122c",
    "symbol": "WCat",
    "name": "World Cat",
@@ -175,15 +157,6 @@
    ]
   },
   {
-   "address": "0xc1b24f57162e9fc66bba99d0a6079f05da53627a",
-   "symbol": "RIPSAM",
-   "name": "RIP SAM ALTMAN",
-   "icon": "",
-   "pools": [
-    "0x34aeb03183c58619f3da9384000c46dadf4fc4ed"
-   ]
-  },
-  {
    "address": "0xc7a1af35f25941bbeaf6e66a4888385da330b35f",
    "symbol": "PUGCOIN",
    "name": "PUGCOIN",
@@ -217,6 +190,15 @@
    "icon": "",
    "pools": [
     "0xd1573f1c3538ee59ecf53765abc783767768b4c2"
+   ]
+  },
+  {
+   "address": "0xe3c012830166636b925ae7163cac9d7e1c8618ee",
+   "symbol": "ORB",
+   "name": "Orb",
+   "icon": "",
+   "pools": [
+    "0x591f086370df3868e7286f2f8aef619ada498410"
    ]
   },
   {
