@@ -1,7 +1,7 @@
 {
  "v": 1,
  "chain": "worldchain",
- "updated": "2026-11-23T03:27:58.501Z",
+ "updated": "2026-11-23T07:21:40.797Z",
  "tokens": [
   {
    "address": "0x17a4e299d3b1615bab6d309ef1b99fb533fd10da",
@@ -10,6 +10,15 @@
    "icon": "",
    "pools": [
     "0x7e3ab832e81ceb28559122cf40221f321c30eb6a"
+   ]
+  },
+  {
+   "address": "0x26e576cc82fb77347b01d155eae1520affa6709f",
+   "symbol": "OZZY",
+   "name": "Lost Cat",
+   "icon": "",
+   "pools": [
+    "0x4f902b69d15bb45545c1b1ff7e1a3a6979cfe5ff"
    ]
   },
   {
@@ -63,7 +72,7 @@
    "name": "World Dog",
    "icon": "",
    "pools": [
-    "0x670a12934fbffcf02b3cf45424691eb707940c38"
+    "0x63318d2aeda9610da7439aa7538cdb6b75dacf98"
    ]
   },
   {
@@ -121,6 +130,15 @@
    ]
   },
   {
+   "address": "0xa5327aa6b83ee91625226eda80766eefd92e06a2",
+   "symbol": "BROWSER",
+   "name": "OPEN AI DOG",
+   "icon": "",
+   "pools": [
+    "0x3764bda464e8501e445b4ce78aa9afb11b48cce5"
+   ]
+  },
+  {
    "address": "0xb1bfa980fffc15c2c5b9dccfc214ef1e41b4122c",
    "symbol": "WCat",
    "name": "World Cat",
@@ -154,6 +172,15 @@
    "icon": "",
    "pools": [
     "0xa949f48e89606117573e0212d71c10929eab65c4"
+   ]
+  },
+  {
+   "address": "0xc1b24f57162e9fc66bba99d0a6079f05da53627a",
+   "symbol": "RIPSAM",
+   "name": "RIP SAM ALTMAN",
+   "icon": "",
+   "pools": [
+    "0x34aeb03183c58619f3da9384000c46dadf4fc4ed"
    ]
   },
   {
@@ -208,6 +235,15 @@
    "icon": "https://cdn.dexscreener.com/cms/images/6b364af0717941d3bbab268fd40e6eb424671813008662b76c16921e25bc1d27?width=800&height=800&quality=95&format=auto",
    "pools": [
     "0xee21af1d049211206b20b957d07794e7d0b140b3"
+   ]
+  },
+  {
+   "address": "0xf516e54a7b49b47d9f0d46e9406d7e843913ee61",
+   "symbol": "HUMANCOIN",
+   "name": "HUMAN",
+   "icon": "",
+   "pools": [
+    "0xd5739ebbf1d49978bedd9a95010b231417a28787"
    ]
   }
  ]
